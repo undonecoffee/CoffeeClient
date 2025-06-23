@@ -1,16 +1,8 @@
-// load everything
-import "./settings/brain.js"
-import { importModules, importString, moduleNumberCheck, CTLoad } from "./globalUtils/importUtils"
-import { importConfigs } from "./globalUtils/importUtils"
-import "./settings/gui.js"
-
-// Turn off "Auto-update modules" in /ct config to help with ct laod times
-const CTLoadTime = 1000 // in milliseconds
+import "./settings.js"
 
 // this is trying to import every module ive ever made so a lot of them wont be in the version you are using
 
 const imports = [
-    "splits/config",
     "splits/splits",
     "splits/subSplits",
     "splits/pdSplits",
@@ -19,15 +11,13 @@ const imports = [
     "splits/relics",
     "splits/ee3Timer",
 
-    "terms/config",
-    "terms/positionalAlerts",
-    "terms/termTimes",
-    "terms/termInfo",
-    "terms/sectionTimes",
-    "terms/movementTimer",
-    "terms/ssSolver",
+    "termsInfo/positionalAlerts",
+    "termsInfo/termTimes",
+    "termsInfo/termInfo",
+    "termsInfo/sectionTimes",
+    "termsInfo/movementTimer",
+    "termsInfo/ssSolver",
 
-    "misc/config",
     "misc/chatCleaner",
     "misc/autoRequeue",
     "misc/relicUtils",
@@ -38,7 +28,20 @@ const imports = [
     "misc/commands",
     "misc/SinglePlayer",
 
-    "eman/config",
+    "autoClear/autoMap"
+    "autoClear/autoRoutes"
+    "autoClear/autoPuzzles"
+    "autoClear/autoCamp"
+    "autoClear/auto0s"
+
+    "autoBoss/preTerms",
+    "autoBoss/postTerms",
+    "autoBoss/p4",
+    "autoBoss/p5",
+
+    "autoP3/autoTerms",
+    "autoP3/routes",
+
     "eman/carry",
     "eman/bossInfo",
     "eman/katana",
