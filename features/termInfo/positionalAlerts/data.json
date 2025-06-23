@@ -1,0 +1,341 @@
+{
+    "presets": [
+        {
+            "name": "Archer+",
+            "toggles": [
+                3,
+                5
+            ]
+        },
+        {
+            "name": "Bers/Tank/Mage",
+            "toggles": [
+                0,
+                1,
+                4
+            ]
+        },
+        {
+            "name": "Healer",
+            "toggles": [
+                0,
+                1,
+                5
+            ]
+        }
+    ],
+    "posAlerts": [
+        {
+            "name": "&aHigh ee2 Alert",
+            "toggled": true,
+            "p3Only": true,
+            "times": true,
+            "players": 1,
+            "message": "got to ee2 at",
+            "playerPos": {
+                "x1": 59.5,
+                "y1": 132,
+                "z1": 138.5,
+                "x2": 61.5,
+                "y2": 132.1,
+                "z2": 140
+            },
+            "selfPos": {
+                "x1": 90.3,
+                "y1": 110,
+                "z1": 56,
+                "x2": 110.7,
+                "y2": 124,
+                "z2": 121
+            },
+            "sound": {
+                "name": "mob.cat.meow",
+                "volume": 1,
+                "pitch": 2,
+                "timesPlayed": 30,
+                "duration": 600
+            },
+            "title": {
+                "name": "&aHigh ee2 Is In Spot!",
+                "x": 475,
+                "y": "280",
+                "scale": "3",
+                "time": 1300
+            },
+            "done": false
+        },
+        {
+            "name": "&aLow ee2 Alert",
+            "toggled": true,
+            "p3Only": true,
+            "times": true,
+            "players": 1,
+            "message": "got to ee2 at",
+            "playerPos": {
+                "x1": 57,
+                "y1": 109,
+                "z1": 130,
+                "x2": 59,
+                "y2": 109.1,
+                "z2": 132
+            },
+            "selfPos": {
+                "x1": 90.3,
+                "y1": 110,
+                "z1": 56,
+                "x2": 110.7,
+                "y2": 124,
+                "z2": 121
+            },
+            "sound": {
+                "name": "mob.cat.meow",
+                "volume": 1,
+                "pitch": 2,
+                "timesPlayed": 30,
+                "duration": 600
+            },
+            "title": {
+                "name": "&aLow ee2 Is In Spot!",
+                "x": 480,
+                "y": 314.5,
+                "scale": 2,
+                "time": 1300
+            },
+            "done": false
+        },
+        {
+            "name": "&cLow ee2 Move Alert",
+            "toggled": false,
+            "p3Only": true,
+            "times": true,
+            "players": 4,
+            "message": "leaped to ee2 at",
+            "playerPos": {
+                "x1": 19.3,
+                "y1": 106,
+                "z1": 121.97,
+                "x2": 78,
+                "y2": 136,
+                "z2": 142.7
+            },
+            "selfPos": {
+                "x1": 57,
+                "y1": 109,
+                "z1": 130,
+                "x2": 59,
+                "y2": 109.1,
+                "z2": 132
+            },
+            "sound": {
+                "name": "mob.cat.meow",
+                "volume": 1,
+                "pitch": 2,
+                "timesPlayed": 30,
+                "duration": 600
+            },
+            "title": {
+                "name": "&5Everyone Leaped! \n &4MOVE!",
+                "x": 0.4901,
+                "y": 0.56102,
+                "scale": 2,
+                "time": 1300
+            },
+            "done": false
+        },
+        {
+            "name": "&cHigh ee2 Move Alert",
+            "toggled": false,
+            "p3Only": true,
+            "times": true,
+            "players": 4,
+            "message": "leaped to ee2 at",
+            "playerPos": {
+                "x1": 19.3,
+                "y1": 106,
+                "z1": 121.97,
+                "x2": 78,
+                "y2": 136,
+                "z2": 142.7
+            },
+            "selfPos": {
+                "x1": 59.5,
+                "y1": 132,
+                "z1": 138.5,
+                "x2": 61.5,
+                "y2": 132.1,
+                "z2": 140
+            },
+            "sound": {
+                "name": "mob.cat.meow",
+                "volume": 1,
+                "pitch": 2,
+                "timesPlayed": 30,
+                "duration": 600
+            },
+            "title": {
+                "name": "&5Everyone Leaped! \n &4MOVE!",
+                "x": 0.50156,
+                "y": 0.55185,
+                "scale": 2.95,
+                "time": 1300
+            },
+            "done": false
+        },
+        {
+            "name": "&aee3 Alert",
+            "toggled": false,
+            "p3Only": true,
+            "times": true,
+            "players": 1,
+            "message": "got to ee3 at",
+            "playerPos": {
+                "x1": 1.3,
+                "y1": 109,
+                "z1": 103,
+                "x2": 3,
+                "y2": 109.11,
+                "z2": 106
+            },
+            "selfPos": {
+                "x1": 19.3,
+                "y1": 106,
+                "z1": 121.97,
+                "x2": 78,
+                "y2": 136,
+                "z2": 142.7
+            },
+            "sound": {
+                "name": "mob.cat.meow",
+                "volume": 1,
+                "pitch": 2,
+                "timesPlayed": 30,
+                "duration": 600
+            },
+            "title": {
+                "name": "&aee3 Is In Spot!",
+                "x": 0.54635,
+                "y": 0.65563,
+                "scale": 2.25,
+                "time": 1300
+            },
+            "done": false
+        },
+        {
+            "name": "&cee3 Move Alert",
+            "toggled": true,
+            "p3Only": true,
+            "times": true,
+            "players": 3,
+            "message": "leaped to ee3 at",
+            "playerPos": {
+                "x1": -3,
+                "y1": 106,
+                "z1": 51.3,
+                "x2": 18.7,
+                "y2": 124,
+                "z2": 120
+            },
+            "selfPos": {
+                "x1": 1.3,
+                "y1": 109,
+                "z1": 103,
+                "x2": 3,
+                "y2": 109.11,
+                "z2": 106
+            },
+            "sound": {
+                "name": "mob.cat.meow",
+                "volume": 1,
+                "pitch": 1,
+                "timesPlayed": 30,
+                "duration": 600
+            },
+            "title": {
+                "name": "&5Everyone Leaped! \n &4MOVE!",
+                "x": 475,
+                "y": 294,
+                "scale": 3.349999999999995,
+                "time": 1300
+            },
+            "done": false
+        },
+        {
+            "name": "&cCore Move Alert",
+            "toggled": false,
+            "p3Only": true,
+            "times": true,
+            "players": 1,
+            "message": "leaped to core at",
+            "playerPos": {
+                "x1": 18.7,
+                "y1": 106,
+                "z1": 29.3,
+                "x2": 88.7,
+                "y2": 130,
+                "z2": 53.7
+            },
+            "selfPos": {
+                "x1": 53.5,
+                "y1": 115,
+                "z1": 50,
+                "x2": 55.5,
+                "y2": 115.1,
+                "z2": 53
+            },
+            "sound": {
+                "name": "mob.cat.meow",
+                "volume": 1,
+                "pitch": 2,
+                "timesPlayed": 30,
+                "duration": 600
+            },
+            "title": {
+                "name": "&5Blank Title",
+                "x": 480,
+                "y": 294.5,
+                "scale": 2,
+                "time": 1300
+            },
+            "done": false
+        },
+        {
+            "name": "test",
+            "toggled": false,
+            "p3Only": true,
+            "times": true,
+            "players": 2,
+            "message": "test time: ",
+            "playerPos": {
+                "x1": -51,
+                "y1": 119,
+                "z1": -4,
+                "x2": -40,
+                "y2": 119.4,
+                "z2": 1
+            },
+            "selfPos": {
+                "x1": -40,
+                "y1": 119,
+                "z1": -11,
+                "x2": -37,
+                "y2": 119.4,
+                "z2": -8
+            },
+            "sound": {
+                "name": "mob.cat.meow",
+                "volume": 1,
+                "pitch": 2,
+                "timesPlayed": 30,
+                "duration": 600
+            },
+            "title": {
+                "name": "&5Blank Title",
+                "x": 0.49323,
+                "y": 0.59815,
+                "scale": 2,
+                "time": 1300
+            },
+            "done": false
+        }
+    ]
+}

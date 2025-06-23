@@ -1,7 +1,1 @@
-features/terms/* 
-features/splits/* 
-features/misc/* 
-
-!features/terms/.gitkeep 
-!features/splits/.gitkeep 
-!features/misc/.gitkeep 
+features/autoClear
