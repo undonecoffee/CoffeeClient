@@ -1,9 +1,9 @@
 {
     "module": {
         "enabled": true,
-        "name": "Auto Requeue",
-        "description": "Automatically requeue the current task when it is completed.",
-        "parentName": "Misc"
+        "name": "Term Times",
+        "description": "Displays the current term and its start and end dates.",
+        "parentName": "Terms Info"
     },
     "config": [
         {

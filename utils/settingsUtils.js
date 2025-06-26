@@ -1,38 +1,80 @@
-export function makeRect(color, x, y, x2, y2) {
-    const xPos = sw(x)
-    const yPos = sh(y)
-    const width = sw(x2) - xPos
-    const height = sh(y2) - yPos
-    Renderer.drawRect(color, xPos, yPos, width, height)
-}
-
-export function makeBase(colors) {
-    makeRect(colors.background, 0, 0, 100, 100)
-    makeRect(colors.base.background, 20, 15, 80, 85)
-
-    // rows
-    makeRect(colors.base.lines, 20, 15, 20.2, 85)
-    makeRect(colors.base.lines, 79.8, 15, 80, 85)
-
-    makeRect(colors.base.lines, 30, 15, 30.2, 85)
-    makeRect(colors.base.lines, 40, 15, 40.2, 85)
-
-    // columns
-    makeRect(colors.base.lines, 20, 15, 80, 15.4)
-    makeRect(colors.base.lines, 20, 20, 80, 20.4)
-
-    makeRect(colors.base.lines, 20, 84.6, 80, 85)
-}
-
 const screenWidth = Renderer.screen.getWidth()
 const screenHeight = Renderer.screen.getHeight()
 
+const sw = w => ((w / 100) * screenWidth).toFixed(5)
+const sh = h => ((h / 100) * screenHeight).toFixed(5)
+
+const makeRect = (color, x, y, x2, y2) => [color, sw(x), sh(y), (sw(x2) - sw(x)).toFixed(5), (sh(y2) - sh(y)).toFixed(5)]
+
+export function makeBase(colors) {
+    return [
+        makeRect(colors.bg, 0, 0, 100, 100),
+        makeRect(colors.base.bg, 20, 15, 80, 85),
+
+        // rows
+        makeRect(colors.base.lines, 20, 15, 80, 15.4),
+        makeRect(colors.base.lines, 20, 20, 80, 20.4),
+
+        makeRect(colors.base.lines, 20, 84.6, 80, 85),
+
+        // columns
+        makeRect(colors.base.lines, 20, 15, 20.23, 85),
+        makeRect(colors.base.lines, 79.8, 15, 80, 85),
+
+        makeRect(colors.base.lines, 30, 20, 30.2, 85),
+        makeRect(colors.base.lines, 40, 20, 40.2, 85),
+    ]
+}
+
+export function makeCells() {
+    return {
+        categories: [cw(20), ch(20), cw(30), ch(85)],
+        features: [cw(30), ch(20), cw(40), ch(85)],
+        config: [cw(40), ch(20), cw(80), ch(85)],
+    }
+}
+
+export function makeCategories(colors, category, config) {
+    let final = []
+
+    let keys = Object.keys(config)
+
+    for (let i = 0; i < keys.length; i++) {
+        let key = keys[i]
+        // if (key == category)
+        let temp = {
+            bounding: [
+                [],
+            ],
+            draw: [],
+        }
+        final.push(temp)
+    }
+    return final
+}
+
+export function makeFeatures(colors, categories) {
+}
+
+export function makeConfig(colors, categories) {
+}
 // const sw_helper = (w, size) => (((w / (100 / size)) * screenWidth) + ((screenWidth - (size * screenWidth)) / 2)).toFixed(8)
-// const sh_helper = (h, size) => (((h / (100 / size)) * screenHeight) + (screenHeight - (size * screenHeight)) / 2).toFixed(8)
+// const sh_helper = (h, size) => (((h / (100 / size)) * screenHeight) + ((screenHeight - (size * screenHeight)) / 2)).toFixed(8)
 //
-// let changedSize = 0.7
+// let changedSize = 0.4
 // export const sw = w => (sw_helper(w, changedSize))
 // export const sh = h => (sh_helper(h, changedSize))
 
-export const sw = w => ((w / 100) * screenWidth).toFixed(8)
-export const sh = h => ((h / 100) * screenHeight).toFixed(8)
+// let changingX = 0
+// let changingY = 600
+//
+// const sw = w => (((w / 100) * screenWidth) + changingX).toFixed(5)
+// const sh = h => (((h / 100) * screenHeight) + changingY).toFixed(5)
+//
+// register("step", () => {
+//     if (changingY <= 0) return changingY = 0
+//     changingY -= screenHeight * 0.02
+// }).setFps(100)
+
+// console.log(((parseFloat(sw(80)) + parseFloat(sw(20))) / 2).toFixed(5))
+// console.log(((parseFloat(sh(15)) + parseFloat(sh(20))) / 2).toFixed(5))
