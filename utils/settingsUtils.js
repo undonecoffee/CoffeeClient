@@ -28,29 +28,32 @@ export function makeBase(colors) {
 
 export function makeCells() {
     return {
-        categories: [cw(20), ch(20), cw(30), ch(85)],
-        features: [cw(30), ch(20), cw(40), ch(85)],
-        config: [cw(40), ch(20), cw(80), ch(85)],
+        categories: [sw(20), sh(20), sw(30), sh(85)],
+        features: [sw(30), sh(20), sw(40), sh(85)],
+        config: [sw(40), sh(20), sw(80), sh(85)],
     }
 }
 
-export function makeCategories(colors, category, config) {
-    let final = []
+export const makeCategories = {
+    active: (colors, category, config) => {
+        let final = []
 
-    let keys = Object.keys(config)
+        let keys = Object.keys(config)
 
-    for (let i = 0; i < keys.length; i++) {
-        let key = keys[i]
-        // if (key == category)
-        let temp = {
-            bounding: [
-                [],
-            ],
-            draw: [],
+        for (let i = 0; i < keys.length; i++) {
+            let key = keys[i]
+            // if (key == category)
+            let temp = {
+                bounding: [
+                    [],
+                ],
+                draw: [],
+            }
+            final.push(temp)
         }
-        final.push(temp)
-    }
-    return final
+        return final
+    },
+    bounding,
 }
 
 export function makeFeatures(colors, categories) {
