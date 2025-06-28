@@ -1,5 +1,5 @@
 import { moduleName, activeModules } from "./index.js"
-import { makeBase, makeCategories, makeCategoriesBounding, makeFeatures, makeConfig, makeCells } from "./utils/settingsUtils.js"
+import { makeBase, makeCategories, makeFeatures, makeConfig, makeCells } from "./utils/settingsUtils.js"
 
 const colors = {
     reset: () => {
@@ -11,7 +11,11 @@ const colors = {
         lines: 0xFF111111,
     },
 
-    category_feature: {
+    category: {
+        base: { outline: 0xCC009900, bg: 0xCC00BB00 },
+        hovered: { outline: 0xCC00BB00, bg: 0xCC009900 },
+    },
+    feature: {
         on: {
             base: { outline: 0xCC009900, bg: 0xCC00BB00 },
             hovered: { outline: 0xCC00BB00, bg: 0xCC009900 },
@@ -49,12 +53,13 @@ let display = {
     // loads bounding only once because it never changes
     categories: {
         init: () => {
-            // initialization logic here
+            display.active.categories = makeCategories.init(colors, display.config)
+            // console.log(display.active.categories.draw[0])
         },
         load: category => {
-            let { active, bounding } = makeCategories(colors, category, display.config)
-            display.active.categories = active
-            display.boundingBoxes.categories = bounding
+            // let { active, bounding } = makeCategories(colors, category, display.config)
+            // display.active.categories = active
+            // display.boundingBoxes.categories = bounding
         },
         hover: i => {
             // hover logic here
@@ -75,12 +80,12 @@ for (let currModule of activeModules) {
 }
 
 // display.config[Object.keys(display.config)[0]].active = true
-display.loadCategories(Object.keys(display.config)[0])
 
+display.categories.init()
 // console.log("\n\nconfgi:\n")
 // console.log(JSON.stringify(display.config, null, 2))
 console.log("\n\ndisplay:\n")
-console.log(JSON.stringify(display.boundingBoxes, null, 2))
+console.log(JSON.stringify(display.active.config, null, 2))
 
 const inBox = (x, y, x1, y1, x2, y2) => {
     if (x < x1) return false
@@ -90,20 +95,30 @@ const inBox = (x, y, x1, y1, x2, y2) => {
     return true
 }
 
-const findCell = (x, y) => Object.entries(display.boundingBoxes.cells).find(([, box]) => inBox(x, y, ...box))?.[0]
+// const findCell = (x, y) => Object.entries(display.active.cells).find(([, box]) => inBox(x, y, ...box))?.[0]
 
+// let currCell = undefined
+// const findCell = (x, y) =>
+//     Object.entries(display.active.cells).forEach(([k, v], i) => {
+//         if (inBox(x, y, v[0], v[1], v[2], v[3])) return currCell = k
+//     })
+
+let currCell = undefined
+const findCell = (x, y) => Object.entries(display.active.cells).find(([k, v]) => inBox(x, y, v[0], v[1], v[2], v[3]))?.[0]
+
+// if (inBox(x, y, ...entries[i][1])) return entries[i][0]
 // const guiClicked = register("guiMouseClick", (x, y) => {
 //     const [x, y] = [Client.getMouseX(), Client.getMouseY()]
 //     let bounding = findCells(x, y)
 // }).unregister()
 
-let changed = null
-
 const mouseUpdate = register("step", () => {
     const [x, y] = [Client.getMouseX(), Client.getMouseY()]
-    let boundingCells = findCell(x, y)
-    display.boundingBoxes[boundingCells].forEach((box, index) => {
-        if (inBox(x, y, ...box)) console.log(index)
+    let currCell = findCell(x, y)
+    if (!currCell) return
+    // console.log(currCell)
+    display.active[currCell].bounding.forEach(v => {
+        // console.log("found from: " + v)
     })
 }).setFps(30).unregister()
 
@@ -113,6 +128,11 @@ const mouseUpdate = register("step", () => {
 
 const renderMain = register("renderOverlay", () => {
     display.base.forEach(r => Renderer.drawRect(...r))
+    ;["categories"].forEach(key => display.active[key].draw.forEach(v => v.forEach(r => Renderer.drawRect(...r))))
+    // , "features", "config"
+    // ;["categories", "features", "config"].forEach(key => display.active[key].text.forEach(v => v.forEach(r => Renderer.drawRect(...r))))
+    // display.active.categories.forEach(r => Renderer.drawRect(...r))
+    // new Text("&cCoffee&7Client", 480, 88).setShadow(true).setScale(1.5).setAlign("center").draw()
     // display.active.categories.forEach(r => Renderer.drawRect(...r.draw))
     // display.base.forEach(r => Renderer.drawRect(...r))
     // new Text("&cCoffee&7Client", 480, 88).setShadow(true).setScale(1.5).setAlign("center").draw()

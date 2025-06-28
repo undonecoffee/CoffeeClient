@@ -23,6 +23,12 @@ export function makeBase(colors) {
 
         makeRect(colors.base.lines, 30, 20, 30.2, 85),
         makeRect(colors.base.lines, 40, 20, 40.2, 85),
+        // categories bounding box
+        // makeRect(colors.category.base.bg, 20, 20, 30, 85),
+        // features bounding box
+        // makeRect(colors.category.base.bg, 30, 20, 40, 85),
+        // config bounding box
+        // makeRect(colors.category.base.bg, 40, 20, 80, 85),
     ]
 }
 
@@ -35,25 +41,32 @@ export function makeCells() {
 }
 
 export const makeCategories = {
-    active: (colors, category, config) => {
-        let final = []
-
-        let keys = Object.keys(config)
-
-        for (let i = 0; i < keys.length; i++) {
-            let key = keys[i]
-            // if (key == category)
-            let temp = {
-                bounding: [
-                    [],
-                ],
-                draw: [],
-            }
-            final.push(temp)
+    init: (colors, config) => {
+        let temp = {
+            bounding: [],
+            draw: [],
+            text: [],
         }
-        return final
+        Object.keys(config).forEach((key, i) => {
+            if (i == 0) config[key].active = true
+            let color = config[key].active ? colors.category.hovered : colors.category.base
+            temp.bounding.push([sw(20.5), sh(21 + (6 * i)), sw(29.7), sh(21 + (6 * i))])
+            temp.draw.push([
+                // background
+                makeRect(color.bg, 20.5, 21 + (6 * i), 29.7, 26 + (6 * i)),
+                // row
+                makeRect(color.outline, 20.5, 21 + (6 * i), 29.7, 21.2 + (6 * i)),
+                makeRect(color.outline, 20.5, 25.8 + (6 * i), 29.7, 26 + (6 * i)),
+                // columns
+                makeRect(color.outline, 20.5, 21 + (6 * i), 20.6, 26 + (6 * i)),
+                makeRect(color.outline, 29.6, 21 + (6 * i), 29.7, 26 + (6 * i)),
+            ])
+            console.log("ran code")
+            console.log(temp.draw)
+            temp.text.push([])
+        })
+        return temp
     },
-    bounding,
 }
 
 export function makeFeatures(colors, categories) {
