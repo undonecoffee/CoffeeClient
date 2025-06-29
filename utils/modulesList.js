@@ -24,17 +24,20 @@ export const modulesList = [
     "misc/commands",
     "misc/SinglePlayer",
 
-    "autoClear/autoMap",
-    "autoClear/autoRoutes",
-    "autoClear/autoPuzzles",
-    "autoClear/autoCamp",
-    "autoClear/auto0s",
+    "clear/autoMap",
+    "clear/autoRoutes",
+    "clear/autoPuzzles",
+    "clear/autoCamp",
+    "clear/auto0s",
+    "clear/autoRequeue",
 
+    "autoBoss/autoRequeue",
     "autoBoss/preTerms",
     "autoBoss/postTerms",
     "autoBoss/p4",
     "autoBoss/p5",
 
+    "autoP3/autoRequeue",
     "autoP3/autoTerms",
     "autoP3/routes",
 

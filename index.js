@@ -1,5 +1,4 @@
 import { modulesList } from "./utils/modulesList.js"
-
 export const moduleName = "CoffeeClient-private"
 
 export const activeModules = modulesList.filter(str => {

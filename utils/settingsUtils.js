@@ -47,23 +47,26 @@ export const makeCategories = {
             draw: [],
             text: [],
         }
-        Object.keys(config).forEach((key, i) => {
-            if (i == 0) config[key].active = true
-            let color = config[key].active ? colors.category.hovered : colors.category.base
-            temp.bounding.push([sw(20.5), sh(21 + (6 * i)), sw(29.7), sh(21 + (6 * i))])
+        Object.entries(config).forEach(([k, v], i) => {
+            v.active = i === 0
+            let color = v.active ? colors.category.hovered : colors.category.base
+            let y = 21 + (6 * i)
+            temp.bounding.push([sw(20.5), sh(y), sw(29.7), sh(y + 5)])
             temp.draw.push([
                 // background
-                makeRect(color.bg, 20.5, 21 + (6 * i), 29.7, 26 + (6 * i)),
-                // row
-                makeRect(color.outline, 20.5, 21 + (6 * i), 29.7, 21.2 + (6 * i)),
-                makeRect(color.outline, 20.5, 25.8 + (6 * i), 29.7, 26 + (6 * i)),
+                makeRect(color.bg, 20.5, y, 29.7, y + 5),
+                // rows
+                makeRect(color.outline, 20.5, y, 29.7, y + 0.2),
+                makeRect(color.outline, 20.5, y + 4.8, 29.7, y + 5),
                 // columns
-                makeRect(color.outline, 20.5, 21 + (6 * i), 20.6, 26 + (6 * i)),
-                makeRect(color.outline, 29.6, 21 + (6 * i), 29.7, 26 + (6 * i)),
+                makeRect(color.outline, 20.5, y, 20.6, y + 5),
+                makeRect(color.outline, 29.6, y, 29.7, y + 5),
             ])
-            console.log("ran code")
-            console.log(temp.draw)
-            temp.text.push([])
+            temp.text.push([
+                v.displayName,
+                sw(25.1),
+                sh(y + 1.8),
+            ])
         })
         return temp
     },
@@ -74,23 +77,27 @@ export function makeFeatures(colors, categories) {
 
 export function makeConfig(colors, categories) {
 }
-// const sw_helper = (w, size) => (((w / (100 / size)) * screenWidth) + ((screenWidth - (size * screenWidth)) / 2)).toFixed(8)
-// const sh_helper = (h, size) => (((h / (100 / size)) * screenHeight) + ((screenHeight - (size * screenHeight)) / 2)).toFixed(8)
-//
-// let changedSize = 0.4
-// export const sw = w => (sw_helper(w, changedSize))
-// export const sh = h => (sh_helper(h, changedSize))
+
+// normal
+// const sw = w => ((w / 100) * screenWidth).toFixed(5)
+// const sh = h => ((h / 100) * screenHeight).toFixed(5)
 
 // let changingX = 0
-// let changingY = 600
+// let changingY = 0
 //
 // const sw = w => (((w / 100) * screenWidth) + changingX).toFixed(5)
 // const sh = h => (((h / 100) * screenHeight) + changingY).toFixed(5)
 //
-// register("step", () => {
-//     if (changingY <= 0) return changingY = 0
-//     changingY -= screenHeight * 0.02
-// }).setFps(100)
-
-// console.log(((parseFloat(sw(80)) + parseFloat(sw(20))) / 2).toFixed(5))
-// console.log(((parseFloat(sh(15)) + parseFloat(sh(20))) / 2).toFixed(5))
+// export function animation() {
+//     changingY = screenHeight / 2
+//     animationRegister.register()
+// }
+//
+// const animationRegister = register("step", () => {
+//     if (changingY <= 0) {
+//         animationRegister.unregister()
+//         changingY = 0
+//         return
+//     }
+//     changingY -= 8
+// }).setFps(100).unregister()

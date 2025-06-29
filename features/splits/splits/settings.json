@@ -1,9 +1,9 @@
 {
     "module": {
         "enabled": true,
-        "name": "Auto Requeue",
-        "description": "Automatically requeue the current task when it is completed.",
-        "parentDisplayName": "Misc"
+        "name": "Splits",
+        "description": "Displays real time and tick accurate timers for dungeons",
+        "parentDisplayName": "Splits"
     },
     "config": [
         {

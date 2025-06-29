@@ -36,7 +36,7 @@ export const testtitle = `&cTESTTT
 export const splitNames = ["0", "Open", "Camp", "Portal", "Maxor", "Storm", "Terms", "Goldor", "Necron"]
 
 export const tickPacket = Java.type("net.minecraft.network.play.server.S32PacketConfirmTransaction")
-export const realTick = (packet) => packet.func_148890_d() <= 0
+export const realTick = packet => packet.func_148890_d() <= 0
 
 export function testPace(pace, last) {
     ChatLib.chat(`&3Pace &b> &3${fromatMinutes(pace.map(Number).reduce((a, b) => a + b))}
@@ -48,7 +48,7 @@ export function testPace(pace, last) {
 
 export function findPace(f, s) {
     // probably the best piece of code ive ever written
-    return ["Open", "Camp", "Portal", "Maxor", "Storm", "Terms", "Goldor", "Necron", f ? "Dragons" : "Animation"].map((name) => s[`${f ? "m7" : "f7"}${["Casual", "PartyFinder", "Custom"][f ? s.m7Profile : s.f7Profile]}${name}`])
+    return ["Open", "Camp", "Portal", "Maxor", "Storm", "Terms", "Goldor", "Necron", f ? "Dragons" : "Animation"].map(name => s[`${f ? "m7" : "f7"}${["Casual", "PartyFinder", "Custom"][f ? s.m7Profile : s.f7Profile]}${name}`])
 } // findPace(file.lastFloor, settings)
 
 export function testSplitsFormat(times, settings) {}
@@ -61,49 +61,53 @@ export function splitsTitle(Splits, settings, pace, phase) {
     if (settings.showPace) {
         //
         const clientArray = Object.values(Splits)
-            .map((s) => s.client)
+            .map(s => s.client)
             .slice(1, 10)
         const serverArray = Object.values(Splits)
-            .map((s) => s.server)
+            .map(s => s.server)
             .slice(1, 10)
         final.push(
-            `${settings.removeNames ? "&3" : "&3Pace &b> &3"}${formatTimeM(
-                {
-                    client: pace.map((v, i) => (phase == i + 1 ? Math.max(v * 1000, clientArray[i]) : phase < i + 1 ? v * 1000 : clientArray[i])).reduce((a, b) => a + b),
-                    server: pace.map((v, i) => (phase == i + 1 ? Math.max(v * 20, serverArray[i]) : phase < i + 1 ? v * 20 : serverArray[i])).reduce((a, b) => a + b),
-                },
-                settings.onlyTicks,
-            )}`,
+            `${settings.removeNames ? "&3" : "&3Pace &b> &3"}${
+                formatTimeM(
+                    {
+                        client: pace.map((v, i) => (phase == i + 1 ? Math.max(v * 1000, clientArray[i]) : phase < i + 1 ? v * 1000 : clientArray[i])).reduce((a, b) => a + b),
+                        server: pace.map((v, i) => (phase == i + 1 ? Math.max(v * 20, serverArray[i]) : phase < i + 1 ? v * 20 : serverArray[i])).reduce((a, b) => a + b),
+                    },
+                    settings.onlyTicks,
+                )
+            }`,
         )
     }
 
-    ;[1, 2, 3].forEach((i) => final.push(`${formatName(Splits[i], settings.removeNames)}${formatTime(Splits[i], settings.onlyTicks)}`))
+    ;[1, 2, 3].forEach(i => final.push(`${formatName(Splits[i], settings.removeNames)}${formatTime(Splits[i], settings.onlyTicks)}`))
 
     if (settings.showEnter) {
         const clientArray = Object.values(Splits)
-            .map((s) => s.client)
+            .map(s => s.client)
             .slice(1, 4)
         const serverArray = Object.values(Splits)
-            .map((s) => s.server)
+            .map(s => s.server)
             .slice(1, 4)
         final.push(
-            `${settings.removeNames ? "&9" : "&9Enter &b> &9"}${formatTimeM(
-                {
-                    client: pace
-                        .slice(0, 3)
-                        .map((v, i) => (phase == i + 1 ? Math.max(v * 1000, clientArray[i]) : phase < i + 1 ? v * 1000 : clientArray[i]))
-                        .reduce((a, b) => a + b),
-                    server: pace
-                        .slice(0, 3)
-                        .map((v, i) => (phase == i + 1 ? Math.max(v * 20, serverArray[i]) : phase < i + 1 ? v * 20 : serverArray[i]))
-                        .reduce((a, b) => a + b),
-                },
-                settings.onlyTicks,
-            )}`,
+            `${settings.removeNames ? "&9" : "&9Enter &b> &9"}${
+                formatTimeM(
+                    {
+                        client: pace
+                            .slice(0, 3)
+                            .map((v, i) => (phase == i + 1 ? Math.max(v * 1000, clientArray[i]) : phase < i + 1 ? v * 1000 : clientArray[i]))
+                            .reduce((a, b) => a + b),
+                        server: pace
+                            .slice(0, 3)
+                            .map((v, i) => (phase == i + 1 ? Math.max(v * 20, serverArray[i]) : phase < i + 1 ? v * 20 : serverArray[i]))
+                            .reduce((a, b) => a + b),
+                    },
+                    settings.onlyTicks,
+                )
+            }`,
         )
     }
 
-    ;[4, 5, 6, 7, 8, 9].forEach((i) => final.push(`${formatName(Splits[i], settings.removeNames)}${formatTime(Splits[i], settings.onlyTicks)}`))
+    ;[4, 5, 6, 7, 8, 9].forEach(i => final.push(`${formatName(Splits[i], settings.removeNames)}${formatTime(Splits[i], settings.onlyTicks)}`))
 
     return final.join("\n")
 }
