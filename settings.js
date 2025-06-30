@@ -62,10 +62,10 @@ let display = {
             // display.active.categories = active
             // display.boundingBoxes.categories = bounding
         },
-        hover: i => {
+        hover: (i, type) => {
             // hover logic here
         },
-        click: i => {
+        click: (i, type) => {
             // click logic here
         },
     },
