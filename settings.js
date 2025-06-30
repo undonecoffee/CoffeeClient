@@ -2,6 +2,7 @@ import { moduleName, activeModules } from "./index.js"
 import { makeBase, makeCategories, makeFeatures, makeConfig, makeCells } from "./utils/settingsUtils.js"
 // import { animation } from "./utils/settingsUtils.js"
 
+// teste
 const colors = {
     reset: () => {
         // ChatLib.chat("reset!")
