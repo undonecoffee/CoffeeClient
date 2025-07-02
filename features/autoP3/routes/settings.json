@@ -1,0 +1,16 @@
+{
+    "module": {
+        "enabled": true,
+        "name": "Routes",
+        "description": "All auto P3 auto routes\n Message undonecoffee if you want any routes added",
+        "parentDisplayName": "Auto P3"
+    },
+    "config": [
+        {
+            "type": "toggle",
+            "name": "simple toggle",
+            "description": "simple little toggle to toggle things",
+            "state": true
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "module": {
+        "enabled": true,
+        "name": "Auto 0s",
+        "description": "Auto routes to the blood room on world load.",
+        "parentDisplayName": "Auto Clear"
+    },
+    "config": [
+        {
+            "type": "toggle",
+            "name": "simple toggle",
+            "description": "simple little toggle to toggle things",
+            "state": true
+        }
+    ]
+}

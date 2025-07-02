@@ -1,0 +1,16 @@
+{
+    "module": {
+        "enabled": true,
+        "name": "Auto Routes",
+        "description": "1 tick auto routes.",
+        "parentDisplayName": "Auto Clear"
+    },
+    "config": [
+        {
+            "type": "toggle",
+            "name": "simple toggle",
+            "description": "simple little toggle to toggle things",
+            "state": true
+        }
+    ]
+}
