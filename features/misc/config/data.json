@@ -1,0 +1,95 @@
+[
+    {
+        "category": "General",
+        "settings": [
+            {
+                "type": 2,
+                "name": "MyDiscord"
+            }
+        ]
+    },
+    {
+        "category": "GUI",
+        "settings": [
+            {
+                "type": 3,
+                "name": "scheme",
+                "value": 0
+            },
+            {
+                "type": 5,
+                "name": "bgColor",
+                "value": [
+                    0,
+                    0,
+                    0,
+                    80
+                ]
+            },
+            {
+                "type": 1,
+                "name": "x",
+                "value": 20
+            },
+            {
+                "type": 1,
+                "name": "y",
+                "value": 20
+            },
+            {
+                "type": 1,
+                "name": "width",
+                "value": 60
+            },
+            {
+                "type": 1,
+                "name": "height",
+                "value": 60
+            },
+            {
+                "type": 6,
+                "name": "testingSwitch",
+                "value": false
+            },
+            {
+                "type": 2,
+                "name": "testingButtonHidden"
+            },
+            {
+                "type": 2,
+                "name": "redirectButtonTest"
+            },
+            {
+                "type": 8,
+                "name": "multiCheckBoxTest",
+                "options": [
+                    {
+                        "name": "multi1",
+                        "value": false
+                    },
+                    {
+                        "name": "multi2",
+                        "value": false
+                    },
+                    {
+                        "name": "multi3",
+                        "value": true
+                    },
+                    {
+                        "name": "multi4",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "type": 9,
+                "name": "textParagraph"
+            },
+            {
+                "type": 10,
+                "name": "testingKeybind",
+                "value": 0
+            }
+        ]
+    }
+]
