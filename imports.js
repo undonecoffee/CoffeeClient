@@ -1,27 +1,26 @@
-import "./features/misc/autoRequeue/index.js"
-export const modules = {
-    misc: {
-        name: "Misc",
-        features: [],
-    },
-    termsInfo: {
-        name: "Terms Info",
-        features: [],
-    },
-    splits: {
-        name: "Splits",
-        features: [],
-    },
-    autoP3: {
-        name: "Auto P3",
-        features: [],
-    },
-    autoClear: {
-        name: "Auto Clear",
-        features: [],
-    },
-    autoBoss: {
-        name: "Auto Boss",
-        features: [],
-    },
-}
+import "./features/misc/autoBless/index"
+import "./features/misc/autoRequeue/index"
+import "./features/misc/chatCleaner/index"
+import "./features/misc/maskTimer/index"
+import "./features/misc/mobHighlight/index"
+import "./features/misc/relicUtils/index"
+import "./features/misc/sheepHider/index"
+import "./features/termsInfo/movementTimer/index"
+import "./features/termsInfo/positionalAlerts/index"
+import "./features/termsInfo/sectionTimes/index"
+import "./features/termsInfo/termInfo/index"
+import "./features/termsInfo/termTimes/index"
+import "./features/splits/padTimers/index"
+import "./features/splits/pdSplits/index"
+import "./features/splits/splits/index"
+import "./features/splits/subSplits/index"
+import "./features/autoP3/autoTerms/index"
+import "./features/autoP3/routes/index"
+import "./features/autoClear/autoMap/index"
+import "./features/autoClear/auto0s/index"
+import "./features/autoClear/autoCamp/index"
+import "./features/autoClear/autoPuzzles/index"
+import "./features/autoClear/autoRoutes/index"
+import "./features/autoBoss/preTerms/index"
+import "./features/autoBoss/postTerms/index"
+import "./features/autoBoss/p5/index"

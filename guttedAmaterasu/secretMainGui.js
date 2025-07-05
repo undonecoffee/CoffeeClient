@@ -1,4 +1,4 @@
-import { realCategories } from "../index.js"
+import { realCategories, modules } from "../index.js"
 const colors = {
     bg: 0x33000000,
     base: { bg: 0xFF333333, outline: 0xFF222222 },
@@ -69,12 +69,12 @@ const mouseUpdate = register("step", () => {
     let currCell = findCell(x, y)
     if (!currCell) return
     console.log(currCell)
-    // for (let v of display.active[currCell].bounding) {
-    //     if (!inBox(x, y, ...v.base)) continue
-    //     console.log("in: " + currCell)
-    //     if (!inBox(x, y, ...v.delete)) continue
-    //     console.log("inside of delete")
-    // }
+    for (let v of display.active[currCell].bounding) {
+        if (!inBox(x, y, ...v.base)) continue
+        console.log("in: " + currCell)
+        if (!inBox(x, y, ...v.delete)) continue
+        console.log("inside of delete")
+    }
 }).setFps(30).unregister()
 
 const renderMain = register("renderOverlay", () => {
