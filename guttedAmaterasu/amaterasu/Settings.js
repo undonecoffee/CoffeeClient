@@ -812,12 +812,7 @@ export default class Settings {
      * @param {object} json
      */
     _saveScheme(path, json) {
-        FileLib.write(
-            this.moduleName,
-            path,
-            JSON.stringify(json, null, 4),
-            true,
-        )
+        // NOPE WE AINT DOING THIS
     }
 
     /** @private */

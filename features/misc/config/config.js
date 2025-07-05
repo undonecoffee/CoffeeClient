@@ -1,12 +1,8 @@
 import Settings from "../../../guttedAmaterasu/amaterasu/Settings"
 import DefaultConfig from "../../../guttedAmaterasu/amaterasu/DefaultConfig"
+// import modules from "../../"
 
-// We create our [DefaultConfig] instance
-// and give it our [ModuleName] this is important since it'll be used to save the data
-// and the [FilePath] this is also important since it'll be used to save the data
-const defaultConf = new DefaultConfig("CoffeeClient", "features/misc/config/data.json")
-    // Now that we have our [DefaultConfig] instance we can start creating our configuration system
-    // Here we'll be adding a simple button that copies a link into your clipboard
+const defaultConf = new DefaultConfig("CoffeeClient/features/misc/config", "data.json")
     .addButton({
         category: "General", // Defining the category name
         configName: "MyDiscord", // Defining the configName which is later on used as the "variable" name
@@ -178,9 +174,18 @@ const defaultConf = new DefaultConfig("CoffeeClient", "features/misc/config/data
         // ^ beware that the Mouse Button keyCode starts with negative values. e.g -100
     })
 
+defaultConf.addButton({
+    category: "categoryTest",
+    configName: "testconfigName",
+    title: "titleTest ",
+    description: "description test",
+    onClick(setting) {
+        ChatLib.chat("button clicked i think")
+    },
+})
 // Here we create our [Settings] instance.
 // passing through our [ModuleName], [DefaultConfig] and [ColorSchemePath]
-const config = new Settings("misc", defaultConf)
+const config = new Settings("CoffeeClient/features/misc/config", defaultConf)
     // Here we define a command with aliases to open this [ConfigGui]
     .setCommand("example", ["amat"])
     // We can also use the #registerListener from our [Settings] instance
