@@ -1,0 +1,44 @@
+{
+    "gui": {
+        "x": 0.5,
+        "y": 0.5,
+        "scale": 1
+    },
+    "settings": {
+        "toggled": false,
+        "chat": false,
+        "detailed": false
+    },
+    "sectionPBs": {
+        "intoS1": 122.69,
+        "intoS4": 164.35,
+        "intoS3FromS4": null,
+        "intoS2": 9.3,
+        "S2Dev": 11.65,
+        "intoS3": null,
+        "S3Dev": 6.8,
+        "S3DevFromS4": null,
+        "done": null
+    },
+    "totalPBs": {
+        "down": 22.34,
+        "intoS1": 123.17,
+        "intoS4": 192.67,
+        "intoS3FromS4": null,
+        "intoS2": 132.47,
+        "S2Dev": 137.87,
+        "intoS3": null,
+        "S3Dev": 152.32,
+        "S3DevFromS4": null,
+        "done": null
+    },
+    "PBs": {
+        "down": null,
+        "intoS1": null,
+        "intoS2": null,
+        "S2Dev": null,
+        "intoS3": null,
+        "S3Dev": null,
+        "done": null
+    }
+}

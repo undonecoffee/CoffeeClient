@@ -1,0 +1,117 @@
+
+[movement_timer]
+	"&9toggle" = false
+
+[positional_alerts]
+	toggle_alerts = false
+	high_ee2 = false
+
+[splits]
+	"&5only_show_ticks" = false
+	"&ddont_reset_on_world_load" = true
+	"&9only_show_ticks" = true
+	"&9show_enter" = true
+	"&3show_pace" = true
+	"&9send_afer_run" = false
+	"&9toggle" = true
+	"&cshow_advanced_options" = true
+	"&9show_pace" = true
+	"&cremove_names" = false
+	"&esend_afer_run" = false
+
+	[splits.pace]
+		"&1&0&ccamp" = "68"
+		"&0&1&egoldor" = "9.2"
+		"&1&0&6terms" = "42"
+		"&0&0&danimation" = "4.2"
+		"&1&0&ddragons" = "57.5"
+		"&0&1&aopen" = "36"
+		"&1&2&cnecron" = "31.3"
+		"&1&1&6terms" = "52"
+		"&1&2&6terms" = "65"
+		"&0&2&ccamp" = "82"
+		"&1&0&dportal" = "4.2"
+		"&1&2&aopen" = "18"
+		"&1&0&cnecron" = "32.3"
+		"&0&0&5maxor" = "25.5"
+		"&1&1&egoldor" = "10.2"
+		"&1&0&aopen" = "23"
+		"&1&2&bstorm" = "47.5"
+		current_m7_profile = 0
+		"&1&1&ccamp" = "72"
+		"&0&2&5maxor" = "27.5"
+		"&1&0&bstorm" = "48"
+		"&1&1&dportal" = "4.2"
+		"&0&0&dportal" = "4.2"
+		"&0&1&cnecron" = "30.3"
+		"&0&2&egoldor" = "6.5"
+		m7_profile = 0
+		"&1&2&ccamp" = "82"
+		"&1&1&5maxor" = "27"
+		"&1&0&5maxor" = "26"
+		"&1&2&5maxor" = "29.5"
+		"&0&2&dportal" = "4.2"
+		"&1&2&ddragons" = "59"
+		"&0&0&bstorm" = "45.5"
+		"&0&1&bstorm" = "50"
+		"&1&1&cnecron" = "34.3"
+		"&0&2&aopen" = "22"
+		"&0&0&egoldor" = "8.5"
+		"&0&2&bstorm" = "45.5"
+		floor = 0
+		"&0&1&6terms" = "52"
+		"&0&0&6terms" = "37"
+		"&0&2&6terms" = "65"
+		"&0&0&ccamp" = "65"
+		"&0&1&ccamp" = "72"
+		"&1&1&bstorm" = "52"
+		"&1&0&egoldor" = "9.5"
+		"&1&2&egoldor" = "8.5"
+		"&0&1&5maxor" = "25.5"
+		"&0&2&danimation" = "4.2"
+		f7_profile = 1
+		"&0&0&aopen" = "13"
+		"&0&0&cnecron" = "30.3"
+		"&0&1&dportal" = "4.2"
+		"&1&2&dportal" = "4.2"
+		"&0&2&cnecron" = "30.3"
+		current_f7_profile = 0
+		"&0&1&danimation" = "4.2"
+		"&1&1&aopen" = "36"
+		"&1&1&ddragons" = "58.7"
+
+[sub_splits]
+	"&9toggle" = true
+	"&7number_of_splits_shown_at_a_time" = 0
+	number_of_splits_shown_at_a_time = 3
+
+	[sub_splits.splits]
+		"&6terms_____________________________" = 0
+		"&5maxor" = 0
+		"&6terms" = 0
+		"&ablood_rush" = 2
+		"&dportal" = 0
+		"&egoldor" = 0
+		"&cdragons" = 0
+		"&drelics" = 0
+		"&cnecron" = 0
+		"&cblood_rush" = 0
+		"&cblood_camp" = 0
+		"&bstorm" = 0
+
+[predev_splits]
+	chat = false
+	"&9toggle" = false
+	toggle_times = false
+	toggle = false
+	show_stair_lines = true
+
+[pad_timers]
+	"&atoggle_green" = true
+	"&etoggle_yellow" = false
+	"&dtoggle_purple" = true
+
+[ee3_timer]
+	high_ee2 = false
+	"&9toggle2" = false
+

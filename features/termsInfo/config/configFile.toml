@@ -1,0 +1,34 @@
+
+[section_times]
+	"&9toggle" = true
+
+[movement_timer]
+	"&9toggle" = false
+
+[positional_alerts]
+	toggle_alerts = false
+	high_ee2 = false
+	debug_render = false
+	class_presets = false
+	debug_modee = false
+
+[term_times]
+	"&9toggle" = false
+	"&3send_prediction_in_chat" = false
+	"&3send_times_in_chat" = false
+	"&3show_prediction" = false
+
+[terminfogui]
+	"&9toggle" = false
+	"&cshow_advanced_options" = false
+	"&9assume_i3" = false
+	"&9assume_i4" = false
+
+[term_info]
+	"&9toggle" = true
+	"&cshow_advanced_options" = true
+	"&9simple" = false
+	"&9assume_i2" = false
+	"&9assume_i3" = false
+	"&9assume_i4" = false
+

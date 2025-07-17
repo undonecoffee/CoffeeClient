@@ -1,0 +1,92 @@
+
+[settings]
+	all_chat = false
+	send_on_party_leave = false
+	co-op_chat = false
+	officer_chat = false
+	send_on_party_kick = false
+	guild_chat = false
+	direct_messages = false
+	party_chat = false
+
+[auto_bless]
+	all_chat = true
+	send_on_party_leave = true
+	co-op_chat = true
+	officer_chat = true
+	send_on_party_kick = true
+	guild_chat = true
+	direct_messages = true
+	party_chat = true
+
+[relic_utils]
+	"&9toggle" = false
+
+	[relic_utils.relic_gui]
+		"&9toggle_relic_spawn_timer" = true
+		spawn_timer_time = "42"
+
+	[relic_utils.relic_spawn_timer]
+		"&9toggle_relic_spawn_timer" = true
+		spawn_timer_time = "42"
+
+	[relic_utils.relic_times]
+		announce_bad_relics_in_chat = false
+		show_every_relic = false
+		"&9toggle_relic_time" = false
+
+[positional_alerts]
+	toggle_alerts = false
+	high_ee2 = false
+
+[splits]
+
+	[splits.pace]
+		spawn_timer_time = "42"
+
+[sheep_hider]
+	distance = 8.0
+	"&9toggle" = true
+
+[mob_highlight]
+	toggle_highlight = true
+
+[mask_timer]
+	"&9toggle" = true
+	"&9only_show_in_boss" = false
+	"&9only_show_in_terms" = false
+
+[auto_requeue]
+	requeue_time = -0.0
+	toggle_auto_requeue = false
+
+[predev_splits]
+	chat = false
+	"&9toggle" = false
+
+[ee3_timer]
+	high_ee2 = false
+	"&9toggle2" = false
+
+[chat_cleaner]
+	hide_ability_messages = true
+	clean_friend_join_messages = true
+	hide_random_messages = true
+	hide_more_random_messages = true
+
+	[chat_cleaner."&5party_chat"]
+		clean_party_messages = false
+
+	[chat_cleaner.party_chat]
+		clean_party_messages = true
+		hide_party_messages = true
+
+	[chat_cleaner.dungeon]
+		hide_even_more_dungeon_messages = true
+		hide_random_messages = false
+		hide_dungeon_messages = true
+		hide_more_dungeon_messages = true
+		hide_ability_chats = false
+		hide_boss_messages = true
+		hide_more_boss_messages = true
+

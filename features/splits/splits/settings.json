@@ -1,0 +1,16 @@
+{
+    "module": {
+        "enabled": true,
+        "name": "Splits",
+        "description": "Displays real time and tick accurate timers for dungeons",
+        "parentDisplayName": "Splits"
+    },
+    "config": [
+        {
+            "type": "toggle",
+            "name": "simple toggle",
+            "description": "simple little toggle to toggle things",
+            "state": true
+        }
+    ]
+}
