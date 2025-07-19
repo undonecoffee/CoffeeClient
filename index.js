@@ -29,7 +29,7 @@ function filterAndFormat() {
                 // console.log()
                 ffm[category][feature] = {
                     displayName: formattedModules[category][feature],
-                    toggled: realModules[category] ? realModules[category][feature] : feature,
+                    toggled: realModules[category] ? realModules[category][feature] : false,
                 }
             }
         }
@@ -47,7 +47,16 @@ export function save(modules) {
     for (let category in modules) {
         if (category == "categories") {
             rawText.push(`// configs:`)
-            for (let categoryConfig in modules.categories) rawText.push(`import "./features/${categoryConfig}/config/index"`)
+            for (let categoryConfigKey in formattedModules.categories) {
+                if (modules.categories.hasOwnProperty(categoryConfigKey)) {
+                    rawText.push(`import "./features/${categoryConfigKey}/config/index"`)
+                    //
+                } else {
+                    rawText.push(`// import "./features/${categoryConfigKey}/config/index"`)
+                    //
+                }
+                // console.log(categoryConfig)
+            }
             rawText.push(``)
             continue
         }

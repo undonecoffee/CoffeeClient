@@ -1,4 +1,8 @@
 export const formattedModules = {
+    categories: {
+        misc: "Misc",
+        termsInfo: "Terms Info",
+        splits: "Splits",
         autoP3: "Auto P3",
         autoClear: "Auto Clear",
         autoBoss: "Auto Boss",
