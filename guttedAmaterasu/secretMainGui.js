@@ -112,7 +112,7 @@ function toggleFeature(category, feature) {
     let color = toggled ? colors.off.hovered : colors.on.hovered
     setColor(display.features[category].draw[index], color)
     modules[category][feature].toggled = !toggled
-    changed = true
+    changed.includes(feature) ? changed.splice(changed.indexOf(feature), 1) : changed.push(feature)
     // display.features[current.cell].draw[index][0][0] = colors.off.base.bg
     // setColor(display.features[current.cell].draw[index], color)
     // } else {
@@ -185,7 +185,7 @@ const renderMain = register("renderOverlay", () => {
     })
 }).unregister()
 
-let changed = false
+let changed = []
 let mainGui = new Gui()
 let inGui = false
 register("command", () => {
@@ -201,7 +201,7 @@ register("command", () => {
 register("guiClosed", () => {
     if (!inGui) return
     inGui = false
-    if (changed) {
+    if (changed.length > 0) {
         changedAnimation()
         save(modules)
     }
@@ -211,8 +211,17 @@ register("guiClosed", () => {
 })
 
 function changedAnimation() {
-    ChatLib.chat(`&4Unsaved changes!`)
+    changedOverlay.register()
+    World.playSound("note.pling", 1, 0.7)
+    setTimeout(() => {
+        changedOverlay.unregister()
+    }, 1800)
 }
+
+const changedOverlay = register("renderOverlay", () => {
+    new Text("&cUnsaved Changed!", sw(50), sh(55)).setScale(3).setShadow(true).setAlign("center").draw()
+    new Text("&eCT Load to save them!", sw(50), sh(61)).setScale(2).setShadow(true).setAlign("center").draw()
+}).unregister()
 
 register("command", () => ChatLib.command("ct load", true)).setName("c")
 register("command", () => ChatLib.command("ct load", true)).setName("ctl")

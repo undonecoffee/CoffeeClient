@@ -8,7 +8,9 @@ let screenWidth = Renderer.screen.getWidth()
 let screenHeight = Renderer.screen.getHeight()
 
 const sw = w => parseFloat(((w / 100) * screenWidth).toFixed(5))
+const rsw = w => parseFloat(((w / screenWidth) * 100).toFixed(5))
 const sh = h => parseFloat(((h / 100) * screenHeight).toFixed(5))
+const rsh = h => parseFloat(((h / screenHeight) * 100).toFixed(5))
 
 // every overlay for this category is displayed here
 register("renderOverlay", () =>
@@ -19,18 +21,18 @@ register("renderOverlay", () =>
 const defaults = {
     relicUtils: {
         name: "Relic Utils",
-        x: sw(50),
-        y: sh(50),
-        width: sw(5.8),
-        height: sw(1.2),
+        x: 50,
+        y: 50,
+        width: 5.8,
+        height: 2.1,
         scale: 1,
     },
     maskTimer: {
         name: "Spirit &b>&r 20.3s\n&6Phoenix &b>&a Ready\n&cBonzo &b>&c 50.2s",
-        x: sw(40),
-        y: sh(40),
-        width: sw(8.9),
-        height: sw(3.5),
+        x: 40,
+        y: 40,
+        width: 8.9,
+        height: 6,
         scale: 1,
     },
 }
@@ -41,12 +43,22 @@ export const guiHelper = {
     setEditing: editing => {
         Object.keys(guis).forEach(key => {
             guis[key].editing = editing
-            if (editing) saved[key] = guis[key].name
-            guis[key].name = editing ? defaults[key].name : saved[key]
+            if (editing) {
+                saved[key] = {}
+                saved[key].name = guis[key].name
+                saved[key].toggled = guis[key].toggled
+                guis[key].name = defaults[key].name
+                guis[key].toggled = true
+            } else {
+                guis[key].name = saved[key].name
+                guis[key].toggled = saved[key].toggled
+            }
         })
     },
     change: (name, type, value) => {
-        guiData[name][type] = value
+        if (type == "x") guiData[name][type] = rsw(value)
+        else if (type == "y") guiData[name][type] = rsh(value)
+        else guiData[name][type] = value
         guis[name][type] = value
     },
 }
@@ -65,10 +77,10 @@ Object.keys(defaults).forEach(key => {
         editing: false,
         toggled: true,
         name: data.name,
-        x: data.x,
-        y: data.y,
-        width: data.width,
-        height: data.height,
+        x: sw(data.x),
+        y: sh(data.y),
+        width: sw(data.width),
+        height: sh(data.height),
         scale: data.scale,
     }
 })
