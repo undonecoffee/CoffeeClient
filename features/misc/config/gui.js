@@ -11,11 +11,10 @@ const sw = w => parseFloat(((w / 100) * screenWidth).toFixed(5))
 const sh = h => parseFloat(((h / 100) * screenHeight).toFixed(5))
 
 // every overlay for this category is displayed here
-// register("renderOverlay", () => Object.keys(guis).forEach(key => new Text(guis[key].name, guis[key].x, guis[key].y).setScale(guis[key].scale).setShadow(true).draw()))
-// register("renderOverlay", () => {
-//     for (let ii = 0; ii < 100; ii++) {
-//     }
-// })
+register("renderOverlay", () =>
+    Object.keys(guis).forEach(key => {
+        if (guis[key].toggled) new Text(guis[key].name, guis[key].x, guis[key].y).setScale(guis[key].scale).setShadow(true).draw()
+    }))
 
 const defaults = {
     relicUtils: {
@@ -64,6 +63,7 @@ Object.keys(defaults).forEach(key => {
     }
     guis[key] = {
         editing: false,
+        toggled: true,
         name: data.name,
         x: data.x,
         y: data.y,

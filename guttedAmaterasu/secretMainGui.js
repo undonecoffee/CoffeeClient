@@ -214,5 +214,6 @@ function changedAnimation() {
     ChatLib.chat(`&4Unsaved changes!`)
 }
 
-// setTimeout(() => ChatLib.command("cc", true), 500)
 register("command", () => ChatLib.command("ct load", true)).setName("c")
+register("command", () => ChatLib.command("ct load", true)).setName("ctl")
+register("command", () => ChatLib.command("ct load", true)).setName("ctd")
