@@ -37,6 +37,8 @@ const defaults = {
     },
 }
 
+// bugs fixed in other version but i want a commit for it
+
 let saved = {}
 export const guiHelper = {
     save: () => FileLib.write(path, "guiData.json", JSON.stringify(guiData, null, 4)),
