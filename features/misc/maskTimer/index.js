@@ -1,7 +1,7 @@
 import settings from "../config/settings.js"
 import { guis, guiHelper } from "../config/gui.js"
 // guis.maskTimer.name = " "
-guis.maskTimer.toggled = false
+guis.maskTimer.toggled = true
 // let ticks = 0
 // register("step", () => {
 //     if (guis.maskTimer.editing == true) return

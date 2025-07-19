@@ -37,30 +37,19 @@ const defaults = {
     },
 }
 
-// bugs fixed in other version but i want a commit for it
-
 let saved = {}
 export const guiHelper = {
     save: () => FileLib.write(path, "guiData.json", JSON.stringify(guiData, null, 4)),
     setEditing: editing => {
         Object.keys(guis).forEach(key => {
+            if (editing) saved[key] = { name: guis[key].name, toggled: guis[key].toggled }
             guis[key].editing = editing
-            if (editing) {
-                saved[key] = {}
-                saved[key].name = guis[key].name
-                saved[key].toggled = guis[key].toggled
-                guis[key].name = defaults[key].name
-                guis[key].toggled = true
-            } else {
-                guis[key].name = saved[key].name
-                guis[key].toggled = saved[key].toggled
-            }
+            guis[key].name = editing ? defaults[key].name : saved[key].name
+            guis[key].toggled = editing ? true : saved[key].toggled
         })
     },
     change: (name, type, value) => {
-        if (type == "x") guiData[name][type] = rsw(value)
-        else if (type == "y") guiData[name][type] = rsh(value)
-        else guiData[name][type] = value
+        guiData[name][type] = type == "x" ? rsw(value) : type == "y" ? rsh(value) : v => v
         guis[name][type] = value
     },
 }
@@ -75,16 +64,7 @@ Object.keys(defaults).forEach(key => {
         guiData[key] = data
         defaultAdded = true
     }
-    guis[key] = {
-        editing: false,
-        toggled: true,
-        name: data.name,
-        x: sw(data.x),
-        y: sh(data.y),
-        width: sw(data.width),
-        height: sh(data.height),
-        scale: data.scale,
-    }
+    guis[key] = { editing: false, toggled: true, name: data.name, x: sw(data.x), y: sh(data.y), width: sw(data.width), height: sh(data.height), scale: data.scale }
 })
 
 if (defaultAdded) guiHelper.save()
@@ -102,12 +82,7 @@ const mouseUpdate = register("step", () => {
     Object.keys(guis).forEach(key => {
         let x1 = guis[key].x - 2
         let y1 = guis[key].y - 2
-        let x2 = x1 + guis[key].width
-        let y2 = y1 + guis[key].height
-        if (inBox(x, y, x1, y1, x2, y2)) {
-            found = true
-            hovered = key
-        }
+        if (inBox(x, y, x1, y1, x1 + guis[key].width, y1 + guis[key].height)) found = hovered = key
     })
     if (!found) hovered = null
 }).setFps(30).unregister()
@@ -115,10 +90,7 @@ const mouseUpdate = register("step", () => {
 let hovered = null
 const drawBackgrounds = register("renderOverlay", () => {
     new Text(`Left click to drag\nScroll to change size\nArrow keys to move by pixel\nWASD to move 10 pixels`, sw(50), sh(15)).setShadow(true).setScale(1.5).setAlign("center").draw()
-    Object.keys(guis).forEach(key => {
-        if (key !== hovered) Renderer.drawRect(0x44000000, guis[key].x - 2, guis[key].y - 2, guis[key].width * guis[key].scale, guis[key].height * guis[key].scale)
-        else Renderer.drawRect(0x77000000, guis[key].x - 2, guis[key].y - 2, guis[key].width * guis[key].scale, guis[key].height * guis[key].scale)
-    })
+    Object.keys(guis).forEach(key => Renderer.drawRect(key == hovered ? 0x77000000 : 0x44000000, guis[key].x - 2, guis[key].y - 2, guis[key].width * guis[key].scale, guis[key].height * guis[key].scale))
 }).unregister()
 
 let lastDrag = Date.now()
@@ -145,19 +117,16 @@ const mouseClicked = register("guiMouseClick", (x, y, bn) => {
 const keyClicked = register("guiKey", (keypressed, keycode) => {
     if (!hovered) return
     const moveMap = {
-        200: ["up", "y", -1],
-        208: ["down", "y", 1],
-        203: ["left", "x", -1],
-        205: ["right", "x", 1],
-        17: ["w", "y", -10],
-        31: ["s", "y", 10],
-        30: ["a", "x", -10],
-        32: ["d", "x", 10],
+        200: ["y", -1],
+        208: ["y", 1],
+        203: ["x", -1],
+        205: ["x", 1],
+        17: ["y", -10],
+        31: ["y", 10],
+        30: ["x", -10],
+        32: ["x", 10],
     }
-    if (moveMap[keycode]) {
-        const [name, axis, delta] = moveMap[keycode]
-        guiHelper.change(hovered, axis, guis[hovered][axis] + delta)
-    }
+    if (moveMap[keycode]) guiHelper.change(hovered, ...moveMap[keycode].map((v, i) => i ? guis[hovered][moveMap[keycode][0]] + v : v))
 }).unregister()
 
 let editGuiGui = new Gui()
@@ -167,28 +136,16 @@ register("command", () => {
     screenHeight = Renderer.screen.getHeight()
     setTimeout(() => inGui = true, 100)
     editGuiGui.open()
-
-    drawBackgrounds.register()
-    mouseUpdate.register()
-    dragged.register()
-    scrolled.register()
-    mouseClicked.register()
-    keyClicked.register()
-
     guiHelper.setEditing(true)
+    toggleRegisters(true)
 }).setName("misceditGui")
 
 register("guiClosed", () => {
     if (!inGui) return
     inGui = false
     guiHelper.save()
-
-    drawBackgrounds.unregister()
-    mouseUpdate.unregister()
-    dragged.unregister()
-    scrolled.unregister()
-    mouseClicked.unregister()
-    keyClicked.unregister()
-
     guiHelper.setEditing(false)
+    toggleRegisters(false)
 })
+
+const toggleRegisters = t => [drawBackgrounds, mouseUpdate, dragged, scrolled, mouseClicked, keyClicked].forEach(h => h[t ? "register" : "unregister"]())
