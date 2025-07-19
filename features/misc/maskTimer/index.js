@@ -1,7 +1,6 @@
 import settings from "../config/settings.js"
 import { guis, guiHelper } from "../config/gui.js"
-// guis.maskTimer.gui.register()
-// guis.maskTimer.name = "hihi"
+guis.maskTimer.name = " "
 // let ticks = 0
 // register("step", () => {
 //     if (guis.maskTimer.editing == true) return
