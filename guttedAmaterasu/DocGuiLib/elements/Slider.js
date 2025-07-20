@@ -25,7 +25,7 @@ export default class SliderElement extends BaseElement {
         this.offset = 0
 
         // Check for decimal pointers and if they should be there add them
-        if (this.settings[0] % 1 !== 0) this.defaultValue = parseFloat(this.defaultValue).toFixed(2)
+        if (this.settings[0] % 1 !== 0) this.defaultValue = parseFloat(this.defaultValue).toFixed(1)
     }
 
     _create(colorScheme = {}) {
@@ -33,8 +33,7 @@ export default class SliderElement extends BaseElement {
 
         // If the previously saved default value was under/over the min/max
         // we call the [onMouseRelease] event so it gets adjusted to the new value
-        if (this.rawDefaultValue < this.settings[0] || this.rawDefaultValue > this.settings[1])
-            this._triggerEvent(this.onMouseRelease, this.defaultValue)
+        if (this.rawDefaultValue < this.settings[0] || this.rawDefaultValue > this.settings[1]) this._triggerEvent(this.onMouseRelease, this.defaultValue)
 
         this.backgroundBox = new UIRoundedRectangle(this._getSchemeValue("background", "roundness"))
             .setX(this.x)
@@ -145,7 +144,7 @@ export default class SliderElement extends BaseElement {
 
         // Makes the rounded number into an actual slider value
         this.value = this.settings[0] % 1 !== 0 ?
-            parseFloat((this.settings[1] - this.settings[0]) * ((percent * 100) / 100) + this.settings[0]).toFixed(2) :
+            parseFloat((this.settings[1] - this.settings[0]) * ((percent * 100) / 100) + this.settings[0]).toFixed(1) :
             parseInt((this.settings[1] - this.settings[0]) * ((percent * 100) / 100) + this.settings[0])
 
         // TODO: make this more precise so people can have values whenever the max is higher than 2 digits

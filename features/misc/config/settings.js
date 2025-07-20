@@ -6,25 +6,129 @@ const defaultConf = new DefaultConfig("CoffeeClient/features/misc/config", "sett
 
 const make = {
     autoBless: () => {
-        defaultConf.addButton({
+        defaultConf.addSwitch({
             category: "Auto Bless",
-            configName: "autobless",
-            title: "autovleswdjsk",
-            description: "description test",
-            onClick(setting) {
-                ChatLib.chat("button clicked i think")
-            },
+            configName: "sendOn_leave",
+            title: "Send On Party Leave",
+            description: "sends bless chat when someone leaves the party",
+        })
+        defaultConf.addSwitch({
+            category: "Auto Bless",
+            configName: "sendOn_kick",
+            title: "Send On Party Kick",
+            description: "sends bless chat when someone gets kicked form the party",
+        })
+        defaultConf.addSwitch({
+            category: "Auto Bless",
+            configName: "echo",
+            title: "Echo Blesses",
+            description: "Auto send bless when anyone else does",
+        })
+    },
+    autoRequeue: () => {
+        defaultConf.addSlider({
+            category: "Auto Requeue",
+            configName: "requeue_time",
+            title: "Requeue Time",
+            description: "Time before the run ends when it will attempt to requeue.  -2.5s is recommended",
+            options: [-3.2, 0],
+            value: -2500,
+        })
+    },
+    chatCleaner: () => {
+        defaultConf.addSwitch({
+            category: "Chat Cleaner",
+            configName: "clean_friendJoin",
+            title: "Clean Friend Join messages",
+            description: "Makes friend join/leave messages look nicer\n&a>> &bundonecoffee",
+            subcategory: "Clean",
+        })
+        defaultConf.addSwitch({
+            category: "Chat Cleaner",
+            configName: "clean_partyChat",
+            title: "Clean Party Chat",
+            description: "Makes party chat messages look nicer\n&b> &bundonecoffee&f: Melody 1/3",
+            subcategory: "Clean",
+        })
+        defaultConf.addSwitch({
+            category: "Chat Cleaner",
+            configName: "hide_ability",
+            title: "Hide Ability Messages",
+            description: "Hides ability messages like:\n&cWIP",
+            subcategory: "Misc",
+        })
+        defaultConf.addSwitch({
+            category: "Chat Cleaner",
+            configName: "hide_error",
+            title: "Hide Error Messages",
+            description: "Hides random error messages like:\n&cWIP",
+            subcategory: "Misc",
+        })
+        defaultConf.addSwitch({
+            category: "Chat Cleaner",
+            configName: "hide_boss",
+            title: "Hide Boss",
+            description: "Hides the messages that start with &c[BOSS]",
+            subcategory: "Dungeons",
+        })
+        defaultConf.addSwitch({
+            category: "Chat Cleaner",
+            configName: "hide_blessings",
+            title: "Hide Blessings",
+            description: "Hides the messages when blessings get picked up",
+            subcategory: "Dungeons",
         })
     },
     maskTimer: () => {
-        defaultConf.addButton({
-            category: "maskTimer",
-            configName: "maskTimer",
-            title: "autovleswdjsk",
-            description: "description test",
-            onClick(setting) {
-                ChatLib.chat("button clicked i think")
-            },
+        defaultConf.addSwitch({
+            category: "Mask Timer",
+            configName: "onlyP3",
+            title: "Only In P3",
+            description: "Only shows mask timer in P3",
+        })
+    },
+    mobHighlight: () => {
+        defaultConf.addSwitch({
+            category: "Mob Highlight",
+            configName: "inBoss",
+            title: "In Boss",
+            description: "Shows mob highlight in boss too",
+        })
+        defaultConf.addSwitch({
+            category: "Mob Highlight",
+            configName: "highlightWither",
+            title: "Highlight Withers",
+            description: "Highlights all wither bosses",
+        })
+    },
+    relicUtils: () => {
+        defaultConf.addSwitch({
+            category: "Relic Utils",
+            configName: "spawnTimer",
+            title: "Spawn Timer",
+            description: "Shows spawn timer for relics",
+        })
+        defaultConf.addSwitch({
+            category: "Relic Utils",
+            configName: "matchColors",
+            title: "Match Colors",
+            description: "Match colors with the relic you are getting",
+        })
+        defaultConf.addSwitch({
+            category: "Relic Utils",
+            configName: "sendInChat",
+            title: "Send Times In Chat",
+            description: "Sends all relic times in chat\n(you can see the times with subSplits too)",
+        })
+    },
+    sheepHider: () => {
+        defaultConf.addSlider({
+            category: "Sheep Hider",
+            configName: "hideDistance",
+            title: "Distance",
+            description: "Distance to hide sheep",
+            options: [0, 40],
+            value: 3,
         })
     },
 }
