@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "category": "maskTimer",
+        "settings": [
+            {
+                "type": 2,
+                "name": "maskTimer"
+            }
+        ]
+    }
+]

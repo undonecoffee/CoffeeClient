@@ -1,0 +1,42 @@
+{
+    "movementTimer": {
+        "name": "Movement Timer",
+        "x": 60,
+        "y": 60,
+        "width": 5.8,
+        "height": 2.1,
+        "scale": 1
+    },
+    "positionalAlerts": {
+        "name": "pso alerts",
+        "x": 40,
+        "y": 40,
+        "width": 8.9,
+        "height": 6,
+        "scale": 1
+    },
+    "sectionTimes": {
+        "name": "&33.25s",
+        "x": 49.53125,
+        "y": 30.35005,
+        "width": 8.9,
+        "height": 6,
+        "scale": 3
+    },
+    "termInfo": {
+        "name": "&6TermInfo",
+        "x": 70.83333,
+        "y": 49.64995,
+        "width": 8.9,
+        "height": 6,
+        "scale": 3
+    },
+    "termTimes": {
+        "name": "&6TermInfo",
+        "x": 67.44792,
+        "y": 15.02365,
+        "width": 8.9,
+        "height": 6,
+        "scale": 3
+    }
+}

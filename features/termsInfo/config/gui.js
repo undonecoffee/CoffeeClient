@@ -1,6 +1,6 @@
 // register("renderOverlay", () => new Text("&etest!", 400, 230).setShadow(true).draw())
 
-const path = "CoffeeClient/features/misc/config"
+const path = "CoffeeClient/features/termsInfo/config"
 
 export const guiData = JSON.parse(FileLib.read(path, "guiData.json") || "{}")
 
@@ -19,21 +19,45 @@ register("renderOverlay", () =>
     }))
 
 const defaults = {
-    relicUtils: {
-        name: "Relic Utils",
-        x: 50,
-        y: 50,
+    movementTimer: {
+        name: "Movement Timer",
+        x: 60,
+        y: 60,
         width: 5.8,
         height: 2.1,
         scale: 1,
     },
-    maskTimer: {
-        name: "Spirit &b>&r 20.3s\n&6Phoenix &b>&a Ready\n&cBonzo &b>&c 50.2s",
+    positionalAlerts: {
+        name: "pso alerts",
         x: 40,
         y: 40,
         width: 8.9,
         height: 6,
         scale: 1,
+    },
+    sectionTimes: {
+        name: "&33.25s",
+        x: 40,
+        y: 40,
+        width: 8.9,
+        height: 6,
+        scale: 3,
+    },
+    termInfo: {
+        name: "&6TermInfo",
+        x: 40,
+        y: 40,
+        width: 8.9,
+        height: 6,
+        scale: 3,
+    },
+    termTimes: {
+        name: "&6TermInfo",
+        x: 40,
+        y: 40,
+        width: 8.9,
+        height: 6,
+        scale: 3,
     },
 }
 
@@ -138,7 +162,7 @@ register("command", () => {
     editGuiGui.open()
     toggleRegisters(true)
     guiHelper.setEditing(true)
-}).setName("misceditGui")
+}).setName("termsinfoeditGui")
 
 register("guiClosed", () => {
     if (!inGui) return

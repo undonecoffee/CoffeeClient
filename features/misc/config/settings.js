@@ -16,15 +16,26 @@ const make = {
             },
         })
     },
+    maskTimer: () => {
+        defaultConf.addButton({
+            category: "maskTimer",
+            configName: "maskTimer",
+            title: "autovleswdjsk",
+            description: "description test",
+            onClick(setting) {
+                ChatLib.chat("button clicked i think")
+            },
+        })
+    },
 }
 
 if (modules.misc.autoBless.toggled) make.autoBless()
-// if (modules.misc.autoRequeue.toggled) make.autoBless()
-// if (modules.misc.chatCleaner.toggled) make.autoBless()
-// if (modules.misc.maskTimer.toggled) make.autoBless()
-// if (modules.misc.mobHightlight.toggled) make.autoBless()
-// if (modules.misc.relicUtils.toggled) make.autoBless()
-// if (modules.misc.sheepHider.toggled) make.autoBless()
+if (modules.misc.autoRequeue.toggled) make.autoRequeue()
+if (modules.misc.chatCleaner.toggled) make.chatCleaner()
+if (modules.misc.maskTimer.toggled) make.maskTimer()
+if (modules.misc.mobHighlight.toggled) make.mobHighlight()
+if (modules.misc.relicUtils.toggled) make.relicUtils()
+if (modules.misc.sheepHider.toggled) make.sheepHider()
 
 const config = new Settings("CoffeeClient/features/misc/config", defaultConf)
 

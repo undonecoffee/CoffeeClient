@@ -1,6 +1,6 @@
 // register("renderOverlay", () => new Text("&etest!", 400, 230).setShadow(true).draw())
 
-const path = "CoffeeClient/features/misc/config"
+const path = "CoffeeClient/features/splits/config"
 
 export const guiData = JSON.parse(FileLib.read(path, "guiData.json") || "{}")
 
@@ -19,16 +19,25 @@ register("renderOverlay", () =>
     }))
 
 const defaults = {
-    relicUtils: {
-        name: "Relic Utils",
-        x: 50,
-        y: 50,
-        width: 5.8,
-        height: 2.1,
+    splits: {
+        name: `&3Pace &b> &34m 30.3s &8(&74m 28.7s&8)
+&aOpen &b> &a11.32s &8(&78.75s&8)
+&cCamp &b> &c64.62s &8(&773.25s&8)
+&dPortal &b> &d3.82s &8(&73.75s&8)
+&9Enter &b> &91m 30.3s &8(&71m 28.7s&8)
+&5Maxor &b> &525.68s &8(&725.55s&8)
+&bStorm &b> &b45.83s &8(&745.50s&8)
+&6Terms &b> &628.24s &8(&728.20s&8)
+&eGoldor &b> &e5.82s &8(&75.80s&8)
+&cNecron &b> &c30.31s &8(&730.30s&8)`,
+        x: 20,
+        y: 10,
+        width: 14,
+        height: 19.3,
         scale: 1,
     },
-    maskTimer: {
-        name: "Spirit &b>&r 20.3s\n&6Phoenix &b>&a Ready\n&cBonzo &b>&c 50.2s",
+    subSplits: {
+        name: "subSplitsGui",
         x: 40,
         y: 40,
         width: 8.9,
@@ -138,7 +147,7 @@ register("command", () => {
     editGuiGui.open()
     toggleRegisters(true)
     guiHelper.setEditing(true)
-}).setName("misceditGui")
+}).setName("splitseditGui")
 
 register("guiClosed", () => {
     if (!inGui) return
