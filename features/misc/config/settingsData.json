@@ -65,16 +65,6 @@
         ]
     },
     {
-        "category": "Mask Timer",
-        "settings": [
-            {
-                "type": 6,
-                "name": "onlyP3",
-                "value": true
-            }
-        ]
-    },
-    {
         "category": "Mob Highlight",
         "settings": [
             {

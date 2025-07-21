@@ -56,9 +56,9 @@ const make = {
     subSplits: () => {
         defaultConf.addSlider({
             category: "Sub Splits",
-            configName: "shownSplits",
-            title: "Number Of Splits Shown",
-            description: "Max number of splits shown on the screen at once",
+            configName: "shownLines",
+            title: "Number Of Lines Shown",
+            description: "Max number of lines shown on the screen at once",
             subcategory: " ",
             options: [0, 100],
             value: 15,
@@ -70,16 +70,20 @@ const make = {
             description: "&f/subsplits to see examples of what each split looks like",
             centered: true,
             subcategory: " ",
-            shouldShow(data) {
-                return data.show_pace
-            },
+        })
+        defaultConf.addSwitch({
+            category: "Sub Splits",
+            configName: "showRoomNames",
+            title: "Show Room Names",
+            description: "Shows room names instead of room number",
+            subcategory: "Open",
         })
         defaultConf.addDropDown({
             category: "Sub Splits",
             configName: "open",
             title: "&aOpen",
             description: "Displays key times on blood rush",
-            subcategory: " ",
+            subcategory: "Open",
             options: [
                 "none",
                 "by room",
@@ -92,7 +96,7 @@ const make = {
             configName: "blood",
             title: "&cBlood",
             description: "Displays each mob on camp",
-            subcategory: " ",
+            subcategory: "Blood",
             options: [
                 "none",
                 "average",
@@ -105,7 +109,7 @@ const make = {
             configName: "portal",
             title: "&dPortal",
             description: "Displays portal spawn time if you are close",
-            subcategory: " ",
+            subcategory: "Portal",
             options: [
                 "none",
                 "show",
@@ -116,7 +120,7 @@ const make = {
             configName: "maxor",
             title: "&5Maxor",
             description: "Displays crystal times",
-            subcategory: " ",
+            subcategory: "Maxor",
             options: [
                 "none",
                 "crystals",
@@ -129,7 +133,7 @@ const make = {
             configName: "storm",
             title: "&bStorm",
             description: "Displays crush/dps times",
-            subcategory: " ",
+            subcategory: "Storm",
             options: [
                 "none",
                 "dps",
@@ -142,7 +146,7 @@ const make = {
             configName: "terms",
             title: "&6Terms",
             description: "Displays section/each term",
-            subcategory: " ",
+            subcategory: "Terms",
             options: [
                 "none",
                 "section",
@@ -155,7 +159,7 @@ const make = {
             configName: "goldor",
             title: "&eGoldor",
             description: "displays leap in times",
-            subcategory: " ",
+            subcategory: "Goldor",
             options: [
                 "none",
                 "leaps",
@@ -168,7 +172,7 @@ const make = {
             configName: "necron",
             title: "&cNecron",
             description: "idk what this would show. \nneed to look into it more",
-            subcategory: " ",
+            subcategory: "Necron",
             options: [
                 "none",
             ],
@@ -178,7 +182,7 @@ const make = {
             configName: "p5_relics",
             title: "&5P5 &7(&5relics&7)",
             description: "shows each relic time\nshows nothing on f7",
-            subcategory: " ",
+            subcategory: "P5 Relics",
             options: [
                 "none",
                 "total",
@@ -191,7 +195,7 @@ const make = {
             configName: "p5_dragons",
             title: "&5P5 &7(&5Dragons&7)",
             description: "shows each dragon kill time\nshows nothing on f7",
-            subcategory: " ",
+            subcategory: "P5 Dragons",
             options: [
                 "none",
                 "total",

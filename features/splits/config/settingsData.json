@@ -38,12 +38,17 @@
         "settings": [
             {
                 "type": 1,
-                "name": "shownSplits",
-                "value": 24
+                "name": "shownLines",
+                "value": 100
             },
             {
                 "type": 9,
                 "name": "textParagraph"
+            },
+            {
+                "type": 6,
+                "name": "showRoomNames",
+                "value": true
             },
             {
                 "type": 7,
