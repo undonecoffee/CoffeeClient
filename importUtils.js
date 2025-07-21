@@ -1,3 +1,7 @@
+setTimeout(() => ChatLib.command("cctermsinfo", true), 700)
+register("command", () => ChatLib.command("ct load", true)).setName("c")
+register("command", () => ChatLib.command("ct load", true)).setName("ctl")
+register("command", () => ChatLib.command("ct load", true)).setName("ctd")
 export const formattedModules = {
     categories: {
         misc: "Misc",
@@ -24,10 +28,10 @@ export const formattedModules = {
         termTimes: "Term Times",
     },
     splits: {
-        padTimers: "Pad Timers",
-        pdSplits: "PreDev Splits",
         splits: "Splits",
         subSplits: "Sub Splits",
+        padTimers: "Pad Timers",
+        pdSplits: "PreDev Splits",
     },
     autoClear: {
         autoMap: "Auto Map",

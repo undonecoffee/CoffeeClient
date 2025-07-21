@@ -222,7 +222,3 @@ const changedOverlay = register("renderOverlay", () => {
     new Text("&cUnsaved Changed!", sw(50), sh(55)).setScale(3).setShadow(true).setAlign("center").draw()
     new Text("&eCT Load to save them!", sw(50), sh(61)).setScale(2).setShadow(true).setAlign("center").draw()
 }).unregister()
-
-register("command", () => ChatLib.command("ct load", true)).setName("c")
-register("command", () => ChatLib.command("ct load", true)).setName("ctl")
-register("command", () => ChatLib.command("ct load", true)).setName("ctd")

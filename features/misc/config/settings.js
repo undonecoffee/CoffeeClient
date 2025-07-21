@@ -40,14 +40,14 @@ const make = {
             category: "Chat Cleaner",
             configName: "clean_friendJoin",
             title: "Clean Friend Join messages",
-            description: "Makes friend join/leave messages look nicer\n&a>> &bundonecoffee",
+            description: "Makes friend join/leave messages look nicer",
             subcategory: "Clean",
         })
         defaultConf.addSwitch({
             category: "Chat Cleaner",
             configName: "clean_partyChat",
             title: "Clean Party Chat",
-            description: "Makes party chat messages look nicer\n&b> &bundonecoffee&f: Melody 1/3",
+            description: "Makes party chat messages look nicer",
             subcategory: "Clean",
         })
         defaultConf.addSwitch({
@@ -68,7 +68,7 @@ const make = {
             category: "Chat Cleaner",
             configName: "hide_boss",
             title: "Hide Boss",
-            description: "Hides the messages that start with &c[BOSS]",
+            description: "Hides the messages that start with [BOSS]",
             subcategory: "Dungeons",
         })
         defaultConf.addSwitch({
