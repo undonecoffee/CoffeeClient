@@ -96,8 +96,8 @@
     },
     "Switch": {
         "background": {
-            "enabledColor": [255, 255, 255, 80],
-            "disabledColor": [0, 0, 0, 80],
+            "enabledColor": [150, 150, 150, 200],
+            "disabledColor": [50, 50, 50, 200],
             "outlineColor": [255, 255, 255, 255],
             "outlineSize": 0,
             "roundness": 3
@@ -122,19 +122,19 @@
             "roundness": 3
         },
         "bar": {
-            "color": [0, 0, 0, 80],
+            "color": [0, 0, 0, 150],
             "outlineColor": [255, 255, 255, 255],
             "outlineSize": 0,
             "roundness": 3
         },
         "completionbar": {
-            "color": [140, 140, 140, 80],
+            "color": [140, 140, 140, 200],
             "outlineColor": [255, 255, 255, 255],
             "outlineSize": 0,
             "roundness": 3
         },
         "sliderbox": {
-            "color": [140, 140, 140, 80],
+            "color": [140, 140, 140, 200],
             "outlineColor": [255, 255, 255, 255],
             "outlineSize": 0,
             "roundness": 3
@@ -144,12 +144,12 @@
             "scale": 1
         },
         "mouseEnterAnimation": {
-            "color": [0, 0, 0, 80],
+            "color": [100, 100, 100, 200],
             "type": "OUT_EXP",
             "time": 0.5
         },
         "mouseLeaveAnimation": {
-            "color": [140, 140, 140, 80],
+            "color": [140, 140, 140, 200],
             "type": "OUT_EXP",
             "time": 0.5
         }
@@ -176,120 +176,6 @@
             "color": [255, 255, 255, 255],
             "type": "OUT_EXP",
             "time": 0.5
-        }
-    },
-    "ColorPicker": {
-        "background": {
-            "color": [0, 0, 0, 0],
-            "outlineColor": [255, 255, 255, 255],
-            "outlineSize": 0,
-            "roundness": 3
-        },
-        "text": {
-            "color": [255, 255, 255, 255],
-            "scale": 2,
-            "openArrow": "§l↓",
-            "closeArrow": "§l↑"
-        },
-        "colorpickerbackground": {
-            "color": [0, 0, 0, 80],
-            "outlineColor": [255, 255, 255, 255],
-            "outlineSize": 0,
-            "roundness": 3
-        },
-        "gradientbackground": {
-            "color": [0, 0, 0, 0],
-            "outlineColor": [255, 255, 255, 255],
-            "outlineSize": 0,
-            "roundness": 3
-        },
-        "gradientpointer": {
-            "outlineColor": [255, 255, 255, 255],
-            "outlineSize": 0.5
-        },
-        "huebackground": {
-            "color": [0, 0, 0, 0],
-            "outlineColor": [255, 255, 255, 255],
-            "outlineSize": 0,
-            "roundness": 3
-        },
-        "huepointer": {
-            "outlineColor": [255, 255, 255, 255],
-            "outlineSize": 0.5
-        },
-        "heightAnimationIn": {
-            "type": "IN_SIN",
-            "time": 0.5
-        },
-        "heightAnimationOut": {
-            "type": "OUT_SIN",
-            "time": 0.5
-        },
-        "TextInput": {
-            "background": {
-                "color": [0, 0, 0, 80],
-                "outlineColor": [255, 255, 255, 255],
-                "outlineSize": 0,
-                "roundness": 3
-            },
-            "text": {
-                "color": [255, 255, 255, 255],
-                "placeholderColor": [170, 170, 170, 255],
-                "scale": 1,
-                "padding": 5
-            },
-            "mouseEnterAnimation": {
-                "color": [0, 0, 0, 80],
-                "placeholderColor": [170, 170, 170, 80],
-                "type": "OUT_EXP",
-                "time": 0.5
-            },
-            "mouseLeaveAnimation": {
-                "color": [255, 255, 255, 255],
-                "placeholderColor": [170, 170, 170, 255],
-                "type": "OUT_EXP",
-                "time": 0.5
-            }
-        },
-        "Slider": {
-            "background": {
-                "color": [0, 0, 0, 0],
-                "outlineColor": [255, 255, 255, 255],
-                "outlineSize": 0,
-                "roundness": 3
-            },
-            "bar": {
-                "color": [0, 0, 0, 80],
-                "outlineColor": [255, 255, 255, 255],
-                "outlineSize": 0,
-                "roundness": 3
-            },
-            "completionbar": {
-                "color": [140, 140, 140, 80],
-                "outlineColor": [255, 255, 255, 255],
-                "outlineSize": 0,
-                "roundness": 3
-            },
-            "sliderbox": {
-                "color": [140, 140, 140, 80],
-                "outlineColor": [255, 255, 255, 255],
-                "outlineSize": 0,
-                "roundness": 3
-            },
-            "text": {
-                "color": [255, 255, 255, 255],
-                "scale": 1
-            },
-            "mouseEnterAnimation": {
-                "color": [0, 0, 0, 80],
-                "type": "OUT_EXP",
-                "time": 0.5
-            },
-            "mouseLeaveAnimation": {
-                "color": [140, 140, 140, 80],
-                "type": "OUT_EXP",
-                "time": 0.5
-            }
         }
     },
     "Text": {
@@ -340,7 +226,7 @@
             "closeArrow": "§l↑"
         },
         "dropdownbackground": {
-            "color": [0, 0, 0, 80],
+            "color": [50, 50, 50, 255],
             "outlineColor": [255, 255, 255, 255],
             "outlineSize": 0,
             "roundness": 5
@@ -380,7 +266,7 @@
             "closeArrow": "§l↑"
         },
         "dropdownbackground": {
-            "color": [0, 0, 0, 80],
+            "color": [50, 50, 50, 255],
             "outlineColor": [255, 255, 255, 255],
             "outlineSize": 0,
             "roundness": 5
@@ -438,13 +324,13 @@
     },
     "Amaterasu": {
         "background": {
-            "color": [0, 0, 0, 80],
+            "color": [0, 0, 0, 100],
             "outlineColor": [255, 255, 255, 80],
             "outlineSize": 0.5,
             "roundness": 5
         },
         "line": {
-            "color": [255, 255, 255, 80],
+            "color": [255, 255, 255, 0],
             "size": 0.5,
             "outlineColor": [255, 255, 255, 255],
             "outlineSize": 0,
@@ -455,7 +341,7 @@
             "rightColor": [0, 0, 0, 0]
         },
         "scrollbar": {
-            "color": [255, 255, 255, 80]
+            "color": [255, 255, 255, 0]
         },
         "title": {
             "color": [255, 255, 255, 255],

@@ -81,7 +81,7 @@ export default class Settings {
         this._startedWidth = Renderer.screen.getWidth() * Renderer.screen.getScale()
         this._startedHeight = Renderer.screen.getHeight() * Renderer.screen.getScale()
 
-        this.titleText = `${this.moduleName.addColor()} Settings`
+        this.titleText = ` `
         this.sortCategories = null
         this.sortElements = null
         this.GuiScale = null
@@ -617,10 +617,14 @@ export default class Settings {
     /** @private */
     _init() {
         this.mainBlock = new UIRoundedRectangle(this.handler.getColorScheme().Amaterasu.background.roundness)
-            .setX(this.AmaterasuGui.background.x.percent())
-            .setY(this.AmaterasuGui.background.y.percent())
-            .setWidth(this.AmaterasuGui.background.width.percent())
-            .setHeight(this.AmaterasuGui.background.height.percent())
+            // .setX(this.AmaterasuGui.background.x.percent())
+            // .setY(this.AmaterasuGui.background.y.percent())
+            // .setWidth(this.AmaterasuGui.background.width.percent())
+            // .setHeight(this.AmaterasuGui.background.height.percent())
+            .setX((20).percent())
+            .setY((20).percent())
+            .setWidth((60).percent())
+            .setHeight((60).percent())
             .setColor(ElementUtils.getJavaColor(this.handler.getColorScheme().Amaterasu.background.color))
             .enableEffect(new OutlineEffect(ElementUtils.getJavaColor(this.handler.getColorScheme().Amaterasu.background.outlineColor), this.handler.getColorScheme().Amaterasu.background.outlineSize))
 

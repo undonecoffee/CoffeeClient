@@ -25,7 +25,7 @@
             {
                 "type": 1,
                 "name": "requeue_time",
-                "value": -2.2
+                "value": -1.6
             }
         ]
     },
@@ -105,7 +105,7 @@
             {
                 "type": 1,
                 "name": "hideDistance",
-                "value": 3
+                "value": 4
             }
         ]
     }

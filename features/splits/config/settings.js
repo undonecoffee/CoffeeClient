@@ -259,6 +259,6 @@ if (modules.splits.subSplits.toggled) make.subSplits()
 if (modules.splits.padTimers.toggled) make.padTimers()
 if (modules.splits.pdSplits.toggled) make.pdSplits()
 
-const config = new Settings("CoffeeClient/features/splits/config", defaultConf)
+const config = new Settings("  ", defaultConf)
 
 export default config.settings

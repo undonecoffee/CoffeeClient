@@ -93,6 +93,6 @@ if (modules.termsInfo.sectionTimes.toggled) make.sectionTimes()
 if (modules.termsInfo.termInfo.toggled) make.termInfo()
 if (modules.termsInfo.termTimes.toggled) make.termTimes()
 
-const config = new Settings("CoffeeClient/features/termsInfo/config", defaultConf)
+const config = new Settings("   ", defaultConf)
 
 export default config.settings

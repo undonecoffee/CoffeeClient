@@ -25,7 +25,7 @@ const defaultValues = [false, 1, undefined, 0, "", [255, 255, 255, 255], false, 
  * @prop {?(previousValue: Value, newValue: Value) => void} registerListener The function that runs whenever this component's value changes (returns params `previousValue` and `newValue`)
  * @prop {Options?} options Usage varies depending on type of setting. [min, max] for slider, options for checkbox/multicheck box (strings in checkbox, nested objects for multi), and probably more. Pay me.
  * @prop {boolean?} centered Whether the [title] and [description] should be centered
-*/
+ */
 
 /**
  * @typedef {DefaultObject<string, string, DefaultObjectValue, (number|string|MultiCheckBoxChildObject)[]>} DefaultDefaultObject
@@ -52,7 +52,6 @@ const defaultValues = [false, 1, undefined, 0, "", [255, 255, 255, 255], false, 
  * @template {string} [L = never]
  */
 export default class DefaultConfig {
-
     /**
      * - This class handles all the data required by the
      * - whole [Amaterasu]'s [Config] system
@@ -278,17 +277,25 @@ export default class DefaultConfig {
             category: it.category,
             settings: it.settings.map(it2 => {
                 // Perfection.
-                if (it2.type === ConfigTypes.MULTICHECKBOX) return { type: it2.type, name: it2.name, options: it2.options.map(opts => { return { name: opts.configName, value: opts.value } }) }
+                if (it2.type === ConfigTypes.MULTICHECKBOX) {
+                    return {
+                        type: it2.type,
+                        name: it2.name,
+                        options: it2.options.map(opts => {
+                            return { name: opts.configName, value: opts.value }
+                        }),
+                    }
+                }
 
                 return { type: it2.type, name: it2.name, value: it2.value }
-            })
+            }),
         }))
 
         FileLib.write(
             this.moduleName,
             this.filePath,
             JSON.stringify(data, null, 4),
-            true
+            true,
         )
     }
 
@@ -308,7 +315,7 @@ export default class DefaultConfig {
         onClick,
         shouldShow,
         subcategory = null,
-        tags = []
+        tags = [],
     }) {
         this._makeObj(category, configName, {
             type: ConfigTypes.BUTTON,
@@ -319,7 +326,7 @@ export default class DefaultConfig {
             onClick,
             shouldShow,
             subcategory,
-            tags
+            tags,
         })
         return this
     }
@@ -340,7 +347,7 @@ export default class DefaultConfig {
         shouldShow,
         subcategory = null,
         tags = [],
-        registerListener
+        registerListener,
     }) {
         this._makeObj(category, configName, {
             type: ConfigTypes.TOGGLE,
@@ -351,7 +358,7 @@ export default class DefaultConfig {
             shouldShow,
             subcategory,
             tags,
-            registerListener
+            registerListener,
         })
         return this
     }
@@ -372,7 +379,7 @@ export default class DefaultConfig {
         shouldShow,
         subcategory = null,
         tags = [],
-        registerListener
+        registerListener,
     }) {
         this._makeObj(category, configName, {
             type: ConfigTypes.SWITCH,
@@ -383,7 +390,7 @@ export default class DefaultConfig {
             shouldShow,
             subcategory,
             tags,
-            registerListener
+            registerListener,
         })
         return this
     }
@@ -405,7 +412,7 @@ export default class DefaultConfig {
         shouldShow,
         subcategory = null,
         tags = [],
-        registerListener
+        registerListener,
     }) {
         this._makeObj(category, configName, {
             type: ConfigTypes.TEXTINPUT,
@@ -417,7 +424,7 @@ export default class DefaultConfig {
             shouldShow,
             subcategory,
             tags,
-            registerListener
+            registerListener,
         })
         return this
     }
@@ -440,7 +447,7 @@ export default class DefaultConfig {
         shouldShow,
         subcategory = null,
         tags = [],
-        registerListener
+        registerListener,
     }) {
         this._makeObj(category, configName, {
             type: ConfigTypes.SLIDER,
@@ -452,7 +459,7 @@ export default class DefaultConfig {
             shouldShow,
             subcategory,
             tags,
-            registerListener
+            registerListener,
         })
         return this
     }
@@ -487,7 +494,7 @@ export default class DefaultConfig {
             shouldShow,
             subcategory,
             tags,
-            registerListener
+            registerListener,
         })
         return this
     }
@@ -508,7 +515,7 @@ export default class DefaultConfig {
         shouldShow,
         subcategory = null,
         tags = [],
-        registerListener
+        registerListener,
     }) {
         this._makeObj(category, configName, {
             type: ConfigTypes.COLORPICKER,
@@ -520,7 +527,7 @@ export default class DefaultConfig {
             shouldShow,
             subcategory,
             tags,
-            registerListener
+            registerListener,
         })
         return this
     }
@@ -543,7 +550,7 @@ export default class DefaultConfig {
         shouldShow,
         subcategory = null,
         tags = [],
-        registerListener
+        registerListener,
     }) {
         this._makeObj(category, configName, {
             type: ConfigTypes.DROPDOWN,
@@ -555,7 +562,7 @@ export default class DefaultConfig {
             shouldShow,
             subcategory,
             tags,
-            registerListener
+            registerListener,
         })
         return this
     }
@@ -576,7 +583,7 @@ export default class DefaultConfig {
         placeHolder = "Click",
         shouldShow,
         subcategory = null,
-        tags = []
+        tags = [],
     }) {
         this._makeObj(category, configName, {
             type: ConfigTypes.MULTICHECKBOX,
@@ -587,7 +594,7 @@ export default class DefaultConfig {
             shouldShow,
             placeHolder,
             subcategory,
-            tags
+            tags,
         })
         return this
     }
@@ -608,7 +615,7 @@ export default class DefaultConfig {
         centered = false,
         shouldShow,
         subcategory = null,
-        tags = []
+        tags = [],
     }) {
         this._makeObj(category, configName, {
             type: ConfigTypes.TEXTPARAGRAPH,
@@ -618,7 +625,7 @@ export default class DefaultConfig {
             description,
             shouldShow,
             subcategory,
-            tags
+            tags,
         })
         return this
     }
@@ -639,7 +646,7 @@ export default class DefaultConfig {
         shouldShow,
         subcategory = null,
         tags = [],
-        registerListener
+        registerListener,
     }) {
         this._makeObj(category, configName, {
             type: ConfigTypes.KEYBIND,
@@ -650,8 +657,9 @@ export default class DefaultConfig {
             shouldShow,
             subcategory,
             tags,
-            registerListener
+            registerListener,
         })
         return this
     }
 }
+
