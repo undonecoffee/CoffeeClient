@@ -1,68 +1,23 @@
 [
     {
-        "category": "Movement Time",
-        "settings": [
-            {
-                "type": 9,
-                "name": "textParagraph"
-            }
-        ]
-    },
-    {
-        "category": "Pos Alerts",
-        "settings": [
-            {
-                "type": 9,
-                "name": "textParagraph"
-            }
-        ]
-    },
-    {
-        "category": "Section Times",
-        "settings": [
-            {
-                "type": 1,
-                "name": "time",
-                "value": 1.5
-            }
-        ]
-    },
-    {
         "category": "Term Info",
         "settings": [
             {
                 "type": 6,
-                "name": "simple",
-                "value": false
-            }
-        ]
-    },
-    {
-        "category": "Term Times",
-        "settings": [
-            {
-                "type": 9,
-                "name": "textParagraph"
+                "name": "simpleToggle",
+                "value": true
             },
             {
                 "type": 8,
-                "name": "termTimes",
+                "name": "simple",
                 "options": [
                     {
-                        "name": "firstClick",
+                        "name": "gate",
                         "value": true
                     },
                     {
-                        "name": "averageClick",
+                        "name": "total",
                         "value": true
-                    },
-                    {
-                        "name": "bestClick",
-                        "value": true
-                    },
-                    {
-                        "name": "numberOfClicks",
-                        "value": false
                     }
                 ]
             }

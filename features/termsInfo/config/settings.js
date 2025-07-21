@@ -3,6 +3,13 @@ import Settings from "../../../guttedAmaterasu/amaterasu/Settings"
 import DefaultConfig from "../../../guttedAmaterasu/amaterasu/DefaultConfig"
 
 const defaultConf = new DefaultConfig("CoffeeClient/features/termsInfo/config", "settingsData.json")
+    .addSwitch({
+        category: "Term Info",
+        configName: "simpleToggle",
+        title: "Simple",
+        description: "Shows a simple display",
+        subcategory: "Simple",
+    })
 
 const make = {
     movementTimer: () => {
@@ -37,12 +44,28 @@ const make = {
         })
     },
     termInfo: () => {
-        defaultConf.addSwitch({
+        defaultConf.addMultiCheckbox({
             category: "Term Info",
+            subcategory: "Simple",
             configName: "simple",
-            title: "Simple",
-            description: "Shows a simple display",
-            subcategory: " ",
+            title: "Simple Display Options",
+            description: "Gives options on how the simple display will look",
+            placeHolder: "Click", // This is the text that will be display on the dropdown component
+            shouldShow(data) {
+                return data.simpleToggle
+            },
+            options: [
+                {
+                    title: "Show Gate",
+                    configName: "gate",
+                    value: false,
+                },
+                {
+                    title: "show total",
+                    configName: "total",
+                    value: false,
+                },
+            ],
         })
     },
     termTimes: () => {
@@ -95,4 +118,4 @@ if (modules.termsInfo.termTimes.toggled) make.termTimes()
 
 const config = new Settings("   ", defaultConf)
 
-export default config.settings
+export default () => config.settings

@@ -136,5 +136,5 @@ const splits = {
     },
 }
 
-// let title = `${splits.open.key}`
+let title = `${splits.open.key}`
 // register("renderOverlay", () => new Text(title, 600, 50).setShadow(true).draw())

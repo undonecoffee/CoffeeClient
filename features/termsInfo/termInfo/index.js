@@ -1,24 +1,17 @@
-// import settings from "../config/index"
-// import gui from "../../../globalUtils/guiUtils"
-// import file from "./utils"
-//
-// const termInfoGui = new gui(
-//     file,
-//     file.termInfoGui,
-//     settings,
-//     "termInfoGui",
-//     `&6Terms &c2&7/&c5
-// &6Levers &e1&7/&e2
-// &6Device &cx
-// &6Gate &a✔`,
-//     false,
-//     true,
-// )
+import settings from "../config/settings"
+
+let title = ""
+register("step", () => {
+    title = settings().simpleToggle
+}).setFps(10)
+
+register("renderOverlay", () => new Text(title, 400, 230).setShadow(true).draw())
+
 //
 // const base = {
 //     terms: 0,
 //     levers: 0,
-//     devs: { first: false, second: false, third: false, fourth: false },
+//     devs: [false, false, false, false],
 //     gate: false,
 //     waiting: false,
 //     section: 0,
@@ -37,51 +30,39 @@
 //     t.section++
 //     t.terms = 0
 //     t.levers = 0
+//     t.total = 0
 //     t.gate = false
 //     t.waiting = false
-//
-//     if (settings.simpleToggle) {
-//         t.display.terms = ` `
-//         t.display.levers = ` `
-//         t.display.gate = ` `
-//         t.display.devs = ` `
-//         t.display.sectionTerms = t.section == 2 ? `&c0&7/&c8` : `&c0&7/&c7`
-//         return
-//     }
-//
-//     if (t.section == 2) t.display.sectionTerms = 5
-//     else t.display.sectionTerms = 4
 //
 //     t.display.terms = `&6Terms &c0&7/&c`
 //     t.display.levers = `&6Levers &c0&7/&c2`
 //     t.display.gate = t.section == 4 ? ` ` : `&6Gate &cx`
-//     const sectionConditions = {
-//         2: Data.i2,
-//         3: Data.i3,
-//         4: t.devs.fourth,
-//     }
+//     t.display.sectionTerms = t.section == 2 ? 5 : 4
 //
-//     t.display.devs = sectionConditions[t.section] ? `&6Device &a✔` : `&6Device &cx`
+//     t.display.devs = t.devs[t.section] ? `&6Device &a✔` : `&6Device &cx`
 // }
 //
-// const toggle1 = register("step", () =>
-//     termInfoGui.text(
-//         `${t.display.terms}${t.display.sectionTerms}
-// ${t.display.levers}
-// ${t.display.devs}
-// ${t.display.gate}`,
-//     )).setFps(10).unregister()
-//
-// const toggle3 = register("chat", (name, action, object, completed, total, event) => {
-//     if (Data.simple) { // using sectionTerms because its the only one im not setting to empty
-//         let color = completed <= 3 ? `&c` : completed <= 5 ? `&e` : completed <= 8 ? `&a` : ` `
-//         t.display.sectionTerms = `${color}${completed}&7/&a${total}`
-//         if (completed == total) {
-//             if (!t.gate) return t.waiting = true
-//             newSection()
-//         }
-//         return
+// const updateGui = register("step", () => {
+//     if (settings().simpleToggle) {
+//         //
+//         guis.termInfo.name = `${t.display.terms}`
+//     } else {
+//         guis.termInfo.name = `${t.display.terms}${t.display.sectionTerms}\n${t.display.levers}\n${t.display.devs}\n${t.display.gate}`
 //     }
+// }).setFps(10).unregister()
+//
+// const devCoords = [[100, 200], [100, 200], [100, 200], [100, 200]]
+// const checkDevs = register("step", () => {
+//     const armorStands = World.getAllEntities().filter(e => e.name.removeFormatting() === "Device Complete").map(e => [e.getX(), e.getZ()])
+//     devCoords.forEach(([x1, z1], i) => {
+//         if (t.devs[i]) return
+//         armorStands.forEach(([x2, z2]) => {
+//             if (x1 == x2 && z1 == z2) return t.devs[i] = true
+//         })
+//     })
+// }).setFps(3).unregister()
+//
+// const chatUpdate = register("chat", (name, action, object, completed, total, event) => {
 //     switch (object) {
 //         case "terminal":
 //             t.terms++
@@ -115,18 +96,18 @@
 //         if (!t.gate) return t.waiting = true
 //         newSection()
 //     }
-// }).setCriteria(/(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/).unregister()
+// }).setCriteria(/(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/)
 //
-// const toggle4 = register("chat", () => {
+// register("chat", () => {
 //     if (t.waiting) return newSection()
 //     t.gate = true
-//     if (!Data.simple) t.display.gate = `&6Gate &a✔`
-// }).setCriteria("The gate has been destroyed!").unregister()
+//     t.display.gate = `&6Gate &a✔`
+// }).setCriteria("The gate has been destroyed!")
 //
 // let startTime
 //
-// const toggleMain = register("chat", () => {
-//     if (!Data.simple) Object.assign(t, JSON.parse(JSON.stringify(base)))
+// register("chat", () => {
+//     if (!settings.simple) Object.assign(t, JSON.parse(JSON.stringify(base)))
 //
 //     if (settings.assumeI2) t.devs.second = true
 //     if (settings.assumeI3) t.devs.third = true
@@ -135,27 +116,7 @@
 //     newSection()
 //
 //     startTime = Date.now()
-// }).setCriteria("[BOSS] Goldor: Who dares trespass into my domain?").unregister()
+// }).setCriteria("[BOSS] Goldor: Who dares trespass into my domain?")
 //
-// const toggle2 = register("chat", () => toggleTriggers(false)).setCriteria("The Core entrance is opening!").unregister()
-// const toggle5 = register("worldload", () => {
-//     t.devs.second = false
-//     toggleTriggers(false)
-// })
-//
-// function toggleTriggers(bool) {
-//     termInfoGui[bool ? "on" : "off"]()
-//     const triggers = [toggle1, toggle2, toggle3, toggle4, toggle5]
-//     triggers.forEach(trigger => bool ? trigger.register() : trigger.unregister())
-// }
-//
-// function checkSettings(setting) {
-//     if (!setting) termInfoGui.off()
-//     toggleMain[setting ? "register" : "unregister"]()
-// }
-// checkSettings(settings.sectionTimesToggle)
-//
-// register("guiClosed", gui => {
-//     if (!(gui instanceof Java.type("gg.essential.vigilance.gui.SettingsGui"))) return
-//     checkSettings(settings.termInfoToggle)
-// })
+// register("chat", () => toggleTriggers(false)).setCriteria("The Core entrance is opening!")
+// // register("worldload", () => toggleTriggers(false))
