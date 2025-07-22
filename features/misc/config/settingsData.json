@@ -1,1 +1,72 @@
-[]
+[
+    {
+        "category": "Auto Bless",
+        "settings": [
+            {
+                "type": 6,
+                "name": "sendOn_leave",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "sendOn_kick",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "echo",
+                "value": false
+            }
+        ]
+    },
+    {
+        "category": "Auto Requeue",
+        "settings": [
+            {
+                "type": 1,
+                "name": "requeue_time",
+                "value": -2500
+            }
+        ]
+    },
+    {
+        "category": "Mask Timer",
+        "settings": [
+            {
+                "type": 6,
+                "name": "onlyP3",
+                "value": false
+            }
+        ]
+    },
+    {
+        "category": "Relic Utils",
+        "settings": [
+            {
+                "type": 6,
+                "name": "spawnTimer",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "matchColors",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "sendInChat",
+                "value": false
+            }
+        ]
+    },
+    {
+        "category": "Sheep Hider",
+        "settings": [
+            {
+                "type": 1,
+                "name": "hideDistance",
+                "value": 3
+            }
+        ]
+    }
+]

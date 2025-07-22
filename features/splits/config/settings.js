@@ -1,4 +1,4 @@
-import { modules } from "../../../index.js"
+import { modules } from "../../../index"
 import Settings from "../../../guttedAmaterasu/amaterasu/Settings"
 import DefaultConfig from "../../../guttedAmaterasu/amaterasu/DefaultConfig"
 
@@ -78,6 +78,13 @@ const make = {
             description: "Shows room names instead of room number",
             subcategory: "Open",
         })
+        defaultConf.addSwitch({
+            category: "Sub Splits",
+            configName: "open_compact",
+            title: "Compact splits",
+            description: "shows each rooms splits on one line",
+            subcategory: "Open",
+        })
         defaultConf.addDropDown({
             category: "Sub Splits",
             configName: "open",
@@ -141,6 +148,13 @@ const make = {
                 "all",
             ],
         })
+        defaultConf.addSwitch({
+            category: "Sub Splits",
+            configName: "terms_compact",
+            title: "Compact Splits",
+            description: "shows each sections splits on one line",
+            subcategory: "Terms",
+        })
         defaultConf.addDropDown({
             category: "Sub Splits",
             configName: "terms",
@@ -151,7 +165,7 @@ const make = {
                 "none",
                 "section",
                 "each term",
-                "all movements",
+                "all movement",
             ],
         })
         defaultConf.addDropDown({

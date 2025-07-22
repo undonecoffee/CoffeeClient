@@ -1,4 +1,4 @@
-import { modules } from "../../../index.js"
+import { modules } from "../../../index"
 import Settings from "../../../guttedAmaterasu/amaterasu/Settings"
 import DefaultConfig from "../../../guttedAmaterasu/amaterasu/DefaultConfig"
 

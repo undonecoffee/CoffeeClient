@@ -1,12 +1,5 @@
 import settings from "../config/settings"
 
-let title = ""
-register("step", () => {
-    title = settings().simpleToggle
-}).setFps(10)
-
-register("renderOverlay", () => new Text(title, 400, 230).setShadow(true).draw())
-
 //
 // const base = {
 //     terms: 0,

@@ -22,5 +22,64 @@
                 ]
             }
         ]
+    },
+    {
+        "category": "Movement Time",
+        "settings": [
+            {
+                "type": 9,
+                "name": "textParagraph"
+            }
+        ]
+    },
+    {
+        "category": "Pos Alerts",
+        "settings": [
+            {
+                "type": 9,
+                "name": "textParagraph"
+            }
+        ]
+    },
+    {
+        "category": "Section Times",
+        "settings": [
+            {
+                "type": 1,
+                "name": "time",
+                "value": 1.5
+            }
+        ]
+    },
+    {
+        "category": "Term Times",
+        "settings": [
+            {
+                "type": 9,
+                "name": "textParagraph"
+            },
+            {
+                "type": 8,
+                "name": "termTimes",
+                "options": [
+                    {
+                        "name": "firstClick",
+                        "value": true
+                    },
+                    {
+                        "name": "averageClick",
+                        "value": true
+                    },
+                    {
+                        "name": "bestClick",
+                        "value": true
+                    },
+                    {
+                        "name": "numberOfClicks",
+                        "value": false
+                    }
+                ]
+            }
+        ]
     }
 ]

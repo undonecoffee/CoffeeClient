@@ -1,4 +1,4 @@
-import { modules, save } from "../index.js"
+import { modules, save } from "../index"
 
 //
 const colors = {

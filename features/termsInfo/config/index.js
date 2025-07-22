@@ -1,4 +1,4 @@
-import settings from "./settings.js"
-import "./gui.js"
+import settings from "./settings"
+import "./gui"
 
 register("command", (...args) => settings().getConfig().openGui()).setName("cctermsinfo")

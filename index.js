@@ -1,4 +1,4 @@
-import { formattedModules } from "./importUtils.js"
+import { formattedModules } from "./importUtils"
 
 let realModules = { categories: [] }
 
