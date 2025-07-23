@@ -1,8 +1,5 @@
-import settings from "../config/settings"
-import "./command"
-
-register("step", () => {
-}).setFps(40)
+// import settings from "../config/settings"
+// import "./command"
 
 // BLOOD RUSH
 

@@ -13,11 +13,11 @@
                 "options": [
                     {
                         "name": "gate",
-                        "value": true
+                        "value": false
                     },
                     {
                         "name": "total",
-                        "value": true
+                        "value": false
                     }
                 ]
             }

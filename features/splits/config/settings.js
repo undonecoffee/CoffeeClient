@@ -66,8 +66,8 @@ const make = {
         defaultConf.addTextParagraph({
             category: "Sub Splits",
             configName: "textParagraph",
-            title: " ",
-            description: "&f/subsplits to see examples of what each split looks like",
+            title: "&f/subsplits to see examples of what each split looks like",
+            description: "&4ONLY COMPACT WORKS RIGHT NOW PLEASE KEEP IT ON\n&4not finished so dont expect too much",
             centered: true,
             subcategory: " ",
         })
@@ -81,8 +81,8 @@ const make = {
         defaultConf.addSwitch({
             category: "Sub Splits",
             configName: "open_compact",
-            title: "Compact splits",
-            description: "shows each rooms splits on one line",
+            title: "Compact Splits",
+            description: "shows each rooms splits on one line. Removes ticks and names",
             subcategory: "Open",
         })
         defaultConf.addDropDown({
@@ -97,6 +97,13 @@ const make = {
                 "by key",
                 "all",
             ],
+        })
+        defaultConf.addSwitch({
+            category: "Sub Splits",
+            configName: "blood_compact",
+            title: "Compact Splits",
+            description: "shows each kills splits on one line. Removes ticks and names",
+            subcategory: "Blood",
         })
         defaultConf.addDropDown({
             category: "Sub Splits",
@@ -122,6 +129,13 @@ const make = {
                 "show",
             ],
         })
+        defaultConf.addSwitch({
+            category: "Sub Splits",
+            configName: "maxor_compact",
+            title: "Compact Splits",
+            description: "shows each split on one line. Removes ticks and names",
+            subcategory: "Maxor",
+        })
         defaultConf.addDropDown({
             category: "Sub Splits",
             configName: "maxor",
@@ -134,6 +148,13 @@ const make = {
                 "crystals agro",
                 "all",
             ],
+        })
+        defaultConf.addSwitch({
+            category: "Sub Splits",
+            configName: "storm_compact",
+            title: "Compact Splits",
+            description: "shows each split on one line. Removes ticks and names",
+            subcategory: "Storm",
         })
         defaultConf.addDropDown({
             category: "Sub Splits",
@@ -168,6 +189,13 @@ const make = {
                 "all movement",
             ],
         })
+        defaultConf.addSwitch({
+            category: "Sub Splits",
+            configName: "goldor_compact",
+            title: "Compact Splits",
+            description: "shows each sections splits on one line",
+            subcategory: "Goldor",
+        })
         defaultConf.addDropDown({
             category: "Sub Splits",
             configName: "goldor",
@@ -191,6 +219,13 @@ const make = {
                 "none",
             ],
         })
+        defaultConf.addSwitch({
+            category: "Sub Splits",
+            configName: "relics_compact",
+            title: "Compact Splits",
+            description: "shows each sections splits on one line",
+            subcategory: "P5 Relics",
+        })
         defaultConf.addDropDown({
             category: "Sub Splits",
             configName: "p5_relics",
@@ -204,6 +239,13 @@ const make = {
                 "all",
             ],
         })
+        defaultConf.addSwitch({
+            category: "Sub Splits",
+            configName: "dragons_compact",
+            title: "Compact Splits",
+            description: "shows each sections splits on one line",
+            subcategory: "P5 Dragons",
+        })
         defaultConf.addDropDown({
             category: "Sub Splits",
             configName: "p5_dragons",
@@ -212,7 +254,6 @@ const make = {
             subcategory: "P5 Dragons",
             options: [
                 "none",
-                "total",
                 "each",
                 "all",
             ],

@@ -49,7 +49,7 @@ export const guiHelper = {
         })
     },
     change: (name, type, value) => {
-        guiData[name][type] = type == "x" ? rsw(value) : type == "y" ? rsh(value) : v => v
+        guiData[name][type] = type == "x" ? rsw(value) : type == "y" ? rsh(value) : value
         guis[name][type] = value
     },
 }

@@ -1,16 +1,16 @@
 {
     "relicUtils": {
         "name": "Relic Utils",
-        "x": 29.94792,
-        "y": 58.32545,
+        "x": 50,
+        "y": 50,
         "width": 5.8,
         "height": 2.1,
         "scale": 1
     },
     "maskTimer": {
         "name": "Spirit &b>&r 20.3s\n&6Phoenix &b>&a Ready\n&cBonzo &b>&c 50.2s",
-        "x": 44.20572,
-        "y": 53.00749,
+        "x": 35.57292,
+        "y": 38.95932,
         "width": 8.9,
         "height": 6,
         "scale": 1
