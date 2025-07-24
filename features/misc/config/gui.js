@@ -6,6 +6,7 @@ export const guiData = JSON.parse(FileLib.read(path, "guiData.json") || "{}")
 
 let screenWidth = Renderer.screen.getWidth()
 let screenHeight = Renderer.screen.getHeight()
+register("worldLoad", () => [screenWidth, screenHeight] = [Renderer.screen.getWidth(), Renderer.screen.getHeight()])
 
 const sw = w => parseFloat(((w / 100) * screenWidth).toFixed(5))
 const rsw = w => parseFloat(((w / screenWidth) * 100).toFixed(5))

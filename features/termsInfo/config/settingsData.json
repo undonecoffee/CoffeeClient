@@ -1,29 +1,5 @@
 [
     {
-        "category": "Term Info",
-        "settings": [
-            {
-                "type": 6,
-                "name": "simpleToggle",
-                "value": true
-            },
-            {
-                "type": 8,
-                "name": "simple",
-                "options": [
-                    {
-                        "name": "gate",
-                        "value": false
-                    },
-                    {
-                        "name": "total",
-                        "value": false
-                    }
-                ]
-            }
-        ]
-    },
-    {
         "category": "Movement Time",
         "settings": [
             {
@@ -48,6 +24,16 @@
                 "type": 1,
                 "name": "time",
                 "value": 1.5
+            }
+        ]
+    },
+    {
+        "category": "Term Info",
+        "settings": [
+            {
+                "type": 6,
+                "name": "simpleToggle",
+                "value": false
             }
         ]
     },

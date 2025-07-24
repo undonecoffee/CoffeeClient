@@ -1,2 +1,1 @@
-import settings from "../config/settings.js"
-
+import settings from "../config/settings"

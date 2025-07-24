@@ -1,6 +1,28 @@
 import settings from "../config/settings"
 import { guis } from "../config/gui"
 
+register("command", (object, completed, total) => {
+    let totalColor = completed <= 3 ? "c" : completed <= 6 ? "e" : total == 8 && completed == 7 ? "e" : "a"
+    t.display.total = `&${totalColor}${completed}&7/&${totalColor}${total}`
+    let showObject = ""
+    if (object == "s" || object == "start") {
+        newSection()
+        toggleTriggers(true)
+        return
+    } else if (object == "n") return newSection()
+    else if (object == "t" || object == "term") showObject = "terminal"
+    else if (object == "l") showObject = "lever"
+    else if (object == "g") showObject = "gate"
+    else if (object == "d" || object == "dev") showObject = "device"
+    else showObject = object
+    helper[showObject]()
+}).setName("sim")
+
+setTimeout(() => {
+    ChatLib.command("sim s", true)
+    ChatLib.command("sim t", true)
+}, 500)
+
 const base = {
     section: 0,
     terms: 0,
@@ -27,8 +49,12 @@ function newSection() {
 }
 
 const updateGui = register("step", () => {
-    if (settings.simpleToggle) guis.termInfo.name = t.display.total
-    else guis.termInfo.name = `${t.display.terms}${t.section == 2 ? "5" : "4"}\n${t.display.levers}\n${t.display.devs}\n${t.display.gate}`
+    if (settings.simpleToggle) {
+        //
+        guis.termInfo.name = t.display.total
+    } else {
+        guis.termInfo.name = `${t.display.terms}${t.section == 2 ? "5" : "4"}\n${t.display.levers}\n${t.display.devs}\n${t.display.gate}`
+    }
 }).setFps(10).unregister()
 
 // const devCoords = [[100, 200], [100, 200], [100, 200], [100, 200]]
@@ -49,16 +75,37 @@ const chatUpdate = register("chat", (name, action, object, completed, total, eve
     t.display.total = `&${totalColor}${completed}&7/&${totalColor}${total}`
 
     if (object == "terminal") {
+        helper.term()
+        //
+    } else if (object == "lever") {
+        helper.lever()
+        //
+    } else if (object == "device") {
+        helper.dev()
+        //
+    }
+}).setCriteria(/^(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/).unregister()
+
+const helper = {
+    terminal: () => {
         t.terms++
         const color = t.terms == 1 ? "c" : t.terms < 4 ? "e" : t.terms == 4 ? (t.section == 2 ? "e" : "a") : "a"
         t.display.terms = `&6Terms &${color}${t.terms}&7/&${color}`
-    } else if (object == "lever") {
+    },
+    lever: () => {
         t.levers++
         t.display.levers = t.levers == 1 ? "&6Levers &e1&7/&e2" : "&6Levers &a2&7/&a2"
-    } else if (object == "device") {
-        console.log("dev?")
-    }
-}).setCriteria(/^(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/).unregister()
+    },
+    device: () => {
+        //
+        console.log("dev")
+    },
+    gate: () => {
+        if (t.waiting) return newSection()
+        t.gate = true
+        t.display.gate = `&6Gate &a✔`
+    },
+}
 
 const checkGate = register("chat", () => {
     if (t.waiting) return newSection()
