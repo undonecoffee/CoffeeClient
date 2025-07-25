@@ -2,7 +2,7 @@
 
 const path = "CoffeeClient/features/termsInfo/config"
 
-export const guiData = JSON.parse(FileLib.read(path, "guiData.json") || "{}")
+const guiData = JSON.parse(FileLib.read(path, "guiData.json") || "{}")
 
 let screenWidth = Renderer.screen.getWidth()
 let screenHeight = Renderer.screen.getHeight()
@@ -41,28 +41,23 @@ const defaults = {
         y: 40,
         width: 8.9,
         height: 6,
-        scale: 3,
+        scale: 2,
     },
     termInfo: {
-        name: "&6TermInfo",
-        x: 40,
-        y: 40,
-        width: 8.9,
-        height: 6,
-        scale: 3,
-    },
-    termTimes: {
-        name: "&6TermInfo",
-        x: 40,
-        y: 40,
-        width: 8.9,
-        height: 6,
-        scale: 3,
+        name: `&6Terms &c2&7/&c5
+&6Levers &e1&7/&e2
+&6Device &cx
+&6Gate &a✔`,
+        x: 22,
+        y: 20,
+        width: 6,
+        height: 7.7,
+        scale: 2,
     },
 }
 
 let saved = {}
-export const guiHelper = {
+const guiHelper = {
     save: () => FileLib.write(path, "guiData.json", JSON.stringify(guiData, null, 4)),
     setEditing: editing => {
         Object.keys(guis).forEach(key => {
@@ -73,7 +68,7 @@ export const guiHelper = {
         })
     },
     change: (name, type, value) => {
-        guiData[name][type] = type == "x" ? rsw(value) : type == "y" ? rsh(value) : v => v
+        guiData[name][type] = type == "x" ? rsw(value) : type == "y" ? rsh(value) : value
         guis[name][type] = value
     },
 }
@@ -82,6 +77,7 @@ export const guis = {}
 
 let defaultAdded = false
 Object.keys(defaults).forEach(key => {
+    // let data = defaults[key]
     let data = guiData[key]
     if (!data || Object.keys(data).length === 0) {
         data = defaults[key]
@@ -106,7 +102,7 @@ const mouseUpdate = register("step", () => {
     Object.keys(guis).forEach(key => {
         let x1 = guis[key].x - 2
         let y1 = guis[key].y - 2
-        if (inBox(x, y, x1, y1, x1 + guis[key].width, y1 + guis[key].height)) found = hovered = key
+        if (inBox(x, y, x1, y1, x1 + guis[key].width * guis[key].scale, y1 + guis[key].height * guis[key].scale)) found = hovered = key
     })
     if (!found) hovered = null
 }).setFps(30).unregister()

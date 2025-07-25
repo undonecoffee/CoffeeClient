@@ -49,6 +49,7 @@ function newSection() {
 }
 
 const updateGui = register("step", () => {
+    if (guis.termInfo.editing) return
     if (settings.simpleToggle) {
         //
         guis.termInfo.name = t.display.total

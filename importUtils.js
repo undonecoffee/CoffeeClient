@@ -1,4 +1,4 @@
-// setTimeout(() => ChatLib.command("cctermsinfo", true), 700)
+// setTimeout(() => ChatLib.command("termsinfoeditgui", true), 700)
 register("command", () => ChatLib.command("ct load", true)).setName("c")
 register("command", () => ChatLib.command("ct load", true)).setName("ctl")
 register("command", () => ChatLib.command("ct load", true)).setName("ctd")
