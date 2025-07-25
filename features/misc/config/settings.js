@@ -138,7 +138,6 @@ if (modules.misc.autoRequeue.toggled) make.autoRequeue()
 if (modules.misc.chatCleaner.toggled) make.chatCleaner()
 if (modules.misc.maskTimer.toggled) make.maskTimer()
 if (modules.misc.mobHighlight.toggled) make.mobHighlight()
-if (modules.misc.relicUtils.toggled) make.relicUtils()
 if (modules.misc.sheepHider.toggled) make.sheepHider()
 
 const config = new Settings(" ", defaultConf)

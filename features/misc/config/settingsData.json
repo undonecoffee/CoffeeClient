@@ -5,7 +5,32 @@
             {
                 "type": 6,
                 "name": "onlyP3",
-                "value": true
+                "value": false
+            }
+        ]
+    },
+    {
+        "category": "Mob Highlight",
+        "settings": [
+            {
+                "type": 6,
+                "name": "inBoss",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "highlightWither",
+                "value": false
+            }
+        ]
+    },
+    {
+        "category": "Sheep Hider",
+        "settings": [
+            {
+                "type": 1,
+                "name": "hideDistance",
+                "value": 3
             }
         ]
     }
