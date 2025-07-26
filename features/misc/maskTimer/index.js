@@ -15,8 +15,9 @@ const bossTriggers = [
     [/^The Core entrance is opening!/, true, false],
 ].forEach(([chat, onlyP3, toggled]) => {
     register("chat", () => {
-        if (settings.onlyP3 !== onlyP3) return
-        guis.maskTimer.toggled = toggled
+        if (settings.onlyP3 == false && !onlyP3) guis.maskTimer.toggled = true
+        if (settings.onlyP3 == true && onlyP3) guis.maskTimer.toggled = true
+        if (settings.onlyP3 == true && !toggled) guis.maskTimer.toggled = false
     }).setCriteria(chat)
 })
 
