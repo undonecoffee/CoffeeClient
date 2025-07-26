@@ -16,11 +16,12 @@ import "./features/misc/sheepHider/index"
 // termsInfo:
 // import "./features/termsInfo/movementTimer/index"
 // import "./features/termsInfo/positionalAlerts/index"
-// import "./features/termsInfo/sectionTimes/index"
+import "./features/termsInfo/sectionTimes/index"
 import "./features/termsInfo/termInfo/index"
-// import "./features/termsInfo/termTimes/index"
+import "./features/termsInfo/termTimes/index"
 // splits:
 // import "./features/splits/splits/index"
 // import "./features/splits/subSplits/index"
 // import "./features/splits/padTimers/index"
 // import "./features/splits/pdSplits/index"
+
