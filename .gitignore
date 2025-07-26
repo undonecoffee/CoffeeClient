@@ -1,3 +1,6 @@
 features/misc/config/settingsData.json
+features/misc/config/guiData.json
 features/splits/config/settingsData.json
+features/splits/config/guiData.json
 features/termsInfo/config/settingsData.json
+features/termsInfo/config/guiData.json
