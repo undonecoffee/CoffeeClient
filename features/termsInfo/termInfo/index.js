@@ -32,6 +32,12 @@ const updateGui = register("step", () => {
 }).setFps(10).unregister()
 
 // const devCoords = [[100, 200], [100, 200], [100, 200], [100, 200]]
+/*
+    fjsdklfdjlo
+check armorstands
+check 2/7
+
+*/
 
 const checkDevs = register("step", () => {
     // const armorStands = World.getAllEntities().filter(e => e.name.removeFormatting() === "Device Complete").map(e => [e.getX(), e.getZ()])
@@ -56,7 +62,8 @@ const chatUpdate = register("chat", (name, action, object, completed, total, eve
         t.levers++
         t.display.levers = t.levers == 1 ? "&6Levers &e1&7/&e2" : "&6Levers &a2&7/&a2"
     } else if (object == "device") {
-        console.log("dev?")
+        if (!t.devs[t.section - 1]) t.devs[t.section - 1] = true
+        //
     }
 }).setCriteria(/^(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/).unregister()
 
