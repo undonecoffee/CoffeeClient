@@ -1,6 +1,5 @@
 // configs:
 import "./features/misc/config/index"
-// nrew tewtregister("step", () => {
 // import "./features/termsInfo/config/index"
 // import "./features/splits/config/index"
 // import "./features/autoP3/config/index"
