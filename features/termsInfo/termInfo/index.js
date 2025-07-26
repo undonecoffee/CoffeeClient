@@ -85,5 +85,5 @@ register("worldload", () => toggleTriggers(false))
 
 const toggleTriggers = toggle => {
     guis.termInfo.toggled = toggle
-    ;[chatUpdate, updateGui, checkDevs, checkGate].forEach(name => name[toggle ? "register" : "unregister"]())
+    ;[chatUpdate, updateGui, checkGate].forEach(name => name[toggle ? "register" : "unregister"]())
 }
