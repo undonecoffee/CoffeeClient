@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "category": "Term Info",
+        "settings": [
+            {
+                "type": 6,
+                "name": "simpleToggle",
+                "value": false
+            }
+        ]
+    }
+]
