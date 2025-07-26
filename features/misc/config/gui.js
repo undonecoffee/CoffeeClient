@@ -31,8 +31,8 @@ const defaults = {
     },
     maskTimer: {
         name: "Spirit &b>&r 20.3s\n&6Phoenix &b>&a Ready\n&cBonzo &b>&c 50.2s",
-        x: 40,
-        y: 40,
+        x: 51,
+        y: 90,
         width: 8.9,
         height: 6,
         scale: 1,
@@ -41,8 +41,8 @@ const defaults = {
         name: "&eCooldown:&f 13.52s",
         x: 40,
         y: 40,
-        width: 8.9,
-        height: 6,
+        width: 8.8,
+        height: 2.1,
         scale: 1,
     },
 }

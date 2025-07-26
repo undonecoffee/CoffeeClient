@@ -33,6 +33,7 @@ register("worldLoad", () => {
 let queueRun = false
 
 register("tick", () => {
+    if (guis.requeue.editing) return
     if (newRunKeybind.isPressed()) queueRun = onCooldown ? !queueRun : (ChatLib.command(command), false)
     if (!onCooldown || !queueRun) return guis.requeue.toggled = false
     guis.requeue.toggled = settings.requeueDisplay
