@@ -1,4 +1,4 @@
-// import settings from "../config/index"
+// import settings from "../config/settings"
 //
 // let ticks = 0
 //
