@@ -18,6 +18,7 @@ register("chat", (name, action, object, completed, total, event) => {
 }).setCriteria(/^(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/)
 
 register("chat", () => {
+    ChatLib.chat(`waiting = ${waiting}, blown = ${gateBlown}`)
     if (waiting) return newSection()
     gateBlown = true
 }).setCriteria(/^The gate has been destroyed!/)
