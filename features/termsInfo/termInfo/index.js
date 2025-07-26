@@ -14,6 +14,7 @@ const base = {
 const t = { ...base }
 
 function newSection() {
+    firstThingInSection = false
     t.section++
     t.terms = t.levers = 0
     t.gate = t.waiting = false
@@ -31,28 +32,23 @@ const updateGui = register("step", () => {
     else guis.termInfo.name = `${t.display.terms}${t.section == 2 ? "5" : "4"}\n${t.display.levers}\n${t.display.devs}\n${t.display.gate}`
 }).setFps(10).unregister()
 
-// const devCoords = [[100, 200], [100, 200], [100, 200], [100, 200]]
 /*
     fjsdklfdjlo
 check armorstands
+check time
 check 2/7
+check class
 
 */
 
-const checkDevs = register("step", () => {
-    // const armorStands = World.getAllEntities().filter(e => e.name.removeFormatting() === "Device Complete").map(e => [e.getX(), e.getZ()])
-    // devCoords.forEach(([x1, z1], i) => {
-    //     if (t.devs[i]) return
-    //     armorStands.forEach(([x2, z2]) => {
-    //         if (x1 == x2 && z1 == z2) return t.devs[i] = true
-    //     })
-    // })
-}).setFps(3).unregister()
-
+let firstThingInSection = false
+let lastNumberOfCompleted = 0
 const chatUpdate = register("chat", (name, action, object, completed, total, event) => {
     if (completed == total) return t.gate ? newSection() : t.waiting = true
     let totalColor = completed <= 3 ? "c" : completed <= 6 ? "e" : total == 8 && completed == 7 ? "e" : "a"
     t.display.total = `&${totalColor}${completed}&7/&${totalColor}${total}`
+    if (completed == 1) firstThingInSection == true
+    if (!firstThingInSection && (completed > 1)) t.devs[t.section - 1] = true
 
     if (object == "terminal") {
         t.terms++
@@ -62,9 +58,11 @@ const chatUpdate = register("chat", (name, action, object, completed, total, eve
         t.levers++
         t.display.levers = t.levers == 1 ? "&6Levers &e1&7/&e2" : "&6Levers &a2&7/&a2"
     } else if (object == "device") {
-        if (!t.devs[t.section - 1]) t.devs[t.section - 1] = true
-        //
+        if (lastNumberOfCompleted == completed) {
+            // logic for fake devs
+        } else { t.devs[t.section - 1] = true }
     }
+    lastNumberOfCompleted = completed
 }).setCriteria(/^(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/).unregister()
 
 const checkGate = register("chat", () => {
