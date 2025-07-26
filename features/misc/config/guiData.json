@@ -1,5 +1,6 @@
 {
     "relicUtils": {
+        //fjdsklfjdslafj
         "name": "Relic Utils",
         "x": 50,
         "y": 50,
@@ -9,16 +10,16 @@
     },
     "maskTimer": {
         "name": "Spirit &b>&r 20.3s\n&6Phoenix &b>&a Ready\n&cBonzo &b>&c 50.2s",
-        "x": 83.48959,
-        "y": 81.19347,
+        "x": 75.9375,
+        "y": 16.9158,
         "width": 8.9,
         "height": 6,
         "scale": 1
     },
     "requeue": {
-        "name": "&eCooldown: 13.52s",
-        "x": 60.36458,
-        "y": 97.40741,
+        "name": "&eCooldown:&f 13.52s",
+        "x": 61.35417,
+        "y": 9.2526,
         "width": 8.9,
         "height": 6,
         "scale": 1
