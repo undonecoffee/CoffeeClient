@@ -1,5 +1,6 @@
 import settings from "../config/settings"
 import { guis } from "../config/gui"
+ChatLib.chat("test for anfrew")
 
 let section = 0
 
