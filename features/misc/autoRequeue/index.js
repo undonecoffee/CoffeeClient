@@ -34,10 +34,10 @@ let queueRun = false
 
 register("tick", () => {
     if (newRunKeybind.isPressed()) queueRun = onCooldown ? !queueRun : (ChatLib.command(command), false)
-    if (!onCooldown) return guis.requeue.toggled = false
+    if (!onCooldown || !queueRun) return guis.requeue.toggled = false
     guis.requeue.toggled = settings.requeueDisplay
     const time = (30 - (Date.now() - startTime ?? 0) / 1000).toFixed(2)
-    guis.requeue.name = `&eCooldown: &${queueRun ? "a" : "f"}${time}`
+    guis.requeue.name = `&eCooldown: &a${time}`
     if (30 - (Date.now() - startTime ?? 0) / 1000 < 0) {
         onCooldown = false
         if (queueRun) {
