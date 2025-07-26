@@ -1,5 +1,24 @@
 [
     {
+        "category": "Auto Requeue",
+        "settings": [
+            {
+                "type": 9,
+                "name": "textParagraph"
+            },
+            {
+                "type": 6,
+                "name": "requeueDisplay",
+                "value": true
+            },
+            {
+                "type": 1,
+                "name": "requeueTime",
+                "value": -3.2
+            }
+        ]
+    },
+    {
         "category": "Mask Timer",
         "settings": [
             {

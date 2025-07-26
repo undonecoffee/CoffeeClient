@@ -1,8 +1,8 @@
 // register("renderOverlay", () => new Text("&etest!", 400, 230).setShadow(true).draw())
 
-const path = "CoffeeClient/features/misc/config"
+export const path = "CoffeeClient/features/misc"
 
-const guiData = JSON.parse(FileLib.read(path, "guiData.json") || "{}")
+const guiData = JSON.parse(FileLib.read(`${path}/config`, "guiData.json") || "{}")
 
 let screenWidth = Renderer.screen.getWidth()
 let screenHeight = Renderer.screen.getHeight()
@@ -36,11 +36,19 @@ const defaults = {
         height: 6,
         scale: 1,
     },
+    requeue: {
+        name: "&eCooldown:&f 13.52s",
+        x: 40,
+        y: 40,
+        width: 8.9,
+        height: 6,
+        scale: 1,
+    },
 }
 
 let saved = {}
 const guiHelper = {
-    save: () => FileLib.write(path, "guiData.json", JSON.stringify(guiData, null, 4)),
+    save: () => FileLib.write(`${path}/config`, "guiData.json", JSON.stringify(guiData, null, 4)),
     setEditing: editing => {
         Object.keys(guis).forEach(key => {
             if (editing) saved[key] = { name: guis[key].name, toggled: guis[key].toggled }

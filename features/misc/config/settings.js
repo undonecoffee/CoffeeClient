@@ -26,11 +26,24 @@ const make = {
         })
     },
     autoRequeue: () => {
+        defaultConf.addTextParagraph({
+            category: "Auto Requeue",
+            configName: "textParagraph",
+            title: "Change requeue keybind in the minecraft settings for it to work",
+            description: "Pressing it will queue/unqueue you into the last dungeon you entered when its off cooldown",
+            centered: true,
+        })
+        defaultConf.addSwitch({
+            category: "Auto Requeue",
+            configName: "requeueDisplay",
+            title: "Requeue Dispaly",
+            description: "Shows warp cooldown and if you have a queued requeue",
+        })
         defaultConf.addSlider({
             category: "Auto Requeue",
-            configName: "requeue_time",
+            configName: "requeueTime",
             title: "Requeue Time",
-            description: "Time before the run ends when it will attempt to requeue.  -2.5s is recommended",
+            description: "Time before the run ends when it will attempt to requeue.  -2.0s is recommended",
             options: [-3.2, 0],
             value: -2500,
         })

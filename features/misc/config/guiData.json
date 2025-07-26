@@ -14,5 +14,13 @@
         "width": 8.9,
         "height": 6,
         "scale": 1
+    },
+    "requeue": {
+        "name": "&eCooldown: 13.52s",
+        "x": 60.36458,
+        "y": 97.40741,
+        "width": 8.9,
+        "height": 6,
+        "scale": 1
     }
 }

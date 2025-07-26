@@ -8,7 +8,7 @@ import "./features/splits/config/index"
 
 // misc:
 // import "./features/misc/autoBless/index"
-// import "./features/misc/autoRequeue/index"
+import "./features/misc/autoRequeue/index"
 // import "./features/misc/chatCleaner/index"
 import "./features/misc/maskTimer/index"
 import "./features/misc/mobHighlight/index"
@@ -16,7 +16,7 @@ import "./features/misc/sheepHider/index"
 // termsInfo:
 // import "./features/termsInfo/movementTimer/index"
 // import "./features/termsInfo/positionalAlerts/index"
-import "./features/termsInfo/sectionTimes/index"
+// import "./features/termsInfo/sectionTimes/index"
 // import "./features/termsInfo/termInfo/index"
 // import "./features/termsInfo/termTimes/index"
 // splits:
