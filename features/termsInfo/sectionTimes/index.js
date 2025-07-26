@@ -6,12 +6,12 @@ let section = 0
 
 let waiting = false
 let gateBlown = false
-let sectionTime = false
+let sectionTime = Date.now()
 register("chat", (name, action, object, completed, total, event) => {
     if (completed !== total) return
     // ChatLib.chat(`(${completed}/${total})`)
-    if (!gateBlown) return waiting = true
-    newSection()
+    if (!gateBlown) waiting = true
+    else newSection()
 }).setCriteria(/^(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/)
 
 register("chat", () => {
@@ -32,6 +32,6 @@ function newSection() {
 }
 
 register("chat", () => {
-    section = 1
+    if (section == 0) section = 1
     sectionTime = Date.now()
 }).setCriteria(/^\[BOSS\] Goldor: Who dares trespass into my domain?/)
