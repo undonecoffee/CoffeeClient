@@ -1,4 +1,3 @@
-ChatLib.chat("fjdskafjdskafjdsakfjdslafjdsl")
 const formattedModules = {
     categories: {
         misc: "Misc",
