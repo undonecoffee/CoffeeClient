@@ -6,6 +6,7 @@ let section = 0
 
 let waiting = false
 let gateBlown = false
+let sectionTime = false
 register("chat", (name, action, object, completed, total, event) => {
     if (completed !== total) return
     // ChatLib.chat(`(${completed}/${total})`)
