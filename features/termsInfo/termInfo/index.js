@@ -30,6 +30,7 @@ function newSection() {
 }
 
 const updateGui = register("step", () => {
+    if (guis.termInfo.editing) return
     if (settings.simpleToggle) guis.termInfo.name = t.display.total
     else guis.termInfo.name = `${t.display.terms}${t.section == 2 ? "5" : "4"}\n${t.display.levers}\n${t.display.devs}\n${t.display.gate}`
 }).setFps(10).unregister()
