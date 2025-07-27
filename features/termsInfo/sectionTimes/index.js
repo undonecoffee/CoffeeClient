@@ -8,6 +8,7 @@ let gateBlown = false
 let sectionTime = Date.now()
 register("chat", (name, action, object, completed, total, event) => {
     if (section == 0) {
+        ChatLib.chat("termmessages started terms")
         sectionTime = Date.now()
         section = 1
     }
@@ -36,9 +37,11 @@ function newSection() {
 }
 
 register("chat", () => {
-    if (section !== 0) return
-    sectionTime = Date.now()
-    section = 1
+    if (section == 0) {
+        ChatLib.chat("goldor started terms")
+        sectionTime = Date.now()
+        section = 1
+    }
 }).setCriteria(/^\[BOSS\] Goldor: Who dares trespass into my domain?/)
 
 register("worldLoad", () => {
