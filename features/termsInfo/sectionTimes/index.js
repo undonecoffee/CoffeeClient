@@ -1,6 +1,5 @@
 import settings from "../config/settings"
 import { guis } from "../config/gui"
-ChatLib.chat("test for anfrew")
 
 let section = 0
 
@@ -12,9 +11,11 @@ register("chat", (name, action, object, completed, total, event) => {
         sectionTime = Date.now()
         section = 1
     }
-    if (completed !== total) return
-    if (!gateBlown) waiting = true
-    else newSection()
+    if (completed == total) {
+        ChatLib.chat("6>y new sectin should or gaet")
+        if (!gateBlown) waiting = true
+        else newSection()
+    }
 }).setCriteria(/^(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/)
 
 register("chat", () => {
