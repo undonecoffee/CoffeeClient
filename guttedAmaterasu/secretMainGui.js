@@ -1,6 +1,5 @@
 import { modules, save } from "../index"
 
-//
 const colors = {
     bg: 0x33000000,
     base: { base: { bg: 0xFF333333, outline: 0xFF222222 }, hovered: { bg: 0xFF222222, outline: 0xFF111111 } },
@@ -10,10 +9,6 @@ const colors = {
 
 let screenWidth = Renderer.screen.getWidth()
 let screenHeight = Renderer.screen.getHeight()
-register("worldLoad", () => {
-    screenWidth = Renderer.screen.getWidth()
-    screenHeight = Renderer.screen.getHeight()
-})
 
 const sw = w => ((w / 100) * screenWidth).toFixed(5)
 const sh = h => ((h / 100) * screenHeight).toFixed(5)
@@ -62,7 +57,6 @@ function init() {
         })
     })
 }
-init()
 
 const setColor = (draw, color) => {
     draw[0][0] = color.bg
@@ -195,6 +189,7 @@ let inGui = false
 register("command", () => {
     screenWidth = Renderer.screen.getWidth()
     screenHeight = Renderer.screen.getHeight()
+    init()
     setTimeout(() => inGui = true, 100)
     mainGui.open()
     renderMain.register()
