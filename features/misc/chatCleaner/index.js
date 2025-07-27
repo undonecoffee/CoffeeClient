@@ -31,7 +31,7 @@ const clean_joined = register("chat", (type, name, joinType, event) => {
 const clean_partyChat = register("chat", (rank, name, message, event) => {
     cancel(event)
     ChatLib.chat(`  &9> &b${name}&f: ${message}`)
-}).setCriteria(/^Party > (\[.+\])? ?(.+)?: (.*)/)
+}).setCriteria(/^Party > (\[.+\])? ?(.+)?: (.*)/).unregister()
 
 function checkSettings() {
     thingsToRemove = []
@@ -39,11 +39,11 @@ function checkSettings() {
     settings.clean_join ? clean_joined.register() : clean_joined.unregister()
     settings.clean_partyChat ? clean_partyChat.register() : clean_partyChat.unregister()
 
-    // if (settings.hideAbilityMessages) messages.abilityMessages.forEach(t => thingsToRemove.push(t))
-    //
-    // if (settings.hideRandomMessages) messages.randomMessages.forEach(t => thingsToRemove.push(t))
-    // if (settings.hideMoreRandomMessages) messages.moreRandomMessages.forEach(t => thingsToRemove.push(t))
-    //
+    if (settings.hide_ability) messages.ability.forEach(t => thingsToRemove.push(t))
+    if (settings.hide_error) messages.error.forEach(t => thingsToRemove.push(t))
+
+    if (settings.hide_boss) messages.boss.forEach(t => thingsToRemove.push(t))
+
     // if (settings.hideBossMessages) messages.bossMessages.forEach(t => thingsToRemove.push(t))
     // if (settings.hideMoreBossMessages) messages.moreBossMessages.forEach(t => thingsToRemove.push(t))
     //

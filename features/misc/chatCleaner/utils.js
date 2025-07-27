@@ -1,19 +1,21 @@
 export const messages = {
-    abilityMessages: [
+    ability: [
         /^Your pickaxe ability is on cooldown for \d+s\.$/,
         /^This ability is on cooldown for \d+s\.$/,
-        /^There are blocks in the way!$/,
         /^This item is on cooldown\.$/,
         /^This ability is on cooldown \d+$/,
-        /^Your .+ hit \d+ enem(ies|y) for .+ damage\.$/
+        /^Your .+ hit \d+ enem(ies|y) for .+ damage\.$/,
     ],
-    bossMessages: [/^\[BOSS\] /],
-    moreBossMessages: [
+    boss: [/^\[BOSS\] /],
+    error: [
+        /^There are blocks in the way!$/,
+    ],
+    moreBoss: [
         /^⚠ Storm is enraged! ⚠$/,
         /^⚠ Maxor is enraged! ⚠$/,
         /^⚠ Maxor is enraged! ⚠$/,
     ],
-    randomMessages: [
+    random: [
         // idk what this is from
         /^\s*$/,
 
@@ -51,7 +53,7 @@ export const messages = {
         /^Your Auto Recombobulator recombobulated/,
         /^Queuing\.\.\. \(Attempt 1\/3\)$/,
     ],
-    moreRandomMessages: [
+    moreRandom: [
         /^-----------------------------$/,
         /^You sold .+ x\d+ for .+ Coin(s)?!$/,
         /^You have teleported to \w+!$/,
@@ -68,7 +70,7 @@ export const messages = {
         /^Inventory full\? Don't forget to check out your Storage inside the SkyBlock Menu!$/,
         /^AUTO-PICKUP! Drop sent to your inventory! \[I GET IT\]$/,
     ],
-    dungeonMessages: [
+    dungeon: [
         /^\[NPC\] Mort: .+/,
 
         // damage / healing things
@@ -122,27 +124,27 @@ export const messages = {
         /^The Frozen Adventurer used Ice Spray on you!$/,
         /^This Terminal doesn't seem to be responsive at the moment\.$/,
     ],
-    moreDungeonMessages: [
-        // key / door 
+    moreDungeon: [
+        // key / door
         /^(\[(MVP|VIP)(\+)?(\+)?\] )?\w+ has obtained (Blood|Wither) Key!$/,
         /^RIGHT CLICK on (a WITHER door|the BLOOD DOOR) to open it. This key can only be used to open 1 door!$/,
         /^\w+ opened a WITHER door!$/,
         /^The BLOOD DOOR has been opened!$/,
         /^A shiver runs down your spine\.\.\.$/,
 
-        // class messages 
+        // class messages
         /^\w+ Milestone .: You have .+ so far! .+s$/,
         /^Your \w+ stats are doubled because you are the only player using this class!$/,
         /^\[(Tank|Berserk|Mage|Archer|Healer)\] .+ -> .+/,
         /^(Castle of Stone|Thunder Storm|Ragnarok) is ready to use! Press DROP to activate it!$/,
-        
+
         // other random things
         /^Someone else is currently reviving that player!$/,
-        /^\w+ is now ready!$/, 
-        /^RARE DROP! .+ \(\+\d+% ✯ Magic Find\)$/, 
-        /^PUZZLE SOLVED! \w+ .+! Good job!$/, 
+        /^\w+ is now ready!$/,
+        /^RARE DROP! .+ \(\+\d+% ✯ Magic Find\)$/,
+        /^PUZZLE SOLVED! \w+ .+! Good job!$/,
     ],
-    evenMoreDungeonMessages: [
+    evenMoreDungeon: [
         // party chat messages
         /^Party > (\[(MVP|VIP)(\+)?(\+)?\] )?\w+: (Mimic Killed!|300 score|270 score|UwUaddons ».*)$/i,
         /^\w+ picked up an Energy Crystal!$/,
@@ -152,3 +154,4 @@ export const messages = {
         /^You have selected the .+ Dungeon Class!$/,
     ],
 }
+
