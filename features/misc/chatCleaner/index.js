@@ -29,6 +29,7 @@ function checkSettings() {
     settings.clean_join ? clean_joined.register() : clean_joined.unregister()
     settings.clean_partyChat ? clean_partyChat.register() : clean_partyChat.unregister()
 
+    if (!data) getData()
     Object.keys(data).forEach(key => settings[`hide_${key}`] && data[key].forEach(t => t[1] && thingsToRemove.push(new RegExp(t[0]))))
 
     // if (settings.hideBossMessages) messages.bossMessages.forEach(t => thingsToRemove.push(t))

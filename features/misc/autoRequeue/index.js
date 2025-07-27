@@ -53,8 +53,8 @@ register("chat", () => {
     if (dontGo) return
     setTimeout(() => {
         requeueTime = Date.now()
-        // ChatLib.command(command)
-        ChatLib.chat("trying to requeue")
+        ChatLib.command(command)
+        // ChatLib.chat("trying to requeue")
         ChatLib.chat(settings.requeueTime)
     }, 1000)
 }).setCriteria(/^\[BOSS\] Necron: All this, for nothing.../)
