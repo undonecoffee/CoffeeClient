@@ -13,13 +13,11 @@ register("chat", (name, action, object, completed, total, event) => {
 }).setCriteria(/^(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/)
 
 register("chat", () => {
-    // ChatLib.chat(`waiting = ${waiting}, blown = ${gateBlown}`)
     if (waiting) return newSection()
     gateBlown = true
 }).setCriteria(/^The gate has been destroyed!/)
 
 function newSection() {
-    sectionTime = Date.now()
     waiting = false
     gateBlown = false
     section++
@@ -27,10 +25,14 @@ function newSection() {
     if (guis.sectionTimes.editing) return
     guis.sectionTimes.toggled = true
     guis.sectionTimes.name = `&3${((Date.now() - sectionTime) / 1000).toFixed(2)}s`
+    sectionTime = Date.now()
     setTimeout(() => guis.sectionTimes.toggled = false, 1500)
 }
 
-register("chat", () => newSection()).setCriteria(/^\[BOSS\] Goldor: Who dares trespass into my domain\?/)
+register("chat", () => {
+    section = 1
+    sectionTime = Date.now()
+}).setCriteria(/^\[BOSS\] Goldor: Who dares trespass into my domain\?/)
 
 register("worldLoad", () => {
     waiting = false

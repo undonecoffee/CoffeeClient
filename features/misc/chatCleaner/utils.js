@@ -29,15 +29,15 @@ export function convertToJSON(messages) {
     fileString.push(`}`)
     return fileString.join("\n")
 }
-export const getComponets = () => {
+export const getComponets = settings => {
     return {
         default: [
-            { name: `&3Clean Join Messages`, command: `/ChatCleaner join`, hoverText: "/ChatCleaner join" },
-            { name: `&3Clean Party Chat`, command: `/ChatCleaner party`, hoverText: "/ChatCleaner party" },
-            { name: `&3Hide Ability Messages`, command: `/ChatCleaner ability`, hoverText: "/ChatCleaner ability" },
-            { name: `&3Hide Error Messages`, command: `/ChatCleaner error`, hoverText: "/ChatCleaner error" },
-            { name: `&3Hide Boss Messages`, command: `/ChatCleaner boss`, hoverText: "/ChatCleaner boss" },
-            { name: `&3Hide Blessing Messages`, command: `/ChatCleaner blessings`, hoverText: "/ChatCleaner blessings" },
+            { name: `&3Clean ${settings.clean_join ? "a" : "c"}Join Messages`, command: `/ChatCleaner join`, hoverText: "/ChatCleaner join" },
+            { name: `&3Clean ${settings.clean_partyChat ? "a" : "c"}Party Chat`, command: `/ChatCleaner party`, hoverText: "/ChatCleaner party" },
+            { name: `&3Hide ${settings.hide_ ? "a" : "c"}Ability Messages`, command: `/ChatCleaner ability`, hoverText: "/ChatCleaner ability" },
+            { name: `&3Hide ${settings.hide_ ? "a" : "c"}Error Messages`, command: `/ChatCleaner error`, hoverText: "/ChatCleaner error" },
+            { name: `&3Hide ${settings.hide_ ? "a" : "c"}Boss Messages`, command: `/ChatCleaner boss`, hoverText: "/ChatCleaner boss" },
+            { name: `&3Hide ${settings.hide_ ? "a" : "c"}Blessing Messages`, command: `/ChatCleaner blessings`, hoverText: "/ChatCleaner blessings" },
         ],
     }
 }

@@ -38,9 +38,9 @@ settings.getConfig().onCloseGui(() => checkSettings())
 register("command", type => {
     const componets = getComponets(data)
     if (!type) {
-        ChatLib.chat(`Click to toggle chats for each category`)
-        componets.forEach(({ name, command, hoverText }) => {
-            new TextComponent(`${name}`).setHover("show_text", hoverText).setClick("run_command", command).chat()
+        ChatLib.chat(`\n&7Click to toggle chats for each category`)
+        componets.default.forEach(({ name, command, hoverText }) => {
+            new TextComponent(`    ${name}`).setHover("show_text", hoverText).setClick("run_command", command).chat()
         })
     }
 }).setName("chatcleaner")
