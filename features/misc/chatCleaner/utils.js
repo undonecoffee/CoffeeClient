@@ -29,3 +29,15 @@ export function convertToJSON(messages) {
     fileString.push(`}`)
     return fileString.join("\n")
 }
+export const getComponets = () => {
+    return {
+        default: [
+            { name: `&3Clean Join Messages`, command: `/ChatCleaner join`, hoverText: "/ChatCleaner join" },
+            { name: `&3Clean Party Chat`, command: `/ChatCleaner party`, hoverText: "/ChatCleaner party" },
+            { name: `&3Hide Ability Messages`, command: `/ChatCleaner ability`, hoverText: "/ChatCleaner ability" },
+            { name: `&3Hide Error Messages`, command: `/ChatCleaner error`, hoverText: "/ChatCleaner error" },
+            { name: `&3Hide Boss Messages`, command: `/ChatCleaner boss`, hoverText: "/ChatCleaner boss" },
+            { name: `&3Hide Blessing Messages`, command: `/ChatCleaner blessings`, hoverText: "/ChatCleaner blessings" },
+        ],
+    }
+}

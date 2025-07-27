@@ -1,5 +1,5 @@
 import settings from "../config/settings"
-import { defaults, convertToJSON } from "./utils"
+import { defaults, convertToJSON, getComponets } from "./utils"
 import { path } from "../config/gui"
 
 let thingsToRemove = []
@@ -31,18 +31,18 @@ function checkSettings() {
 
     if (!data) getData()
     Object.keys(data).forEach(key => settings[`hide_${key}`] && data[key].forEach(t => t[1] && thingsToRemove.push(new RegExp(t[0]))))
-
-    // if (settings.hideBossMessages) messages.bossMessages.forEach(t => thingsToRemove.push(t))
-    // if (settings.hideMoreBossMessages) messages.moreBossMessages.forEach(t => thingsToRemove.push(t))
-    //
-    // if (settings.hideDungeonMessages) messages.dungeonMessages.forEach(t => thingsToRemove.push(t))
-    // if (settings.hideMoreDungeonsMessages) messages.moreDungeonMessages.forEach(t => thingsToRemove.push(t))
-    // if (settings.hideEvenMoreDungeonsMessages) messages.evenMoreDungeonMessages.forEach(t => thingsToRemove.push(t))
 }
 checkSettings()
 settings.getConfig().onCloseGui(() => checkSettings())
 
-register("command", () => {
+register("command", type => {
+    const componets = getComponets(data)
+    if (!type) {
+        ChatLib.chat(`Click to toggle chats for each category`)
+        componets.forEach(({ name, command, hoverText }) => {
+            new TextComponent(`${name}`).setHover("show_text", hoverText).setClick("run_command", command).chat()
+        })
+    }
 }).setName("chatcleaner")
 
 // case "":

@@ -1,5 +1,6 @@
 import settings from "../config/settings"
 import { guis } from "../config/gui"
+import "./test"
 
 const base = {
     section: 0,
@@ -16,6 +17,7 @@ const t = { ...base }
 function newSection() {
     firstThingInSection = false
     t.section++
+    ChatLib.chat(`section: ${t.section}`)
     t.terms = t.levers = 0
     t.gate = t.waiting = false
 
@@ -48,7 +50,7 @@ const chatUpdate = register("chat", (name, action, object, completed, total, eve
     let totalColor = completed <= 3 ? "c" : completed <= 6 ? "e" : total == 8 && completed == 7 ? "e" : "a"
     t.display.total = `&${totalColor}${completed}&7/&${totalColor}${total}`
     if (completed == 1) firstThingInSection == true
-    if (!firstThingInSection && (completed > 1)) t.devs[t.section - 1] = true
+    if (!firstThingInSection) t.display.devs = `&6Device &a✔`
 
     if (object == "terminal") {
         t.terms++
@@ -60,7 +62,7 @@ const chatUpdate = register("chat", (name, action, object, completed, total, eve
     } else if (object == "device") {
         if (lastNumberOfCompleted == completed) {
             // logic for fake devs
-        } else { t.devs[t.section - 1] = true }
+        } else { t.display.devs = `&6Device &a✔` }
     }
     lastNumberOfCompleted = completed
 }).setCriteria(/^(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/).unregister()
@@ -79,7 +81,7 @@ register("chat", () => {
     newSection()
 
     startTime = Date.now()
-}).setCriteria("[BOSS] Goldor: Who dares trespass into my domain?")
+}).setCriteria(/\[BOSS\] Goldor: Who dares trespass into my domain\?/)
 
 register("chat", () => toggleTriggers(false)).setCriteria("The Core entrance is opening!")
 register("worldload", () => toggleTriggers(false))
