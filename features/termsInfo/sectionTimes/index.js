@@ -8,19 +8,19 @@ let gateBlown = false
 let sectionTime = Date.now()
 register("chat", (name, action, object, completed, total, event) => {
     if (section == 0) {
-        ChatLib.chat("termmessages started terms")
+        // ChatLib.chat("termmessages started terms")
         sectionTime = Date.now()
         section = 1
     }
     if (completed == total) {
-        ChatLib.chat("6>y new sectin should or gaet")
+        // ChatLib.chat("6>y new sectin should or gaet")
         if (!gateBlown) waiting = true
         else newSection()
     }
 }).setCriteria(/^(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/)
 
 register("chat", () => {
-    ChatLib.chat(`waiting = ${waiting}, blown = ${gateBlown}`)
+    // ChatLib.chat(`waiting = ${waiting}, blown = ${gateBlown}`)
     if (waiting) return newSection()
     gateBlown = true
 }).setCriteria(/^The gate has been destroyed!/)
@@ -38,7 +38,7 @@ function newSection() {
 
 register("chat", () => {
     if (section == 0) {
-        ChatLib.chat("goldor started terms")
+        // ChatLib.chat("goldor started terms")
         sectionTime = Date.now()
         section = 1
     }

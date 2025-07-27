@@ -10,6 +10,12 @@ export const messages = {
     error: [
         /^There are blocks in the way!$/,
     ],
+    blessings: [
+        /^(\[(MVP|VIP)(\+)?(\+)?\] )?\w+ has obtained (Superboom TNT|Blessing of \w+|\w+ \w+)!$/,
+        /^DUNGEON BUFF! \w+ found a Blessing of \w+ (I|II|III|IV|V)!( \(.+\))?$/, // DUNGEON BUFF! hiimfabyy found a Blessing of Wisdom V! (09s)
+        /^DUNGEON BUFF! A Blessing of .+ (I|II|III|IV|V) was found! \(.+\)$/,
+        /^     (Also )?Granted you \+\d.+ (and|&) \+\d.+\.$/i,
+    ],
     moreBoss: [
         /^⚠ Storm is enraged! ⚠$/,
         /^⚠ Maxor is enraged! ⚠$/,
@@ -96,12 +102,6 @@ export const messages = {
         /^Used (Throwing Axe|Healing Circle)!$/,
         /^\w+('s)? fairy healed you for .+ health!$/,
         /^◕ You picked up a \w+ Orb from \w+ .+\.$/,
-
-        // blessings
-        /^(\[(MVP|VIP)(\+)?(\+)?\] )?\w+ has obtained (Superboom TNT|Blessing of \w+|\w+ \w+)!$/,
-        /^DUNGEON BUFF! \w+ found a Blessing of \w+ (I|II|III|IV|V)!( \(.+\))?$/, // DUNGEON BUFF! hiimfabyy found a Blessing of Wisdom V! (09s)
-        /^DUNGEON BUFF! A Blessing of .+ (I|II|III|IV|V) was found! \(.+\)$/,
-        /^     (Also )?Granted you \+\d.+ (and|&) \+\d.+\.$/i,
 
         // secrets
         /^ESSENCE! \w+ found x\d+ .+ Essence!$/,
