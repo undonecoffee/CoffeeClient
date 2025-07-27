@@ -28,33 +28,30 @@ const clean_joined = register("chat", (type, name, joinType, event) => {
     if (joinType == "left") ChatLib.chat(`&4 <<&${type == "Guild" ? "&2" : "&c"} ${name}`)
 }).setCriteria(/^(Friend|Guild) > (.+) (.+)\./).unregister()
 
-const clean_party = register("chat", (type, name, joinType, event) => {
+const clean_partyChat = register("chat", (rank, name, message, event) => {
     cancel(event)
-    if (joinType == "joined") ChatLib.chat(`&2 >>&${type == "Guild" ? "&2" : "&a"} ${name}`)
-    if (joinType == "left") ChatLib.chat(`&4 <<&${type == "Guild" ? "&2" : "&c"} ${name}`)
-}).setCriteria(/^(Friend|Guild) > (.+) (.+)\./).unregister()
+    ChatLib.chat(`  &9> &b${name}&f: ${message}`)
+}).setCriteria(/^Party > (\[.+\])? ?(.+)?: (.*)/)
 
 function checkSettings() {
     thingsToRemove = []
 
-    if (settings.clean_join) clean_joined.register()
-    else clean_joined.unregister()
-    if (settings.hideAbilityMessages) messages.abilityMessages.forEach(t => thingsToRemove.push(t))
+    settings.clean_join ? clean_joined.register() : clean_joined.unregister()
+    settings.clean_partyChat ? clean_partyChat.register() : clean_partyChat.unregister()
 
-    if (settings.hideRandomMessages) messages.randomMessages.forEach(t => thingsToRemove.push(t))
-    if (settings.hideMoreRandomMessages) messages.moreRandomMessages.forEach(t => thingsToRemove.push(t))
-
-    if (settings.hideBossMessages) messages.bossMessages.forEach(t => thingsToRemove.push(t))
-    if (settings.hideMoreBossMessages) messages.moreBossMessages.forEach(t => thingsToRemove.push(t))
-
-    if (settings.hideDungeonMessages) messages.dungeonMessages.forEach(t => thingsToRemove.push(t))
-    if (settings.hideMoreDungeonsMessages) messages.moreDungeonMessages.forEach(t => thingsToRemove.push(t))
-    if (settings.hideEvenMoreDungeonsMessages) messages.evenMoreDungeonMessages.forEach(t => thingsToRemove.push(t))
+    // if (settings.hideAbilityMessages) messages.abilityMessages.forEach(t => thingsToRemove.push(t))
+    //
+    // if (settings.hideRandomMessages) messages.randomMessages.forEach(t => thingsToRemove.push(t))
+    // if (settings.hideMoreRandomMessages) messages.moreRandomMessages.forEach(t => thingsToRemove.push(t))
+    //
+    // if (settings.hideBossMessages) messages.bossMessages.forEach(t => thingsToRemove.push(t))
+    // if (settings.hideMoreBossMessages) messages.moreBossMessages.forEach(t => thingsToRemove.push(t))
+    //
+    // if (settings.hideDungeonMessages) messages.dungeonMessages.forEach(t => thingsToRemove.push(t))
+    // if (settings.hideMoreDungeonsMessages) messages.moreDungeonMessages.forEach(t => thingsToRemove.push(t))
+    // if (settings.hideEvenMoreDungeonsMessages) messages.evenMoreDungeonMessages.forEach(t => thingsToRemove.push(t))
 }
 
-// checkSettings()
-// settings.onCloseGui(() => {
-//     ChatLib.chat("config gui has been closed")
-// })
+checkSettings()
 
-// register("step", () => checkSettings()).setFps(1)
+settings.getConfig().onCloseGui(() => checkSettings())
