@@ -24,8 +24,8 @@ register("chat", (message, event) => thingsToRemove.forEach(t => message.match(t
 
 const clean_joined = register("chat", (type, name, joinType, event) => {
     cancel(event)
-    if (joinType == "joined") ChatLib.chat(`&2 >>&${type == "Guild" ? "&2" : "&a"} ${name}`)
-    if (joinType == "left") ChatLib.chat(`&4 <<&${type == "Guild" ? "&2" : "&c"} ${name}`)
+    if (joinType == "joined") ChatLib.chat(`&2 >>&${type == "Guild" ? "2" : "a"} ${name}`)
+    if (joinType == "left") ChatLib.chat(`&4 <<&${type == "Guild" ? "2" : "c"} ${name}`)
 }).setCriteria(/^(Friend|Guild) > (.+) (.+)\./).unregister()
 
 const clean_partyChat = register("chat", (rank, name, message, event) => {
