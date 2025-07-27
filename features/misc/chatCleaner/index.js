@@ -9,18 +9,19 @@ let thingsToRemove = []
 // let debug = 0
 // register("command", t => debug = t).setName("ccdebug")
 
-register("chat", (message, event) => thingsToRemove.forEach(t => message.match(t) && cancel(event)))
+register("chat", (message, event) => thingsToRemove.forEach(t => message.match(t) && cancel(event))).setCriteria("${ }")
 // register("chat", (message, event) => {
-//     if (debug == 0) return thingsToRemove.forEach(t => message.match(t) && cancel(event))
-//     if (debug == 2) console.log("\n\n")
-//     thingsToRemove.forEach(t => {
-//         if (message.match(t) && t) {
-//             console.log(`removed "${message}" == "${t}`)
-//             cancel(event)
-//         }
-//         if (debug == 2) { if (!message.match(t) && t) console.log(`"${message}" !== "${t}`) }
-//     })
+//     ChatLib.chat(message)
+// if (debug == 0) return thingsToRemove.forEach(t => message.match(t) && cancel(event))
+// if (debug == 2) console.log("\n\n")
+// thingsToRemove.forEach(t => {
+//     if (message.match(t) && t) {
+//         console.log(`removed "${message}" == "${t}`)
+//         cancel(event)
+//     }
+//     if (debug == 2) { if (!message.match(t) && t) console.log(`"${message}" !== "${t}`) }
 // })
+// }).setCriteria("${ }")
 
 const clean_joined = register("chat", (type, name, joinType, event) => {
     cancel(event)
@@ -43,6 +44,7 @@ function checkSettings() {
     if (settings.hide_error) messages.error.forEach(t => thingsToRemove.push(t))
 
     if (settings.hide_boss) messages.boss.forEach(t => thingsToRemove.push(t))
+    // if (settings.hide_boss) messages.boss.forEach(t => thingsToRemove.push(t))
 
     // if (settings.hideBossMessages) messages.bossMessages.forEach(t => thingsToRemove.push(t))
     // if (settings.hideMoreBossMessages) messages.moreBossMessages.forEach(t => thingsToRemove.push(t))
