@@ -51,6 +51,7 @@ function checkSettings() {
     if (settings.hideMoreDungeonsMessages) messages.moreDungeonMessages.forEach(t => thingsToRemove.push(t))
     if (settings.hideEvenMoreDungeonsMessages) messages.evenMoreDungeonMessages.forEach(t => thingsToRemove.push(t))
 }
+
 // checkSettings()
 // settings.onCloseGui(() => {
 //     ChatLib.chat("config gui has been closed")

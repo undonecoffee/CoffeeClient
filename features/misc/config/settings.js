@@ -153,6 +153,8 @@ if (modules.misc.maskTimer.toggled) make.maskTimer()
 if (modules.misc.mobHighlight.toggled) make.mobHighlight()
 if (modules.misc.sheepHider.toggled) make.sheepHider()
 
+// export constgcc
+
 const config = new Settings(" ", defaultConf)
 
 export default config.settings

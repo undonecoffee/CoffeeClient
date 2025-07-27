@@ -10,7 +10,10 @@ const colors = {
 
 let screenWidth = Renderer.screen.getWidth()
 let screenHeight = Renderer.screen.getHeight()
-register("worldLoad", () => [screenWidth, screenHeight] = [Renderer.screen.getWidth(), Renderer.screen.getHeight()])
+register("worldLoad", () => {
+    screenWidth = Renderer.screen.getWidth()
+    screenHeight = Renderer.screen.getHeight()
+})
 
 const sw = w => ((w / 100) * screenWidth).toFixed(5)
 const sh = h => ((h / 100) * screenHeight).toFixed(5)
