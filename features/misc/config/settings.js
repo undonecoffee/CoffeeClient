@@ -49,6 +49,13 @@ const make = {
         })
     },
     chatCleaner: () => {
+        defaultConf.addTextParagraph({
+            category: "Chat Cleaner",
+            configName: "textParagraph",
+            title: "/chatcleaner to toggle specific chats",
+            description: "",
+            centered: true,
+        })
         defaultConf.addSwitch({
             category: "Chat Cleaner",
             configName: "clean_join",
