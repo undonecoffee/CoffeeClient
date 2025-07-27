@@ -51,9 +51,9 @@ const make = {
     chatCleaner: () => {
         defaultConf.addSwitch({
             category: "Chat Cleaner",
-            configName: "clean_friendJoin",
-            title: "Clean Friend Join messages",
-            description: "Makes friend join/leave messages look nicer",
+            configName: "clean_join",
+            title: "Clean Join messages",
+            description: "Makes friend/guild join/leave messages look nicer",
             subcategory: "Clean",
         })
         defaultConf.addSwitch({

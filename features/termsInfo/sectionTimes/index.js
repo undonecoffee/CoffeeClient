@@ -40,3 +40,9 @@ register("chat", () => {
     sectionTime = Date.now()
     section = 1
 }).setCriteria(/^\[BOSS\] Goldor: Who dares trespass into my domain?/)
+
+register("worldLoad", () => {
+    waiting = false
+    gateBlown = false
+    section = 0
+}).setCriteria(/^The gate has been destroyed!/)
