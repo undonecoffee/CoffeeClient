@@ -6,21 +6,21 @@ let thingsToRemove = []
 // 0: none
 // 1: all that get removed
 // 2: all
-let debug = 0
-register("command", t => debug = t).setName("ccdebug")
+// let debug = 0
+// register("command", t => debug = t).setName("ccdebug")
 
-// register("chat", (message, event) => thingsToRemove.forEach(t => message.match(t) && cancel(event))).setCriteria(/(.+)/)
-register("chat", (message, event) => {
-    if (debug == 0) return thingsToRemove.forEach(t => message.match(t) && cancel(event))
-    if (debug == 2) console.log("\n\n")
-    thingsToRemove.forEach(t => {
-        if (message.match(t) && t) {
-            console.log(`removed "${message}" == "${t}`)
-            cancel(event)
-        }
-        if (debug == 2) { if (!message.match(t) && t) console.log(`"${message}" !== "${t}`) }
-    })
-}).unregister()
+register("chat", (message, event) => thingsToRemove.forEach(t => message.match(t) && cancel(event)))
+// register("chat", (message, event) => {
+//     if (debug == 0) return thingsToRemove.forEach(t => message.match(t) && cancel(event))
+//     if (debug == 2) console.log("\n\n")
+//     thingsToRemove.forEach(t => {
+//         if (message.match(t) && t) {
+//             console.log(`removed "${message}" == "${t}`)
+//             cancel(event)
+//         }
+//         if (debug == 2) { if (!message.match(t) && t) console.log(`"${message}" !== "${t}`) }
+//     })
+// })
 
 const clean_joined = register("chat", (type, name, joinType, event) => {
     cancel(event)
@@ -52,5 +52,8 @@ function checkSettings() {
     if (settings.hideEvenMoreDungeonsMessages) messages.evenMoreDungeonMessages.forEach(t => thingsToRemove.push(t))
 }
 // checkSettings()
+// settings.onCloseGui(() => {
+//     ChatLib.chat("config gui has been closed")
+// })
 
 // register("step", () => checkSettings()).setFps(1)

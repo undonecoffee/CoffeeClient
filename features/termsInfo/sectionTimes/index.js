@@ -48,4 +48,4 @@ register("worldLoad", () => {
     waiting = false
     gateBlown = false
     section = 0
-}).setCriteria(/^The gate has been destroyed!/)
+})
