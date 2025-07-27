@@ -6,7 +6,7 @@ let thingsToRemove = []
 
 let data = JSON.parse(FileLib.read(`${path}/chatCleaner`, "data.json") || false)
 if (!data) {
-    data = convertToJSON(messages)
+    data = convertToJSON(defaults)
     FileLib.write(`${path}/chatCleaner`, "data.json", data)
 }
 
@@ -40,7 +40,6 @@ function checkSettings() {
 }
 checkSettings()
 settings.getConfig().onCloseGui(() => checkSettings())
-console.log(JSON.stringify(thingsToRemove, null, 4))
 
 register("command", () => {
 }).setName("chatcleaner")
