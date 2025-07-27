@@ -32,7 +32,7 @@ register("worldLoad", () => {
 
 let queueRun = false
 
-register("tick", () => {
+register("step", () => {
     if (guis.requeue.editing) return
     if (newRunKeybind.isPressed()) queueRun = onCooldown ? !queueRun : (ChatLib.command(command), false)
     if (!onCooldown || !queueRun) return guis.requeue.toggled = false
@@ -46,11 +46,12 @@ register("tick", () => {
             queueRun = false
         }
     }
-})
+}).setFps(13)
 
 let requeueTime = 0
 register("chat", () => {
     if (dontGo) return
+    if (command !== "joininstance catacombs_floor_seven") return
     setTimeout(() => {
         requeueTime = Date.now()
         ChatLib.command(command)
