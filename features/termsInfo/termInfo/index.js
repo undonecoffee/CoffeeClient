@@ -68,7 +68,6 @@ const chatUpdate = register("chat", (name, action, object, completed, total, eve
     }
     lastNumberOfCompleted = completed
 }).setCriteria(/^(.+) (activated|completed) a (terminal|device|lever)! \((\d)\/(\d)\)/).unregister()
-// (3/7)
 
 const checkGate = register("chat", () => {
     if (t.waiting) return newSection()

@@ -52,6 +52,7 @@ let requeueTime = 0
 register("chat", () => {
     if (dontGo) return
     if (command !== "joininstance catacombs_floor_seven") return
+    ChatLib.chat(command)
     setTimeout(() => {
         requeueTime = Date.now()
         ChatLib.command(command)
