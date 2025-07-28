@@ -48,6 +48,14 @@ const defaults = {
         height: 6,
         scale: 1,
     },
+    subSplits: {
+        name: "pad timers",
+        x: 40,
+        y: 40,
+        width: 8.9,
+        height: 6,
+        scale: 1,
+    },
 }
 
 let saved = {}

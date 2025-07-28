@@ -1,5 +1,5 @@
 // import settings from "../config/settings"
-// import "./command"
+import "./command"
 
 // BLOOD RUSH
 

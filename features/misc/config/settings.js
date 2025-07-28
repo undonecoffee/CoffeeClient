@@ -93,9 +93,9 @@ const make = {
         })
         defaultConf.addSwitch({
             category: "Chat Cleaner",
-            configName: "hide_blessings",
-            title: "Hide Blessings",
-            description: "Hides the messages when blessings get picked up",
+            configName: "hide_dungeon1",
+            title: "Hide Useless Dungeon Messages",
+            description: "Hides the most useless dungeon messages nobody wants",
             subcategory: "Dungeons",
         })
     },
