@@ -12,6 +12,7 @@ const romanToNum = { I: "one", II: "two", III: "three", IV: "four", V: "five", V
 register("chat", (masterMode, floor) => {
     floor = romanToNum[floor]
     command = `joininstance${masterMode ? " master_" : " "}catacombs_floor_${floor}`
+    ChatLib.chat(command)
     startTime = Date.now()
     onCooldown = true
     FileLib.write(`${path}/autoRequeue`, "data.json", `{ "lastEntered": "${command}" }`)
@@ -52,7 +53,6 @@ let requeueTime = 0
 register("chat", () => {
     if (dontGo) return
     if (command !== "joininstance catacombs_floor_seven") return
-    ChatLib.chat(command)
     setTimeout(() => {
         requeueTime = Date.now()
         ChatLib.command(command)

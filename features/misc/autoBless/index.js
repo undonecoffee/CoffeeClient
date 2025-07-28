@@ -38,7 +38,6 @@ register("chat", message => {
         if (match) name = match[0]
     })
     if (blacklist.includes(name)) return
-    console.log(`${message} ${regexes.echo.party.test(message)}`)
     if (regexes.leave.pf.test(message)) return setCooldown(false)
     if (regexes.leave.leave.test(message) && settings.sendOn_leave) setCoolown("ac bless")
     if (regexes.leave.kick.test(message) && settings.sendOn_kick) setCoolown("ac bless")
@@ -52,7 +51,7 @@ register("chat", message => {
 }).setCriteria("${ }")
 
 const setCooldown = command => {
-    if (command) ChatLib.chat(command)
+    if (command) ChatLib.command(command)
     cooldown = true
     setTimeout(() => cooldown = false, 500)
 }
