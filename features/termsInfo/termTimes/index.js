@@ -5,9 +5,8 @@ import { termNames } from "./utils"
 register("packetReceived", (packet, event) => {
     const windowTitle = packet.func_179840_c().func_150254_d().removeFormatting()
 
-    console.log(`\n    aalways: ${windowTitle}\n`)
     let terminalName = termNames.find(([_, regex]) => regex.test(windowTitle))?.[0]
-    if (!terminalFound) return
+    if (!terminalName) return console.log(`\n    not a term: ${windowTitle}\n`)
     openTime = Date.now()
     console.log(`\nWindowName: ${windowTitle}\n`)
 }).setFilteredClass(Java.type("net.minecraft.network.play.server.S2DPacketOpenWindow"))
