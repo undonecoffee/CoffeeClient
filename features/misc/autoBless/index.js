@@ -1,19 +1,8 @@
 import settings from "../config/settings"
+import { stripRank, reAddRank } from "./utils"
 
 let cooldown = false
 let pfKick = false
-
-const stripRank = rankedPlayer => rankedPlayer.replace(/\[[\w+\+-]+] /, "").trim()
-
-const blacklist = [
-    "AscentPvP",
-    "SergStreams",
-    "Chompacabra",
-    "Pinn3dd",
-    "Zenimar",
-    "qcbell",
-    "Big_Mike427",
-]
 
 const regexes = {
     leave: {
@@ -37,7 +26,7 @@ register("chat", message => {
         let match = message.match(reg)
         if (match) name = match[0]
     })
-    if (blacklist.includes(name)) return
+    if (reAddRank.includes(name)) return
     if (regexes.leave.pf.test(message)) return setCooldown(false)
     if (regexes.leave.leave.test(message) && settings.sendOn_leave) setCoolown("ac bless")
     if (regexes.leave.kick.test(message) && settings.sendOn_kick) setCoolown("ac bless")
