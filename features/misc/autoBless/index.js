@@ -38,20 +38,21 @@ register("chat", message => {
         if (match) name = match[0]
     })
     if (blacklist.includes(name)) return
-    if (message.match(regexes.leave.pf)) return setCooldown(false)
-    if (message.match(regexes.leave.leave) && settings.sendOn_leave) setCoolown("ac bless")
-    if (message.match(regexes.leave.kick) && settings.sendOn_kick) setCoolown("ac bless")
-    if (message.match(regexes.leave.transfer) && settings.sendOn_leave) setCoolown("ac bless")
-    if (message.match(regexes.leave.from) && settings.echo) setCoolown(`msg ${name} bless`)
+    console.log(`${message} ${regexes.echo.party.test(message)}`)
+    if (regexes.leave.pf.test(message)) return setCooldown(false)
+    if (regexes.leave.leave.test(message) && settings.sendOn_leave) setCoolown("ac bless")
+    if (regexes.leave.kick.test(message) && settings.sendOn_kick) setCoolown("ac bless")
+    if (regexes.leave.transfer.test(message) && settings.sendOn_leave) setCoolown("ac bless")
+    if (regexes.leave.from.test(message) && settings.echo) setCoolown(`msg ${name} bless`)
 
     if (!settings.echo) return
-    if (message.match(regexes.echo.party)) {
+    if (regexes.echo.party.test(message)) {
         setCooldown("pc bless")
         console.log(message.match(regexes.echo.party))
     }
 
-    if (message.match(regexes.echo.guild)) setCooldown("gc bless")
-    if (message.match(regexes.echo.coop)) setCooldown("cc bless")
+    if (regexes.echo.guild.test(message)) setCooldown("gc bless")
+    if (regexes.echo.coop.test(message)) setCooldown("cc bless")
 }).setCriteria("${ }")
 
 const setCooldown = command => {
