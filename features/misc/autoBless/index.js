@@ -1,4 +1,4 @@
-import settings from "../config/settings.js"
+import settings from "../config/settings"
 
 let cooldown = false
 let pfKick = false
@@ -46,11 +46,7 @@ register("chat", message => {
     if (regexes.leave.from.test(message) && settings.echo) setCoolown(`msg ${name} bless`)
 
     if (!settings.echo) return
-    if (regexes.echo.party.test(message)) {
-        setCooldown("pc bless")
-        console.log(message.match(regexes.echo.party))
-    }
-
+    if (regexes.echo.party.test(message)) setCooldown("pc bless")
     if (regexes.echo.guild.test(message)) setCooldown("gc bless")
     if (regexes.echo.coop.test(message)) setCooldown("cc bless")
 }).setCriteria("${ }")
