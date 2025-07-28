@@ -5,7 +5,7 @@ const newRunKeybind = new KeyBind("Requeue", Keyboard.KEY_NONE, "CoffeeClient")
 let startTime = 0
 let onCooldown = false
 let dontGo = false
-let command = JSON.parse(FileLib.read(`${path}/autoRequeue`, "data.json")).lastEntered
+let command = JSON.parse(FileLib.read(`${path}/autoRequeue`, "data.json"))?.lastEntered || "joininstance catacombs_floor_seven"
 
 const romanToNum = { I: "one", II: "two", III: "three", IV: "four", V: "five", VI: "six", VII: "seven" }
 
