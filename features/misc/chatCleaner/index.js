@@ -8,6 +8,7 @@ let data = JSON.parse(FileLib.read(`${path}/chatCleaner`, "data.json") || false)
 if (!data) {
     data = convertToJSON(defaults)
     FileLib.write(`${path}/chatCleaner`, "data.json", data)
+    data = JSON.parse(data)
 }
 
 register("chat", (message, event) => thingsToRemove.forEach(t => message.match(t) && cancel(event))).setCriteria("${ }")
@@ -29,21 +30,40 @@ function checkSettings() {
     settings.clean_join ? clean_joined.register() : clean_joined.unregister()
     settings.clean_partyChat ? clean_partyChat.register() : clean_partyChat.unregister()
 
-    if (!data) getData()
-    Object.keys(data).forEach(key => settings[`hide_${key}`] && data[key].forEach(t => t[1] && thingsToRemove.push(new RegExp(t[0]))))
+    Object.keys(data).forEach(key => settings[`hide_${key}`] && data[key].forEach(t => t[2] && thingsToRemove.push(new RegExp(t[0]))))
 }
 checkSettings()
 settings.getConfig().onCloseGui(() => checkSettings())
 
 register("command", type => {
-    const componets = getComponets(data)
+    const componets = getComponets(data, settings)
     if (!type) {
-        ChatLib.chat(`\n&7Click to toggle chats for each category`)
+        ChatLib.chat(`\nClick to show toggle chats for each category`)
         componets.default.forEach(({ name, command, hoverText }) => {
+            new TextComponent(`    ${name}`).setHover("show_text", hoverText).setClick("run_command", command).chat()
+        })
+    } else {
+        ChatLib.chat(`\nClick toggle for ${type}`)
+        componets[type].forEach(({ name, command, hoverText }) => {
             new TextComponent(`    ${name}`).setHover("show_text", hoverText).setClick("run_command", command).chat()
         })
     }
 }).setName("chatcleaner")
+
+register("command", (...type) => {
+    let text = type.join(" ")
+    let foundKey = []
+    Object.keys(data).forEach(key => {
+        data[key].forEach((v, i) => {
+            if (v[1] == text) return foundKey = [key, i]
+        })
+    })
+    if (foundKey.length == 0) return ChatLib.chat("stop messing with dev stuff please")
+    data[foundKey[0]][foundKey[1]][2] = !data[foundKey[0]][foundKey[1]][2]
+    // ChatLib.chat(data[foundKey[0]][foundKey[1]][2])
+    FileLib.write(`${path}/chatCleaner`, "data.json", JSON.stringify(data, null, 4))
+    ChatLib.command(`chatCleaner ${foundKey[0]}`, true)
+}).setName("chatcleanertoggle")
 
 // case "":
 // const toggle1 = Data.friendJoinMessages ? `&a` : `&c`

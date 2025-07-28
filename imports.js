@@ -9,7 +9,7 @@ import "./features/splits/config/index"
 // misc:
 // import "./features/misc/autoBless/index"
 import "./features/misc/autoRequeue/index"
-// import "./features/misc/chatCleaner/index"
+import "./features/misc/chatCleaner/index"
 import "./features/misc/maskTimer/index"
 import "./features/misc/mobHighlight/index"
 import "./features/misc/sheepHider/index"
