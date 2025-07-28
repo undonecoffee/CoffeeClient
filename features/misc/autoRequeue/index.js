@@ -14,7 +14,6 @@ register("chat", (masterMode, floor) => {
     command = `joininstance${masterMode ? " master_" : " "}catacombs_floor_${floor}`
     startTime = Date.now()
     onCooldown = true
-    ChatLib.chat(command)
     FileLib.write(`${path}/autoRequeue`, "data.json", `{ "lastEntered": "${command}" }`)
 }).setCriteria(/^-*>newLine<-(?:\[[^\]]+\] )(?:\w+) entered (MM )?The Catacombs, Floor (.+)!->newLine<-*$/)
 
@@ -53,6 +52,7 @@ let requeueTime = 0
 register("chat", () => {
     if (dontGo) return
     if (command !== "joininstance catacombs_floor_seven") return
+    ChatLib.chat(command)
     setTimeout(() => {
         requeueTime = Date.now()
         ChatLib.command(command)
