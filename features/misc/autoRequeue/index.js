@@ -61,6 +61,16 @@ register("chat", () => {
     }, 1000)
 }).setCriteria(/^\[BOSS\] Necron: All this, for nothing.../)
 
+register("chat", () => {
+    if (dontGo) return
+    if (command !== "joininstance master_catacombs_floor_seven") return
+    setTimeout(() => {
+        requeueTime = Date.now()
+        ChatLib.command(command)
+        // ChatLib.chat("trying to requeue")
+        // ChatLib.chat(settings.requeueTime)
+    }, 2000)
+}).setCriteria(/^\[BOSS\] Wither King: Incredible. You did what I couldn't do myself./)
 // register("chat", () => {
 //     if (dontGo) return
 //     ChatLib.chat(`took ${((Date.now() - entertime) / 1000).toFixed(2)} seconds to end`)
