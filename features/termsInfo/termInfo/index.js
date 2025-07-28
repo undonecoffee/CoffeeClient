@@ -85,13 +85,13 @@ register("chat", () => {
 }).setCriteria(/\[BOSS\] Goldor: Who dares trespass into my domain\?/)
 
 register("chat", () => toggleTriggers(false)).setCriteria("The Core entrance is opening!")
-register("worldload", () => toggleTriggers(false))
+register("worldload", () => {
+    toggleTriggers(false)
+    section = t.terms = t.levers = 0
+    t.gate = t.waiting = false
+})
 
 const toggleTriggers = toggle => {
     guis.termInfo.toggled = toggle
-    if (!toggle) {
-        section = t.terms = t.levers = 0
-        t.gate = t.waiting = false
-    }
     ;[chatUpdate, updateGui, checkGate].forEach(name => name[toggle ? "register" : "unregister"]())
 }
