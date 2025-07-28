@@ -5,6 +5,7 @@ import { termNames } from "./utils"
 register("packetReceived", (packet, event) => {
     const windowTitle = packet.func_179840_c().func_150254_d().removeFormatting()
 
+    console.log(`\n    aalways: ${windowTitle}\n`)
     let terminalName = termNames.find(([_, regex]) => windowTitle.test(regex))?.[0]
     if (!terminalFound) return
     openTime = Date.now()
