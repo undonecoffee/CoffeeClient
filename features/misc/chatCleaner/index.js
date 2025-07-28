@@ -64,26 +64,3 @@ register("command", (...type) => {
     FileLib.write(`${path}/chatCleaner`, "data.json", JSON.stringify(data, null, 4))
     ChatLib.command(`chatCleaner ${foundKey[0]}`, true)
 }).setName("chatcleanertoggle")
-
-// case "":
-// const toggle1 = Data.friendJoinMessages ? `&a` : `&c`
-// const toggle2 = Data.partyChat ? `&a` : `&c`
-// const toggle3 = Data.dungeonSpam ? `&a` : `&c`
-// const toggle4 = Data.randomMessages ? `&a` : `&c`
-// const toggle5 = Data.watcherMessages ? `&a` : `&c`
-// const toggle6 = Data.bossMessages ? `&a` : `&c`
-// const components = [
-//     { name: `&3Clean ${Data.friendJoinMessages ? "&a" : "&c"}Friend join messages `, command: `/ChatCleaner friendJoinMessages`, hoverText: "Toggle Clean Friend join messages" },
-//     { name: `&3Clean ${Data.partyChat ? "&a" : "&c"}Party Chat `, command: `/ChatCleaner partyChat`, hoverText: "Toggle Clean Party Chat" },
-//     { name: `&3Hide ${Data.dungeonSpam ? "&a" : "&c"}Dungeon spam `, command: `/ChatCleaner dungeonSpam`, hoverText: "Toggle Dungeon spam" },
-//     { name: `&3Hide ${Data.randomMessages ? "&a" : "&c"}Random messages `, command: `/ChatCleaner randomMessages`, hoverText: "Toggle Random messages" },
-//     { name: `&3Hide ${Data.watcherMessages ? "&a" : "&c"}Watcher messages `, command: `/ChatCleaner watcherMessages`, hoverText: "Toggle Watcher messages" },
-//     { name: `&3Hide ${Data.bossMessages ? "&a" : "&c"}Boss messages `, command: `/ChatCleaner bossMessages`, hoverText: "Toggle Boss messages" },
-// ];
-// const toggleName = Data.toggled ? "on" : "off";
-// const toggleColor = Data.toggled ? "&a" : "&c";
-// ChatLib.chat(`\n                         &cEngineer&bChatCleaner`);
-// new TextComponent(`                              ${Data.toggled ? "&a" : "&c"}&nMain toggle ${Data.toggled ? "on" : "off"}`).setHover("show_text", `/ChatCleaner toggle`).setClick("run_command", `/ChatCleaner toggle`).chat()
-// ChatLib.chat(`\n                              &7Click to toggle\n`);
-// components.forEach(({ name, command, hoverText }) => {new TextComponent(`         ${name}`).setHover("show_text", hoverText).setClick("run_command", command).chat();});
-//     break;

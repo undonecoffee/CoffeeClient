@@ -2,7 +2,6 @@ export const messages = {
     moreBoss: [
         /^⚠ Storm is enraged! ⚠$/,
         /^⚠ Maxor is enraged! ⚠$/,
-        /^⚠ Maxor is enraged! ⚠$/,
     ],
     random: [
         // warping
