@@ -14,17 +14,10 @@ register("packetReceived", (packet, event) => {
     }
 }).setFilteredClass(Java.type("net.minecraft.network.play.server.S2DPacketOpenWindow"))
 
-// register("packetReceived", (packet, event) => {
-//     const windowId = packet.func_149175_c()
-//
-//     if (windowId !== this.lastWindowID) return
-//     if (slot > this.maxSlot) {
-//         this.shouldSolve = true
-//         return
-//     }
-//     if (Settings().TerminalInvwalk && (this.terminalID !== 5)) cancel(event)
-//     this.currentItems.push([windowId, slot, itemStack, ctItem])
-// }).setFilteredClass(Java.type("net.minecraft.network.play.server.S2FPacketSetSlot"))
+register("packetReceived", (packet, event) => {
+    const windowId = packet.func_149175_c()
+    console.log(windowId)
+}).setFilteredClass(Java.type("net.minecraft.network.play.server.S2FPacketSetSlot"))
 
 register("packetReceived", () => {
     if (!inTerm) return
