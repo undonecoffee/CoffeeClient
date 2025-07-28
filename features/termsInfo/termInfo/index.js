@@ -61,10 +61,8 @@ const chatUpdate = register("chat", (name, action, object, completed, total, eve
         t.display.levers = t.levers == 1 ? "&6Levers &e1&7/&e2" : "&6Levers &a2&7/&a2"
     } else if (object == "device") {
         if (lastNumberOfCompleted == completed) {
-            ChatLib.chat(`out of place dev done done ${lastNumberOfCompleted} == ${completed}`)
             //
         } else {
-            ChatLib.chat(`currdev done ${lastNumberOfCompleted} == ${completed}`)
             t.display.devs = `&6Device &a✔`
         }
     }
