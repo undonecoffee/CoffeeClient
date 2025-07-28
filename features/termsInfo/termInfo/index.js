@@ -49,14 +49,8 @@ const chatUpdate = register("chat", (name, action, object, completed, total, eve
     if (completed == total) return t.gate ? newSection() : t.waiting = true
     let totalColor = completed <= 3 ? "c" : completed <= 6 ? "e" : total == 8 && completed == 7 ? "e" : "a"
     t.display.total = `&${totalColor}${completed}&7/&${totalColor}${total}`
-    if (completed == 1) {
-        firstThingInSection == true
-        ChatLib.chat(`${completed} setFirstTHIng = true`)
-    }
-    if (!firstThingInSection) {
-        ChatLib.chat(`didnt find first thing in terms. ${completed}`)
-        t.display.devs = `&6Device &a✔`
-    }
+    if (completed == 1) firstThingInSection = true
+    if (!firstThingInSection) t.display.devs = `&6Device &a✔`
 
     if (object == "terminal") {
         t.terms++
