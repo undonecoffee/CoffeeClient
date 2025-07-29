@@ -80,7 +80,7 @@ let startTime
 register("chat", () => {
     toggleTriggers(true)
     newSection()
-    section = 0
+    t.section = 0
 
     startTime = Date.now()
 }).setCriteria(/\[BOSS\] Goldor: Who dares trespass into my domain\?/)

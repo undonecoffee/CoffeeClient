@@ -16,7 +16,7 @@ register("packetReceived", (packet, event) => {
 
 register("packetReceived", (packet, event) => {
     const windowId = packet.func_149175_c()
-    console.log(windowId)
+    // console.log(windowId)
 }).setFilteredClass(Java.type("net.minecraft.network.play.server.S2FPacketSetSlot"))
 
 register("packetReceived", () => {
