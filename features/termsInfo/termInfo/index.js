@@ -1,11 +1,12 @@
 import settings from "../config/settings"
 import { guis } from "../config/gui"
 
+const namesColor = "&6" // colors of the names
+
 const base = {
     section: 0,
     terms: 0,
     levers: 0,
-    devs: [false, false, false, false],
     gate: false,
     waiting: false,
     display: { terms: `&c0&7/&c`, levers: `&c0&2/&c`, devs: `&cx`, gate: `&cx` },
@@ -20,12 +21,12 @@ function newSection() {
     t.terms = t.levers = 0
     t.gate = t.waiting = false
 
-    t.display.terms = `&6Terms &c0&7/&c`
-    t.display.levers = `&6Levers &c0&7/&c2`
-    t.display.gate = t.section == 4 ? ` ` : `&6Gate &cx`
+    t.display.terms = `${namesColor}Terms &c0&7/&c`
+    t.display.levers = `${namesColor}Levers &c0&7/&c2`
+    t.display.gate = t.section == 4 ? ` ` : `${namesColor}Gate &cx`
     t.display.total = t.section == 2 ? `&c0&7/&c8` : `&c0&7/&c7`
 
-    t.display.devs = t.devs[t.section] ? `&6Device &a✔` : `&6Device &cx`
+    t.display.devs = `${namesColor}Device &cx`
 }
 
 const updateGui = register("step", () => {
@@ -50,20 +51,20 @@ const chatUpdate = register("chat", (name, action, object, completed, total, eve
     let totalColor = completed <= 3 ? "c" : completed <= 6 ? "e" : total == 8 && completed == 7 ? "e" : "a"
     t.display.total = `&${totalColor}${completed}&7/&${totalColor}${total}`
     if (completed == 1) firstThingInSection = true
-    if (!firstThingInSection) t.display.devs = `&6Device &a✔`
+    if (!firstThingInSection) t.display.devs = `${namesColor}Device &a✔`
 
     if (object == "terminal") {
         t.terms++
         const color = t.terms == 1 ? "c" : t.terms < 4 ? "e" : t.terms == 4 ? (t.section == 2 ? "e" : "a") : "a"
-        t.display.terms = `&6Terms &${color}${t.terms}&7/&${color}`
+        t.display.terms = `${namesColor}Terms &${color}${t.terms}&7/&${color}`
     } else if (object == "lever") {
         t.levers++
-        t.display.levers = t.levers == 1 ? "&6Levers &e1&7/&e2" : "&6Levers &a2&7/&a2"
+        t.display.levers = t.levers == 1 ? `${namesColor}Levers &e1&7/&e2` : `${namesColor}Levers &a2&7/&a2`
     } else if (object == "device") {
         if (lastNumberOfCompleted == completed) {
             //
         } else {
-            t.display.devs = `&6Device &a✔`
+            t.display.devs = `${namesColor}Device &a✔`
         }
     }
     lastNumberOfCompleted = completed
@@ -72,23 +73,19 @@ const chatUpdate = register("chat", (name, action, object, completed, total, eve
 const checkGate = register("chat", () => {
     if (t.waiting) return newSection()
     t.gate = true
-    t.display.gate = `&6Gate &a✔`
+    t.display.gate = `${namesColor}Gate &a✔`
 }).setCriteria(/^The gate has been destroyed!$/)
 
-let startTime
-
-register("chat", () => {
-    toggleTriggers(true)
-    newSection()
-    t.section = 0
-
-    startTime = Date.now()
-}).setCriteria(/\[BOSS\] Goldor: Who dares trespass into my domain\?/)
+register("chat", () => startTerms()).setCriteria(/\[BOSS\] Goldor: Who dares trespass into my domain\?/)
 
 register("chat", () => toggleTriggers(false)).setCriteria("The Core entrance is opening!")
-register("worldload", () => {
-    toggleTriggers(false)
-})
+register("worldload", () => toggleTriggers(false))
+
+const startTerms = () => {
+    toggleTriggers(true)
+    t.section = 0
+    newSection()
+}
 
 const toggleTriggers = toggle => {
     guis.termInfo.toggled = toggle

@@ -4,5 +4,6 @@ features/misc/chatCleaner/data.json
 features/misc/autoRequeue/data.json
 features/splits/config/settingsData.json
 features/splits/config/guiData.json
+features/splits/splits/data.json
 features/termsInfo/config/settingsData.json
 features/termsInfo/config/guiData.json

@@ -1,5 +1,5 @@
 // import settings from "../config/index"
-// import gui from "../../../globalUtils/guiUtils"
+// import { guis, path } from "../config/gui"
 // import file, { blankSplits, findPace, PANICPANIC, splitsTitle, startMessages, testPace, testSplitsFormat, tickPacket } from "./utils"
 //
 // const splitsGui = new gui(file, file.splitsGui, settings, "splitsGui", testSplitsFormat(findPace(file.lastFloor, settings), settings), false, true)
@@ -11,20 +11,21 @@
 //     testPace(splits, command == "m7" ? "Dragons" : "Animation")
 // }).setName("pace")
 //
-// ///////////
-// register("chat", floor => {
-//     file.lastFloor = floor ? 1 : 0
-//     file.save()
-// }).setCriteria(/^-*>newLine<-(?:\[[^\]]+\] )(?:\w+) entered (MM )?The Catacombs, Floor VII!->newLine<-*$/)
+// const romanToNum = { I: "one", II: "two", III: "three", IV: "four", V: "five", VI: "six", VII: "seven" }
+//
+// let lastFloor = JSON.parse(FileLib.read(`${path}/autoRequeue`, "data.json"))?.lastEntered || "joininstance catacombs_floor_seven"
+// register("chat", (masterMode, floor) => {
+//     floor = romanToNum[floor]
+//     FileLib.write(`${path}/autoRequeue`, "data.json", `{ "lastEntered": "${command}" }`)
+// }).setCriteria(/^-*>newLine<-(?:\[[^\]]+\] )(?:\w+) entered (MM )?The Catacombs, Floor (.+)!->newLine<-*$/)
 //
 // let Splits = blankSplits(file.lastFloor)
 // let pace = findPace(file.lastFloor, settings)
 // let phase = 0
 // let splitStart = Date.now()
 //
-// function newPhase(phaseMeantToBeLoaded) {
-//     if (phaseMeantToBeLoaded !== phase + 1) return PANICPANIC()
-//     splitsGui.on()
+// export function newPhase(phaseMeantToBeLoaded) {
+//     updatePhase(phaseMeantToBeLoaded)
 //     phase++
 //     splitStart = Date.now()
 //     if (phase == 10) reset()
@@ -46,9 +47,7 @@
 // const updateSplits = register("step", () => {
 //     Splits[phase].client = Date.now() - splitStart
 //     splitsGui.text(splitsTitle(Splits, settings, pace, phase))
-// })
-//     .setFps(17)
-//     .unregister()
+// }).setFps(17).unregister()
 //
 // let serverTicks = 0
 //
@@ -64,24 +63,18 @@
 //     runStartRegister.unregister()
 //     normalTicks.register()
 //     setTimeout(() => mapTicks.register(), 10)
-// })
-//     .setFilteredClass(Java.type("net.minecraft.network.play.server.S34PacketMaps"))
-//     .unregister()
+// }).setFilteredClass(Java.type("net.minecraft.network.play.server.S34PacketMaps")).unregister()
 //
 // const normalTicks = register("packetReceived", packet => {
 //     if (packet.func_148890_d() > 0) return
 //     mapTicks.unregister()
 //     Splits[phase].server++
-// })
-//     .setFilteredClass(Java.type("net.minecraft.network.play.server.S32PacketConfirmTransaction"))
-//     .unregister()
+// }).setFilteredClass(Java.type("net.minecraft.network.play.server.S32PacketConfirmTransaction")).unregister()
 //
 // const mapTicks = register("PacketReceived", () => {
 //     if (serverTicks < 45) Splits[phase].server += 5
 //     serverTicks += 5
-// })
-//     .setFilteredClass(Java.type("net.minecraft.network.play.server.S34PacketMaps"))
-//     .unregister()
+// }).setFilteredClass(Java.type("net.minecraft.network.play.server.S34PacketMaps")).unregister()
 //
 // const phaseTriggers1 = register("chat", () => {
 //     runStartRegister.register()
@@ -96,19 +89,3 @@
 // const phaseTriggers3 = register("chat", () => newPhase(7)).setCriteria("The Core entrance is opening!")
 //
 // splitsTitle(Splits, settings, pace, phase)
-//
-// function checkSettings(setting) {
-//     if (!setting) splitsGui.off()
-//     updateSplits[setting ? "register" : "unregister"]()
-//     phaseTriggers1[setting ? "register" : "unregister"]()
-//     phaseTriggers2[setting ? "register" : "unregister"]()
-//     phaseTriggers3[setting ? "register" : "unregister"]()
-//     normalTicks[setting ? "register" : "unregister"]()
-//     pace = findPace(file.lastFloor, settings)
-// }
-// checkSettings(settings.splitsToggle)
-//
-// register("guiClosed", gui => {
-//     if (!(gui instanceof Java.type("gg.essential.vigilance.gui.SettingsGui"))) return
-//     checkSettings(settings.splitsToggle)
-// })

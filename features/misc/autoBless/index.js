@@ -28,10 +28,10 @@ register("chat", message => {
     })
     if (reAddRank.includes(name)) return
     if (regexes.leave.pf.test(message)) return setCooldown(false)
-    if (regexes.leave.leave.test(message) && settings.sendOn_leave) setCoolown("ac bless")
-    if (regexes.leave.kick.test(message) && settings.sendOn_kick) setCoolown("ac bless")
-    if (regexes.leave.transfer.test(message) && settings.sendOn_leave) setCoolown("ac bless")
-    if (regexes.leave.from.test(message) && settings.echo) setCoolown(`msg ${name} bless`)
+    if (regexes.leave.leave.test(message) && settings.sendOn_leave) setCooldown("ac bless")
+    if (regexes.leave.kick.test(message) && settings.sendOn_kick) setCooldown("ac bless")
+    if (regexes.leave.transfer.test(message) && settings.sendOn_leave) setCooldown("ac bless")
+    if (regexes.leave.from.test(message) && settings.echo) setCooldown(`msg ${name} bless`)
 
     if (!settings.echo) return
     if (regexes.echo.party.test(message)) setCooldown("pc bless")

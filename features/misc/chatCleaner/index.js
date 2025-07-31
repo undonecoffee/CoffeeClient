@@ -51,14 +51,15 @@ register("command", type => {
 }).setName("chatcleaner")
 
 register("command", (...type) => {
-    let text = type.join(" ")
+    let text = ChatLib.removeFormatting(type.join(" "))
     let foundKey = []
     Object.keys(data).forEach(key => {
         data[key].forEach((v, i) => {
-            if (v[1] == text) return foundKey = [key, i]
+            let textData = ChatLib.removeFormatting(v[1])
+            if (textData == text) return foundKey = [key, i]
         })
     })
-    if (foundKey.length == 0) return ChatLib.chat("stop messing with dev stuff please")
+    if (foundKey.length == 0) return ChatLib.chat(" didnt find that in data")
     data[foundKey[0]][foundKey[1]][2] = !data[foundKey[0]][foundKey[1]][2]
     // ChatLib.chat(data[foundKey[0]][foundKey[1]][2])
     FileLib.write(`${path}/chatCleaner`, "data.json", JSON.stringify(data, null, 4))

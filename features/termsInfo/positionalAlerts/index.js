@@ -3,9 +3,6 @@ import { moveableGui } from "../../../globalUtils/guiUtils"
 import { inBox } from "../../../globalUtils/utils"
 import file, { showList, showPresetsList, showExtended, texts, ensureCorrectUsage, blankAlert, playSound } from "./utils"
 
-const mainGui = new gui(file, false, false, false, false, false, false)
-const moveGui = new moveableGui(file)
-
 register("command", (main, second, ...args) => {
     switch (main) {
         case "presets":

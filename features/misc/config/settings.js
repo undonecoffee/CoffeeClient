@@ -79,9 +79,9 @@ const make = {
         })
         defaultConf.addSwitch({
             category: "Chat Cleaner",
-            configName: "hide_error",
-            title: "Hide Error Messages",
-            description: "Hides random error messages like:\n&cWIP",
+            configName: "hide_random",
+            title: "Hide Random Messages",
+            description: "Hides random messages",
             subcategory: "Misc",
         })
         defaultConf.addSwitch({
@@ -96,6 +96,20 @@ const make = {
             configName: "hide_dungeon1",
             title: "Hide Useless Dungeon Messages",
             description: "Hides the most useless dungeon messages nobody wants",
+            subcategory: "Dungeons",
+        })
+        defaultConf.addSwitch({
+            category: "Chat Cleaner",
+            configName: "hide_dungeon2",
+            title: "Hide More Dungeon Messages",
+            description: "Hides dungeon messages that most people dont care about",
+            subcategory: "Dungeons",
+        })
+        defaultConf.addSwitch({
+            category: "Chat Cleaner",
+            configName: "hide_dungeon3",
+            title: "Hide Even More Dungeon Messages",
+            description: "Hides dungeon messages that most people dont care about",
             subcategory: "Dungeons",
         })
     },
