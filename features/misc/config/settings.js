@@ -109,7 +109,7 @@ const make = {
             category: "Chat Cleaner",
             configName: "hide_dungeon3",
             title: "Hide Even More Dungeon Messages",
-            description: "Hides dungeon messages that most people dont care about",
+            description: "Hides dungeon messages that clog chat but could be seen as useful",
             subcategory: "Dungeons",
         })
     },

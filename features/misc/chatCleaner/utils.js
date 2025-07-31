@@ -48,17 +48,14 @@ export const defaults = {
         [/^DUNGEON BUFF! A Blessing of .+ (I|II|III|IV|V) was found! \(.+\)$/, "Your pickaxe ability is on cooldown for &k12s"],
         [/^     (Also )?Granted you \+\d.+ (and|&) \+\d.+\.$/i, "Your pickaxe ability is on cooldown for &k12s"],
     ],
-    dungeon2: [
-        [/^(\[(MVP|VIP)(\+)?(\+)?\] )?\w+ has obtained (Superboom TNT|Blessing of \w+|\w+ \w+)!$/, "Your pickaxe ability is on cooldown for &k12s"],
-        [/^DUNGEON BUFF! \w+ found a Blessing of \w+ (I|II|III|IV|V)!( \(.+\))?$/, "Your pickaxe ability is on cooldown for &k12s"],
-        [/^DUNGEON BUFF! A Blessing of .+ (I|II|III|IV|V) was found! \(.+\)$/, "Your pickaxe ability is on cooldown for &k12s"],
-        [/^     (Also )?Granted you \+\d.+ (and|&) \+\d.+\.$/i, "Your pickaxe ability is on cooldown for &k12s"],
-    ],
+    dungeon2: [],
     dungeon3: [
-        [/^(\[(MVP|VIP)(\+)?(\+)?\] )?\w+ has obtained (Superboom TNT|Blessing of \w+|\w+ \w+)!$/, "Your pickaxe ability is on cooldown for &k12s"],
-        [/^DUNGEON BUFF! \w+ found a Blessing of \w+ (I|II|III|IV|V)!( \(.+\))?$/, "Your pickaxe ability is on cooldown for &k12s"],
-        [/^DUNGEON BUFF! A Blessing of .+ (I|II|III|IV|V) was found! \(.+\)$/, "Your pickaxe ability is on cooldown for &k12s"],
-        [/^     (Also )?Granted you \+\d.+ (and|&) \+\d.+\.$/i, "Your pickaxe ability is on cooldown for &k12s"],
+        // /^Party > (\[(MVP|VIP)(\+)?(\+)?\] )?\w+: (Mimic Killed!|300 score|270 score|UwUaddons ».*)$/i,
+        // /^\w+ picked up an Energy Crystal!$/,
+        // /^The Energy Laser is charging up!$/,
+        // /^[12]\/2 Energy Crystals are now active!$/,
+        // /^Creeper Veil (Activated|De-activated)!$/,
+        // /^You have selected the .+ Dungeon Class!$/,
     ],
 }
 export function convertToJSON(messages) {

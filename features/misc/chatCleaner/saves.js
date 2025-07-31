@@ -3,41 +3,6 @@ export const messages = {
         /^⚠ Storm is enraged! ⚠$/,
         /^⚠ Maxor is enraged! ⚠$/,
     ],
-    random: [
-        // warping
-        /^Warping\.\.\.$/,
-        /^Warping you to your SkyBlock island\.\.\.$/,
-        /^Sending to server mini\w+\.\.\.$/,
-        /^You are playing on profile\: \w+$/,
-        /^Profile ID\: [a-f0-9-]{36}$/,
-
-        // watchdog
-        /^\[WATCHDOG ANNOUNCEMENT\]$/,
-        /^Watchdog has banned .+ players in the last 7 days\.$/,
-        /^Staff have banned an additional .+ in the last 7 days\.$/,
-        /^Blacklisted modifications are a bannable offense!$/,
-
-        // random error messages
-        /^Whow! Slow down there!$/,
-        /^This menu is disabled here!$/,
-        /^Woah slow down, you're doing that too fast!$/,
-        /^Please wait a few seconds between refreshing!$/,
-
-        // join things
-        /^You earned .+ Event EXP from playing SkyBlock!$/,
-        /^Click here to view them!$/,
-        /^\w+ joined the lobby!$/,
-        /^You earned .+ GEXP$/,
-        /^Latest update: SkyBlock .+/,
-        /^Welcome to Hypixel SkyBlock!$/,
-        /^BONUS! Temporarily earn 5% more skill experience!$/,
-
-        // other
-        /^RARE REWARD! \w+ found a .+ in their (Bedrock|Obsidian) Chest!$/,
-        /^The New Year's Celebration event is starting in \d days!$/,
-        /^Your Auto Recombobulator recombobulated/,
-        /^Queuing\.\.\. \(Attempt 1\/3\)$/,
-    ],
     moreRandom: [
         /^-----------------------------$/,
         /^You sold .+ x\d+ for .+ Coin(s)?!$/,
